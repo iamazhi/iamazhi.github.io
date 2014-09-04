@@ -1,0 +1,219 @@
+##一、入门：
+###1、动作:help motion.txt(:help motion)
+-   kjhl上下左右方向键
+-   0行头，^有字行头，$行末
+-   w移动到下一个单词头，b前移到单词，e移动到下一个单词末尾（字母数字序列or标点符号系列）
+-   W移动到下一个单词头，B前移到单词，E移动到下一个单词末尾（无空格系列）
+-   f[a-zA-Z]行内向后查找，F[a-zA-Z]行内向前查找(find)
+-   t[a-zA-Z]行内向后查找，T[a-zA-Z]行内向前查找， 光标停留在匹配字母前面(to)
+-   /向前搜索，?向后搜索，n向前匹配搜索结果，N向后搜索匹配结果，\*向前匹配当前光标识别码，#向后匹配当前光标识别码
+-   \`[a-z]跳转到指定的mark，'[a-z]跳转到制定的mark的行头=\`[a-z]0，\`.跳转到最后一次修改
+-   %对称符号定位(),[],{}
+-   H跳转到屏幕顶部，M跳转到屏幕中间，L跳转到屏幕底部
+-   G跳转到文件底部，gg跳转到第一行第一列，n-\>gg跳转到n行，:n-\>enter跳转到n行
+-   -上一行，+下一行
+-   (句子头，)句子末
+-   {前一个空行，}后一个空行
+-   [[跳转前一个第一列的{，]]跳转到后一个第一列的}
+-   命令可以和数字结合使用(3l, 3w, 6$)
+
+
+###2、命令符command：
+-   i光标前插入，a光标后插入(append)，A行末尾插入
+-   x=dl删除光标字，X=dh删除光标前的字，
+-   u撤销，ctrl-r重做
+-   R替换模式
+-   :w保存，:q关闭, ZZ=:wq, :e!重新装载原来的文件(earlier)
+-   .重复操作 ( 1、/four< Enter > 找到第一个 "four" 2、cwfive< Esc >修改成 "five" 3、n找下一个 "four" 4、.重复修改操作)
+-   视觉选择：v视觉模式，V行视觉模式，ctrl-v块视觉模式: 选择(可以和motion组合使用)+操作(可以和operator组合使用)
+-   p之后粘贴，P之前粘贴，3p拷贝3次
+-   o行前插入行，O行后插入行
+-   K对光标下的识别码跳转的相应的帮助页面vim help，man ls，man cd等(尝试光标在vim help中按K)
+-   J合并下一行，或者合并多行(结合视觉选择)
+-   hello
+-   r\*替换当前字符
+-   C=c$，D=d$，Y=yy
+-   s=cl删除当前字符并进入insert模式，S=cc删除当前行并进入insert模式
+-   ~转换当前光标下的大小写，U在视觉模式下转换字符为大写，u在视觉模式下转换字符为小写
+-   命令可以和数字结合使用(3x)
+
+###3、操作符:help operator
+-   d删除，可以和motion组合使用，例如dw,df[a-zA-Z], daw(delete a word)可以单词任何地方删除整个单词
+-   dd删除整行
+-   c修改进入insert模式，可以和motion组合使用，例如cw,cf[a-zA-Z]
+-   cc修改整行
+-   y+motion：复制, yy复制整行(p之后粘贴，P之前粘贴，d/c/x也是伴随复制功能)
+-   m[a-z]表示mark当前位置， m[A-Z]表示全局mark当前位置?(`[a-z]跳转到指定的mark，'[a-z]跳转到制定的mark的行头=`[a-z]0，`.跳转到最后一次修改)
+-   q[a-z]开始记录宏->q结束记录，@[a-z]宏回放，@@回放最后一次宏
+-   >结合行motion:hkljwe等，缩进当前行
+-   >>缩进当前行
+-   >结合块motion:HML/]]/}等，缩进块
+-   <撤销缩进
+-   <<撤销缩进当前行
+
+###4、文本对象:
+-   aw: a word
+-   ap: a paragraph
+-   is: inner sentence
+
+##二、进阶：
+###1、寄存器
+-   操作 "[a-z]yank/delete/paste("[A-Z]yank/delete往寄存器里追加)
+-   查看 :reg regName
+
+###2、ctrl: 
+-   视觉模式：
+    - g(get)获取当前位置信息
+    - u(up)向下滚动半屏
+    - d(down)向上滚动半屏
+    - f(forward)向前滚动一屏
+    - b(backward)向后滚动一屏
+    - o(older)跳转到"较老"的地方
+    - i(i紧靠o)跳转到“较新”的地方
+-   插入模式：
+    - y插入光标上方的字符
+    - e插入光标下方的字符
+    - r {register}插入寄存器内容(="{register}p)
+
+###3、替换:help substitute
+-    substitute({expr}, {pat}, {sub}, {flags})
+-    :[range]substitute/from/to/[flags]
+
+###4、语法高亮：
+-    颜色:syntax on(off/clear/manual)
+-    另存为:saveas filename
+
+###5、窗口
+-   :split(:sp) :vsplit(vsp)分割窗口
+-   :only只留当前窗口
+-   :new :vnew(:vertical new)新建窗口
+-   ctrl-w = 等高等宽所有窗口，ctrl-w +/- 修改高度, CTRL-W >/< 修改宽度, {height}CTRL-W _设置窗口高度
+-   ctrl-w hjkltb窗口跳转
+-   ctrl-w HJKLTB窗口移动
+-   vim -o file1 file2多个窗口打开多个文件, vim -o `grep -l l \*.txt`多个窗口打开多个文件
+
+###6、标签:help tab-page
+-  :tabe(tabedit) filename用新标签打开文件
+-  :tab help gt用新标签打开gt的帮助文档
+-  :tabonly只保留当前标签
+-  :tabn 2跳转到第二个标签
+-  :tab split建立一个新的标签页，包含一个窗口，编辑和刚才所在窗口中的缓冲区相同的缓冲
+-  gt标签页跳转
+
+###7、块操作
+-    ctrl+v I块前插入，ctrl+v A块末插入
+
+###8、读写文件
+-    :r(read) file读取文件到当前位置，:0r file读取到文件开头，$r file读取到文件末尾
+-    ctrl+v :w! file保存选中部分
+
+###9、改变大小写
+-    u/U(motion), gU/gu/g~(operator)
+-    gugu=guu(整行小写)，gUgU=gUU(整行大写), g~g~=g~~(正行大小写转换)
+
+###10、g ctrl+g单词统计
+
+###11、命令行
+-   <Left> 左移一个字符
+-   <Right> 右移一个字符
+-   <S-Left> 或 <C-Left> 左移一个单词
+-   <S-Right> 或 <C-Right> 右移一个单词
+-   CTRL-B 或 <Home> 命令行行首
+-   CTRL-E 或 <End> 命令行行尾
+
+-   如前所述，<BS> 键删除光标前一个字符。删除光标前整个单词，则用 CTRL-W。
+-   用Tab键匹配文件名或选项，用ctrl+d查看匹配总览
+-   :history显示:的历史记录，:history显示/或?的历史记录
+-   q:打开命令行窗口
+
+###12、外部命令 "!{motion}{program}"
+-   !107Gsort=:.,.+4!sort对下面的东东进行排序
+-   line 55
+-   line 33
+-   line 11
+-   line 22
+-   line 44
+-   :r(read) !ls读取当前目录的ls结果
+-   :sh(shell)启动新的shell
+
+###13、寻找文件:browse
+-   :pwd 查看当前目录
+-   :cd $dir修改当前目录
+-   :e .进入当前目录，:e $dir进入特定的目录
+-   :browse split /etc查找文件并在新窗口打开，:browse oldfiles打开最近编辑的文件
+-   gf(go file)打开文件(localfile or remoteFile), ctrl+w g新窗口打开文件(本地文件或者远程文件)
+-   QA:结合"窗口"和"寻找文件"模仿实现nerdtree?
+
+###14、会话（随时打开自己想要的窗口布局）
+-    :mksession s.vim保存会话，:source s.vim还原会话，vim -S s.vim启动时还原会话
+
+###15、文件加密
+-    vim -x -n secretFile加密并创建交换文件
+
+###16、缩写
+-   :iab(iabbrev) #b /############## 定义缩写
+-   :unab(unabbreviate) #b 删除缩写
+-   :abbr(abbreviate) 命令列出所有缩写:
+-   :abclear 清空缩写 
+
+###17、二合字母
+-   :digraphs显示左右二合字母
+-   ctrl+k **插入二合字母
+
+###18、shell里使用vim
+    change.vim:
+	%s/hello/Hello/g
+	write tempfile
+	quit
+
+    run.sh:
+	for file in *.txt; do
+	  vim -e -s $file < change.vim
+	  lpr -r tempfile
+	done
+###19、从标准输入读取文本
+-    ls | vim -
+
+###20、忽略大小写
+-    :set ignorecase 
+-    :set noignorescase
+
+###21、搜索/?
+-    /[a-z]{0,} ->asdfasdlfaskdf
+-    /foo\|bar ->foo,bar
+-    /ab\{3,5} ->abbb,abbbb,abbbbb
+-    /\u\d\d\d ->i520
+
+###22、折叠
+-   zf	F-old creation (创建折叠)
+-   zo	O-pen a fold (打开折叠)
+-   zc	C-lose a fold (关闭折叠)
+-   zi  禁止/启用折叠
+-   :mkview 存储折叠
+-   :loadview 恢复折叠
+
+###23、映射map
+-	:map <F3> GoDate: <Esc>:read !date<CR>kJ
+-   :map ls :r !ls<CR>kJ
+
+        映射    删除映射
+        :map	:unmap		普通，可视和操作符等待模式
+        :vmap	:vunmap		可视模式
+        :nmap	:nunmap		普通模式
+        :omap	:ounmap		操作符等待模式
+        :map!	:unmap!		插入和命令行模式
+        :imap	:iunmap		插入模式
+        :cmap	:cunmap		命令行模式
+
+###24、自定义命令
+-    :command -nargs=0 Help :help user-manual
+
+###25、认识vim第一个插件vimrc
+
+##三、插件
+    未完，请待续
+
+#data:
+-    1、vim cheat sheet:[http://michael.peopleofhonoronly.com/vim/](http://michael.peopleofhonoronly.com/vim/)
+-    2、vim chinese manual: [https://github.com/iamazhi/vimdoc-chinese](https://github.com/iamazhi/vimdoc-chinese)
+
