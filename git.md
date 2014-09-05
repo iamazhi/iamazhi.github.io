@@ -11,7 +11,7 @@
    - 执行推送命令，在GitHub远程版本库创建分支gh-pages:
     - git push -u origin gh-pages
 
-##二、GITHUB：
+##二、github：
 ###1、why github:
    - 专一：只用git并且完整支持，单提供替他方式(svn,hg)的访问接口 
    - 在线编辑
@@ -25,16 +25,22 @@
    - 项目主页
     - 用git symbolic-ref命令将当前工作分支由master切换到一个尚不存在的分支gh-pages。
         > $ git symbolic-ref HEAD refs/heads/gh-pages
+
     - 删除暂存区文件，即相当于清空暂存区。
         > $ rm .git/index
+
     - 创建项目首页index.html。
         > $ printf "hello world.\n" > index.html
+
     - 添加文件index.html到暂存区。
         > $ git add index.html
+
     - 执行提交。提交完毕分支gh-pages完成创建。
         > $ git commit -m "branch gh-pages init."
+
     - 执行推送命令，在GitHub远程版本库创建分支gh-pages。
         > $ git push -u origin gh-pages
+
    - 专有域名 
     - 只要在master分支（用户主页所在版本库）或gh-pages分支（项目版本库）的根目录下检入一个名为CNAME的文件，内容为相应的专有域名。当然还要更改专有域名的域名解析，使得该专有域名的IP地址指向相应的GitHub二级域名的IP地址。
 
