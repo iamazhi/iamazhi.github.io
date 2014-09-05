@@ -23,6 +23,8 @@ a {
   text-decoration: none;
 }
 
+.component {position:absolute}
+
 .btn {
   display: inline-block;
   text-transform: uppercase;
