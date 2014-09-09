@@ -10,6 +10,9 @@
     - git push origin --delete branchName
    - 执行推送命令，在GitHub远程版本库创建分支gh-pages:
     - git push -u origin gh-pages
+###2、忽略文件
+     忽略版本库中的文件：git update-index --assume-unchanged path/to/file.txt
+     重新将忽略的文件加入版本库：git update-index --no-assume-unchanged path/to/file.txt
 
 ##二、github：
 ###1、why github:
@@ -53,3 +56,19 @@
     - 实现无痕外部js加载
     - 当浏览器安装了 Greasemonkey 或类似插件之后，当访问扩展名为.user.js的URL时，会将该URL指向的JavaScript脚本安装在浏览器中
     - 当访问指定的网址时会自动调用相应的JavaScript脚本，修改相关网页内容或添加特效等等。
+
+###4、jekyll
+   - 如果没有rvm(ruby version manager = ruby版本库管理+gem库管理, gem为第三方代码库发布的一种文件格式)则需先安装。rvm -v|list|use|remove
+    - curl -L https://get.rvm.io | bash -s stable
+    - source ~/.rvm/scripts/rvm
+  - 查看已知的ruby版本：rvm list
+    - 如果有则使用已知的ruby版本：rvm use x.x.x -default
+  - 如果版本不合适则需要安装 Ruby, Ruby Gems最新版本(此步骤可选)
+    - rvm list known 
+    - rvm install x.x.x
+    - gem -v
+  - 替换源（你懂得）
+    - gem sources --remove http://rubygems.org/
+    - gem sources -a http://ruby.taobao.org/
+  - 安装jekyll
+    - gem install jekyll

@@ -452,14 +452,15 @@
 
 ##九、call/apply
 ###1、A.call(B) = objectX.functionX.call(objectY)：objectX.functionX为某个对象的一个方法，objectY为另外一个对象
-    -   function Obj(){this.value="对象！";}
-        var value="global 变量";
-        function Fun1(){alert(this.value);}
+    function Obj(){this.value="对象！";}
+    var value="global 变量";
+    function Fun1(){alert(this.value);}
 
-        // Fun1.call(window)  => window.Fun1.call(window);
-        Fun1.call(window);  //global 变量 
-        Fun1.call(document.getElementById('myText'));  //input text
-        Fun1.call(new Obj());   //对象！
-    - 理解：调用functionX，以objectB替换obectX。objectB继承objectB
-    - apply: 和call只是参数区别，如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3])
-        同时使用apply的好处是可以直接将当前函数的arguments对象作为apply的第二个参数传入
+    // Fun1.call(window)  => window.Fun1.call(window);
+    Fun1.call(window);  //global 变量 
+    Fun1.call(document.getElementById('myText'));  //input text
+    Fun1.call(new Obj());   //对象！
+
+-   理解：调用functionX，以objectB替换obectX。objectB继承objectB
+-   apply: 和call只是参数区别，如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3])。
+           使用apply的好处是可以直接将当前函数的arguments对象作为apply的第二个参数传入
