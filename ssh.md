@@ -1,7 +1,0 @@
-#ssh
-##一、常用技巧
-###1、ssh一劳永逸不用输入密码
-    scp ~/.ssh/id_rsa.pub root@192.168.1.16:~/.ssh/authorized_keys
-    ls 16="ssh root@192.168.1.16"
-    追加：cat ~/.ssh/id_dsa.pub|ssh root@192.168.1.23 'sh -c "cat - >>~/.ssh/authorized_keys2"'
-

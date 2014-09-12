@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Vim</title>
+    
+    <meta name="author" content="Azhi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">阿智技术博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+  
+     
+    	<li><a href="/categories.html#apache"> apache</a></li>
+     
+    	<li><a href="/categories.html#browser"> browser</a></li>
+     
+    	<li><a href="/categories.html#css"> css</a></li>
+     
+    	<li><a href="/categories.html#dom"> dom</a></li>
+     
+    	<li><a href="/categories.html#git"> git</a></li>
+     
+    	<li><a href="/categories.html#html5"> html5</a></li>
+     
+    	<li><a href="/categories.html#http"> http</a></li>
+     
+    	<li><a href="/categories.html#js"> js</a></li>
+     
+    	<li><a href="/categories.html#linux"> linux</a></li>
+     
+    	<li><a href="/categories.html#markdown"> markdown</a></li>
+     
+    	<li><a href="/categories.html#mysql"> mysql</a></li>
+     
+    	<li><a href="/categories.html#php"> php</a></li>
+     
+    	<li><a href="/categories.html#seo"> seo</a></li>
+     
+    	<li><a href="/categories.html#ssh"> ssh</a></li>
+     
+    	<li><a href="/categories.html#vim"> vim</a></li>
+    
+  
+
+
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="contentBox">
+        
+
+<div class="row">
+  <div class="col-xs-2">
+  </div>
+  <div class="col-xs-8">
+    <div class="page-header"> <h1>Vim <small>个人笔记</small></h1> </div>
+
+    <div class="row post-full">
+      <div class="col-xs-12">
+        <div class="date">
+          <span>09 September 2014</span>
+        </div>
+        <div class="content"> 
+<h2 id="section">一、入门：</h2>
+<p>###1、动作:help motion.txt(:help motion)
+-   kjhl上下左右方向键
+-   0行头，^有字行头，$行末
+-   w移动到下一个单词头，b前移到单词，e移动到下一个单词末尾（字母数字序列or标点符号系列）
+-   W移动到下一个单词头，B前移到单词，E移动到下一个单词末尾（无空格系列）
+-   f[a-zA-Z]行内向后查找，F[a-zA-Z]行内向前查找(find)
+-   t[a-zA-Z]行内向后查找，T[a-zA-Z]行内向前查找， 光标停留在匹配字母前面(to)
+-   /向前搜索，?向后搜索，n向前匹配搜索结果，N向后搜索匹配结果，*向前匹配当前光标识别码，#向后匹配当前光标识别码
+-   `[a-z]跳转到指定的mark，’[a-z]跳转到制定的mark的行头=`[a-z]0，`.跳转到最后一次修改
+-   %对称符号定位(),[],{}
+-   H跳转到屏幕顶部，M跳转到屏幕中间，L跳转到屏幕底部
+-   G跳转到文件底部，gg跳转到第一行第一列，n-&gt;gg跳转到n行，:n-&gt;enter跳转到n行
+-   -上一行，+下一行
+-   (句子头，)句子末
+-   {前一个空行，}后一个空行
+-   [[跳转前一个第一列的{，]]跳转到后一个第一列的}
+-   命令可以和数字结合使用(3l, 3w, 6$)</p>
+
+<h3 id="command">2、命令符command：</h3>
+<ul>
+  <li>i光标前插入，a光标后插入(append)，A行末尾插入</li>
+  <li>x=dl删除光标字，X=dh删除光标前的字，</li>
+  <li>u撤销，ctrl-r重做</li>
+  <li>R替换模式</li>
+  <li>:w保存，:q关闭, ZZ=:wq, :e!重新装载原来的文件(earlier)</li>
+  <li>.重复操作 ( 1、/four&lt; Enter &gt; 找到第一个 “four” 2、cwfive&lt; Esc &gt;修改成 “five” 3、n找下一个 “four” 4、.重复修改操作)</li>
+  <li>视觉选择：v视觉模式，V行视觉模式，ctrl-v块视觉模式: 选择(可以和motion组合使用)+操作(可以和operator组合使用)</li>
+  <li>p之后粘贴，P之前粘贴，3p拷贝3次</li>
+  <li>o行前插入行，O行后插入行</li>
+  <li>K对光标下的识别码跳转的相应的帮助页面vim help，man ls，man cd等(尝试光标在vim help中按K)</li>
+  <li>J合并下一行，或者合并多行(结合视觉选择)</li>
+  <li>hello</li>
+  <li>r*替换当前字符</li>
+  <li>C=c$，D=d$，Y=yy</li>
+  <li>s=cl删除当前字符并进入insert模式，S=cc删除当前行并进入insert模式</li>
+  <li>~转换当前光标下的大小写，U在视觉模式下转换字符为大写，u在视觉模式下转换字符为小写</li>
+  <li>命令可以和数字结合使用(3x)</li>
+</ul>
+
+<h3 id="help-operator">3、操作符:help operator</h3>
+<ul>
+  <li>d删除，可以和motion组合使用，例如dw,df[a-zA-Z], daw(delete a word)可以单词任何地方删除整个单词</li>
+  <li>dd删除整行</li>
+  <li>c修改进入insert模式，可以和motion组合使用，例如cw,cf[a-zA-Z]</li>
+  <li>cc修改整行</li>
+  <li>y+motion：复制, yy复制整行(p之后粘贴，P之前粘贴，d/c/x也是伴随复制功能)</li>
+  <li>m[a-z]表示mark当前位置， m[A-Z]表示全局mark当前位置?(<code>[a-z]跳转到指定的mark，'[a-z]跳转到制定的mark的行头=</code>[a-z]0，`.跳转到最后一次修改)</li>
+  <li>q[a-z]开始记录宏-&gt;q结束记录，@[a-z]宏回放，@@回放最后一次宏</li>
+  <li>
+    <blockquote>
+      <p>结合行motion:hkljwe等，缩进当前行</p>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <blockquote>
+        <p>缩进当前行</p>
+      </blockquote>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <p>结合块motion:HML/]]/}等，缩进块</p>
+    </blockquote>
+  </li>
+  <li>&lt;撤销缩进</li>
+  <li>«撤销缩进当前行</li>
+</ul>
+
+<h3 id="section-1">4、文本对象:</h3>
+<ul>
+  <li>aw: a word</li>
+  <li>ap: a paragraph</li>
+  <li>is: inner sentence</li>
+</ul>
+
+<h2 id="section-2">二、进阶：</h2>
+<p>###1、寄存器
+-   操作 “[a-z]yank/delete/paste(“[A-Z]yank/delete往寄存器里追加)
+-   查看 :reg regName</p>
+
+<h3 id="ctrl">2、ctrl:</h3>
+<ul>
+  <li>视觉模式：
+    <ul>
+      <li>g(get)获取当前位置信息</li>
+      <li>u(up)向下滚动半屏</li>
+      <li>d(down)向上滚动半屏</li>
+      <li>f(forward)向前滚动一屏</li>
+      <li>b(backward)向后滚动一屏</li>
+      <li>o(older)跳转到”较老”的地方</li>
+      <li>i(i紧靠o)跳转到“较新”的地方</li>
+    </ul>
+  </li>
+  <li>插入模式：
+    <ul>
+      <li>y插入光标上方的字符</li>
+      <li>e插入光标下方的字符</li>
+      <li>r {register}插入寄存器内容(=”{register}p)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="help-substitute">3、替换:help substitute</h3>
+<ul>
+  <li>substitute({expr}, {pat}, {sub}, {flags})</li>
+  <li>:[range]substitute/from/to/[flags]</li>
+</ul>
+
+<h3 id="section-3">4、语法高亮：</h3>
+<ul>
+  <li>颜色:syntax on(off/clear/manual)</li>
+  <li>另存为:saveas filename</li>
+</ul>
+
+<h3 id="section-4">5、窗口</h3>
+<ul>
+  <li>:split(:sp) :vsplit(vsp)分割窗口</li>
+  <li>:only只留当前窗口</li>
+  <li>:new :vnew(:vertical new)新建窗口</li>
+  <li>ctrl-w = 等高等宽所有窗口，ctrl-w +/- 修改高度, CTRL-W &gt;/&lt; 修改宽度, {height}CTRL-W _设置窗口高度</li>
+  <li>ctrl-w hjkltb窗口跳转</li>
+  <li>ctrl-w HJKLTB窗口移动</li>
+  <li>vim -o file1 file2多个窗口打开多个文件, vim -o <code>grep -l l \*.txt</code>多个窗口打开多个文件</li>
+</ul>
+
+<h3 id="help-tab-page">6、标签:help tab-page</h3>
+<ul>
+  <li>:tabe(tabedit) filename用新标签打开文件</li>
+  <li>:tab help gt用新标签打开gt的帮助文档</li>
+  <li>:tabonly只保留当前标签</li>
+  <li>:tabn 2跳转到第二个标签</li>
+  <li>:tab split建立一个新的标签页，包含一个窗口，编辑和刚才所在窗口中的缓冲区相同的缓冲</li>
+  <li>gt标签页跳转</li>
+</ul>
+
+<h3 id="section-5">7、块操作</h3>
+<ul>
+  <li>ctrl+v I块前插入，ctrl+v A块末插入</li>
+</ul>
+
+<h3 id="section-6">8、读写文件</h3>
+<ul>
+  <li>:r(read) file读取文件到当前位置，:0r file读取到文件开头，$r file读取到文件末尾</li>
+  <li>ctrl+v :w! file保存选中部分</li>
+</ul>
+
+<h3 id="section-7">9、改变大小写</h3>
+<ul>
+  <li>u/U(motion), gU/gu/g~(operator)</li>
+  <li>gugu=guu(整行小写)，gUgU=gUU(整行大写), g~g~=g~~(正行大小写转换)</li>
+</ul>
+
+<h3 id="g-ctrlg">10、g ctrl+g单词统计</h3>
+
+<h3 id="section-8">11、命令行</h3>
+<ul>
+  <li>
+    <left> 左移一个字符
+</left>
+  </li>
+  <li>
+    <right> 右移一个字符
+</right>
+  </li>
+  <li>
+    <s-left> 或 <c-left> 左移一个单词
+</c-left></s-left>
+  </li>
+  <li>
+    <s-right> 或 <c-right> 右移一个单词
+</c-right></s-right>
+  </li>
+  <li>CTRL-B 或 <home> 命令行行首</home></li>
+  <li>
+    <p>CTRL-E 或 <end> 命令行行尾</end></p>
+  </li>
+  <li>如前所述，<bs> 键删除光标前一个字符。删除光标前整个单词，则用 CTRL-W。</bs></li>
+  <li>用Tab键匹配文件名或选项，用ctrl+d查看匹配总览</li>
+  <li>:history显示:的历史记录，:history显示/或?的历史记录</li>
+  <li>q:打开命令行窗口</li>
+</ul>
+
+<h3 id="motionprogram">12、外部命令 “!{motion}{program}”</h3>
+<ul>
+  <li>!107Gsort=:.,.+4!sort对下面的东东进行排序</li>
+  <li>line 55</li>
+  <li>line 33</li>
+  <li>line 11</li>
+  <li>line 22</li>
+  <li>line 44</li>
+  <li>:r(read) !ls读取当前目录的ls结果</li>
+  <li>:sh(shell)启动新的shell</li>
+</ul>
+
+<h3 id="browse">13、寻找文件:browse</h3>
+<ul>
+  <li>:pwd 查看当前目录</li>
+  <li>:cd $dir修改当前目录</li>
+  <li>:e .进入当前目录，:e $dir进入特定的目录</li>
+  <li>:browse split /etc查找文件并在新窗口打开，:browse oldfiles打开最近编辑的文件</li>
+  <li>gf(go file)打开文件(localfile or remoteFile), ctrl+w g新窗口打开文件(本地文件或者远程文件)</li>
+  <li>QA:结合”窗口”和”寻找文件”模仿实现nerdtree?</li>
+</ul>
+
+<h3 id="section-9">14、会话（随时打开自己想要的窗口布局）</h3>
+<ul>
+  <li>:mksession s.vim保存会话，:source s.vim还原会话，vim -S s.vim启动时还原会话</li>
+</ul>
+
+<h3 id="section-10">15、文件加密</h3>
+<ul>
+  <li>vim -x -n secretFile加密并创建交换文件</li>
+</ul>
+
+<h3 id="section-11">16、缩写</h3>
+<ul>
+  <li>:iab(iabbrev) #b /############## 定义缩写</li>
+  <li>:unab(unabbreviate) #b 删除缩写</li>
+  <li>:abbr(abbreviate) 命令列出所有缩写:</li>
+  <li>:abclear 清空缩写 </li>
+</ul>
+
+<h3 id="section-12">17、二合字母</h3>
+<ul>
+  <li>:digraphs显示左右二合字母</li>
+  <li>ctrl+k **插入二合字母</li>
+</ul>
+
+<h3 id="shellvim">18、shell里使用vim</h3>
+<pre><code>change.vim:
+%s/hello/Hello/g
+write tempfile
+quit
+
+run.sh:
+for file in *.txt; do
+  vim -e -s $file &lt; change.vim
+  lpr -r tempfile
+done ###19、从标准输入读取文本 -    ls | vim -
+</code></pre>
+
+<h3 id="section-13">20、忽略大小写</h3>
+<ul>
+  <li>:set ignorecase </li>
+  <li>:set noignorescase</li>
+</ul>
+
+<h3 id="section-14">21、搜索/?</h3>
+<ul>
+  <li>/[a-z]{0,} -&gt;asdfasdlfaskdf</li>
+  <li>/foo|bar -&gt;foo,bar</li>
+  <li>/ab{3,5} -&gt;abbb,abbbb,abbbbb</li>
+  <li>/\u\d\d\d -&gt;i520</li>
+</ul>
+
+<h3 id="section-15">22、折叠</h3>
+<ul>
+  <li>zf	F-old creation (创建折叠)</li>
+  <li>zo	O-pen a fold (打开折叠)</li>
+  <li>zc	C-lose a fold (关闭折叠)</li>
+  <li>zi  禁止/启用折叠</li>
+  <li>:mkview 存储折叠</li>
+  <li>:loadview 恢复折叠</li>
+</ul>
+
+<h3 id="map">23、映射map</h3>
+<ul>
+  <li>:map <f3> GoDate: <esc>:read !date<cr>kJ</cr></esc></f3></li>
+  <li>
+    <p>:map ls :r !ls<cr>kJ</cr></p>
+
+    <pre><code>映射    删除映射
+:map	:unmap		普通，可视和操作符等待模式
+:vmap	:vunmap		可视模式
+:nmap	:nunmap		普通模式
+:omap	:ounmap		操作符等待模式
+:map!	:unmap!		插入和命令行模式
+:imap	:iunmap		插入模式
+:cmap	:cunmap		命令行模式
+</code></pre>
+  </li>
+</ul>
+
+<h3 id="section-16">24、自定义命令</h3>
+<ul>
+  <li>:command -nargs=0 Help :help user-manual</li>
+</ul>
+
+<h3 id="vimvimrc">25、认识vim第一个插件vimrc</h3>
+
+<h2 id="section-17">三、插件</h2>
+<pre><code>未完，请待续
+</code></pre>
+
+<h1 id="data">data:</h1>
+<ul>
+  <li>1、vim cheat sheet:<a href="http://michael.peopleofhonoronly.com/vim/">http://michael.peopleofhonoronly.com/vim/</a></li>
+  <li>2、vim chinese manual: <a href="https://github.com/iamazhi/vimdoc-chinese">https://github.com/iamazhi/vimdoc-chinese</a></li>
+</ul>
+
+ </div>
+
+        
+        <ul class="tag_box inline">
+          <li><i class="glyphicon-open"></i></li>
+          
+          
+
+
+  
+     
+    	<li><a href="/categories.html#vim-ref">
+    		vim <span>1</span>
+    	</a></li>
+    
+  
+
+
+        </ul>
+          
+
+        
+        <ul class="tag_box inline">
+          <li><i class="glyphicon-tags"></i></li>
+          
+          
+
+
+  
+     
+    	<li><a href="/tags.html#vim-ref">vim <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+          
+
+        <hr>
+        <ul class="pagination">
+          
+          <li class="prev"><a href="/ssh/2014/09/09/ssh" title="ssh">&laquo; 上一篇</a></li>
+          
+          <li><a href="/archive.html">所有文章</a></li>
+          
+          <li class="next disabled"><a>下一篇 &rarr;</a>
+            
+          </ul>
+          <hr>
+          
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-2">
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+

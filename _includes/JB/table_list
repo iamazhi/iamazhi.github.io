@@ -1,0 +1,17 @@
+{% if site.JB.pages_list.provider == "custom" %}
+  {% include custom/pages_list %}
+{% else %}
+  {% for node in pages_list %}
+    {% if node.title != null %}
+      {% if group == null or group == node.group %}
+      	{% if page.url == node.url %}
+      	<tr class="active"><td><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></td></tr>
+      	{% else %}
+      	<tr><td><a href="{{ BASE_PATH }}{{node.url}}"><i class="glyphicon glyphicon-leaf text-success"></i> {{node.title}}</a></td></tr>
+      	{% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% assign pages_list = nil %}
+{% assign group = nil %}

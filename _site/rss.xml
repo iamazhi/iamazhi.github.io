@@ -1,0 +1,1377 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>阿智技术博客</title>
+        <description>阿智技术博客 - Azhi</description>
+        <link>http://iamazhi.github.io</link>
+        <link>http://iamazhi.github.io</link>
+        <lastBuildDate>2014-09-12T16:13:38+08:00</lastBuildDate>
+        <pubDate>2014-09-12T16:13:38+08:00</pubDate>
+        <ttl>1800</ttl>
+
+
+        <item>
+                <title>Vim</title>
+                <description>
+&lt;h2 id=&quot;section&quot;&gt;一、入门：&lt;/h2&gt;
+&lt;p&gt;###1、动作:help motion.txt(:help motion)
+-   kjhl上下左右方向键
+-   0行头，^有字行头，$行末
+-   w移动到下一个单词头，b前移到单词，e移动到下一个单词末尾（字母数字序列or标点符号系列）
+-   W移动到下一个单词头，B前移到单词，E移动到下一个单词末尾（无空格系列）
+-   f[a-zA-Z]行内向后查找，F[a-zA-Z]行内向前查找(find)
+-   t[a-zA-Z]行内向后查找，T[a-zA-Z]行内向前查找， 光标停留在匹配字母前面(to)
+-   /向前搜索，?向后搜索，n向前匹配搜索结果，N向后搜索匹配结果，*向前匹配当前光标识别码，#向后匹配当前光标识别码
+-   `[a-z]跳转到指定的mark，’[a-z]跳转到制定的mark的行头=`[a-z]0，`.跳转到最后一次修改
+-   %对称符号定位(),[],{}
+-   H跳转到屏幕顶部，M跳转到屏幕中间，L跳转到屏幕底部
+-   G跳转到文件底部，gg跳转到第一行第一列，n-&amp;gt;gg跳转到n行，:n-&amp;gt;enter跳转到n行
+-   -上一行，+下一行
+-   (句子头，)句子末
+-   {前一个空行，}后一个空行
+-   [[跳转前一个第一列的{，]]跳转到后一个第一列的}
+-   命令可以和数字结合使用(3l, 3w, 6$)&lt;/p&gt;
+
+&lt;h3 id=&quot;command&quot;&gt;2、命令符command：&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;i光标前插入，a光标后插入(append)，A行末尾插入&lt;/li&gt;
+  &lt;li&gt;x=dl删除光标字，X=dh删除光标前的字，&lt;/li&gt;
+  &lt;li&gt;u撤销，ctrl-r重做&lt;/li&gt;
+  &lt;li&gt;R替换模式&lt;/li&gt;
+  &lt;li&gt;:w保存，:q关闭, ZZ=:wq, :e!重新装载原来的文件(earlier)&lt;/li&gt;
+  &lt;li&gt;.重复操作 ( 1、/four&amp;lt; Enter &amp;gt; 找到第一个 “four” 2、cwfive&amp;lt; Esc &amp;gt;修改成 “five” 3、n找下一个 “four” 4、.重复修改操作)&lt;/li&gt;
+  &lt;li&gt;视觉选择：v视觉模式，V行视觉模式，ctrl-v块视觉模式: 选择(可以和motion组合使用)+操作(可以和operator组合使用)&lt;/li&gt;
+  &lt;li&gt;p之后粘贴，P之前粘贴，3p拷贝3次&lt;/li&gt;
+  &lt;li&gt;o行前插入行，O行后插入行&lt;/li&gt;
+  &lt;li&gt;K对光标下的识别码跳转的相应的帮助页面vim help，man ls，man cd等(尝试光标在vim help中按K)&lt;/li&gt;
+  &lt;li&gt;J合并下一行，或者合并多行(结合视觉选择)&lt;/li&gt;
+  &lt;li&gt;hello&lt;/li&gt;
+  &lt;li&gt;r*替换当前字符&lt;/li&gt;
+  &lt;li&gt;C=c$，D=d$，Y=yy&lt;/li&gt;
+  &lt;li&gt;s=cl删除当前字符并进入insert模式，S=cc删除当前行并进入insert模式&lt;/li&gt;
+  &lt;li&gt;~转换当前光标下的大小写，U在视觉模式下转换字符为大写，u在视觉模式下转换字符为小写&lt;/li&gt;
+  &lt;li&gt;命令可以和数字结合使用(3x)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;help-operator&quot;&gt;3、操作符:help operator&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;d删除，可以和motion组合使用，例如dw,df[a-zA-Z], daw(delete a word)可以单词任何地方删除整个单词&lt;/li&gt;
+  &lt;li&gt;dd删除整行&lt;/li&gt;
+  &lt;li&gt;c修改进入insert模式，可以和motion组合使用，例如cw,cf[a-zA-Z]&lt;/li&gt;
+  &lt;li&gt;cc修改整行&lt;/li&gt;
+  &lt;li&gt;y+motion：复制, yy复制整行(p之后粘贴，P之前粘贴，d/c/x也是伴随复制功能)&lt;/li&gt;
+  &lt;li&gt;m[a-z]表示mark当前位置， m[A-Z]表示全局mark当前位置?(&lt;code&gt;[a-z]跳转到指定的mark，&#39;[a-z]跳转到制定的mark的行头=&lt;/code&gt;[a-z]0，`.跳转到最后一次修改)&lt;/li&gt;
+  &lt;li&gt;q[a-z]开始记录宏-&amp;gt;q结束记录，@[a-z]宏回放，@@回放最后一次宏&lt;/li&gt;
+  &lt;li&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;结合行motion:hkljwe等，缩进当前行&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;blockquote&gt;
+      &lt;blockquote&gt;
+        &lt;p&gt;缩进当前行&lt;/p&gt;
+      &lt;/blockquote&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;结合块motion:HML/]]/}等，缩进块&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&amp;lt;撤销缩进&lt;/li&gt;
+  &lt;li&gt;«撤销缩进当前行&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;4、文本对象:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;aw: a word&lt;/li&gt;
+  &lt;li&gt;ap: a paragraph&lt;/li&gt;
+  &lt;li&gt;is: inner sentence&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;二、进阶：&lt;/h2&gt;
+&lt;p&gt;###1、寄存器
+-   操作 “[a-z]yank/delete/paste(“[A-Z]yank/delete往寄存器里追加)
+-   查看 :reg regName&lt;/p&gt;
+
+&lt;h3 id=&quot;ctrl&quot;&gt;2、ctrl:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;视觉模式：
+    &lt;ul&gt;
+      &lt;li&gt;g(get)获取当前位置信息&lt;/li&gt;
+      &lt;li&gt;u(up)向下滚动半屏&lt;/li&gt;
+      &lt;li&gt;d(down)向上滚动半屏&lt;/li&gt;
+      &lt;li&gt;f(forward)向前滚动一屏&lt;/li&gt;
+      &lt;li&gt;b(backward)向后滚动一屏&lt;/li&gt;
+      &lt;li&gt;o(older)跳转到”较老”的地方&lt;/li&gt;
+      &lt;li&gt;i(i紧靠o)跳转到“较新”的地方&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;插入模式：
+    &lt;ul&gt;
+      &lt;li&gt;y插入光标上方的字符&lt;/li&gt;
+      &lt;li&gt;e插入光标下方的字符&lt;/li&gt;
+      &lt;li&gt;r {register}插入寄存器内容(=”{register}p)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;help-substitute&quot;&gt;3、替换:help substitute&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;substitute({expr}, {pat}, {sub}, {flags})&lt;/li&gt;
+  &lt;li&gt;:[range]substitute/from/to/[flags]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;4、语法高亮：&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;颜色:syntax on(off/clear/manual)&lt;/li&gt;
+  &lt;li&gt;另存为:saveas filename&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;5、窗口&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:split(:sp) :vsplit(vsp)分割窗口&lt;/li&gt;
+  &lt;li&gt;:only只留当前窗口&lt;/li&gt;
+  &lt;li&gt;:new :vnew(:vertical new)新建窗口&lt;/li&gt;
+  &lt;li&gt;ctrl-w = 等高等宽所有窗口，ctrl-w +/- 修改高度, CTRL-W &amp;gt;/&amp;lt; 修改宽度, {height}CTRL-W _设置窗口高度&lt;/li&gt;
+  &lt;li&gt;ctrl-w hjkltb窗口跳转&lt;/li&gt;
+  &lt;li&gt;ctrl-w HJKLTB窗口移动&lt;/li&gt;
+  &lt;li&gt;vim -o file1 file2多个窗口打开多个文件, vim -o &lt;code&gt;grep -l l \*.txt&lt;/code&gt;多个窗口打开多个文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;help-tab-page&quot;&gt;6、标签:help tab-page&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:tabe(tabedit) filename用新标签打开文件&lt;/li&gt;
+  &lt;li&gt;:tab help gt用新标签打开gt的帮助文档&lt;/li&gt;
+  &lt;li&gt;:tabonly只保留当前标签&lt;/li&gt;
+  &lt;li&gt;:tabn 2跳转到第二个标签&lt;/li&gt;
+  &lt;li&gt;:tab split建立一个新的标签页，包含一个窗口，编辑和刚才所在窗口中的缓冲区相同的缓冲&lt;/li&gt;
+  &lt;li&gt;gt标签页跳转&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;7、块操作&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;ctrl+v I块前插入，ctrl+v A块末插入&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;8、读写文件&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:r(read) file读取文件到当前位置，:0r file读取到文件开头，$r file读取到文件末尾&lt;/li&gt;
+  &lt;li&gt;ctrl+v :w! file保存选中部分&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;9、改变大小写&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;u/U(motion), gU/gu/g~(operator)&lt;/li&gt;
+  &lt;li&gt;gugu=guu(整行小写)，gUgU=gUU(整行大写), g~g~=g~~(正行大小写转换)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;g-ctrlg&quot;&gt;10、g ctrl+g单词统计&lt;/h3&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;11、命令行&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;left&gt; 左移一个字符
+&lt;/left&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;right&gt; 右移一个字符
+&lt;/right&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;s-left&gt; 或 &lt;c-left&gt; 左移一个单词
+&lt;/c-left&gt;&lt;/s-left&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;s-right&gt; 或 &lt;c-right&gt; 右移一个单词
+&lt;/c-right&gt;&lt;/s-right&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CTRL-B 或 &lt;home&gt; 命令行行首&lt;/home&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CTRL-E 或 &lt;end&gt; 命令行行尾&lt;/end&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;如前所述，&lt;bs&gt; 键删除光标前一个字符。删除光标前整个单词，则用 CTRL-W。&lt;/bs&gt;&lt;/li&gt;
+  &lt;li&gt;用Tab键匹配文件名或选项，用ctrl+d查看匹配总览&lt;/li&gt;
+  &lt;li&gt;:history显示:的历史记录，:history显示/或?的历史记录&lt;/li&gt;
+  &lt;li&gt;q:打开命令行窗口&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;motionprogram&quot;&gt;12、外部命令 “!{motion}{program}”&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;!107Gsort=:.,.+4!sort对下面的东东进行排序&lt;/li&gt;
+  &lt;li&gt;line 55&lt;/li&gt;
+  &lt;li&gt;line 33&lt;/li&gt;
+  &lt;li&gt;line 11&lt;/li&gt;
+  &lt;li&gt;line 22&lt;/li&gt;
+  &lt;li&gt;line 44&lt;/li&gt;
+  &lt;li&gt;:r(read) !ls读取当前目录的ls结果&lt;/li&gt;
+  &lt;li&gt;:sh(shell)启动新的shell&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;browse&quot;&gt;13、寻找文件:browse&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:pwd 查看当前目录&lt;/li&gt;
+  &lt;li&gt;:cd $dir修改当前目录&lt;/li&gt;
+  &lt;li&gt;:e .进入当前目录，:e $dir进入特定的目录&lt;/li&gt;
+  &lt;li&gt;:browse split /etc查找文件并在新窗口打开，:browse oldfiles打开最近编辑的文件&lt;/li&gt;
+  &lt;li&gt;gf(go file)打开文件(localfile or remoteFile), ctrl+w g新窗口打开文件(本地文件或者远程文件)&lt;/li&gt;
+  &lt;li&gt;QA:结合”窗口”和”寻找文件”模仿实现nerdtree?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;14、会话（随时打开自己想要的窗口布局）&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:mksession s.vim保存会话，:source s.vim还原会话，vim -S s.vim启动时还原会话&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;15、文件加密&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;vim -x -n secretFile加密并创建交换文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;16、缩写&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:iab(iabbrev) #b /############## 定义缩写&lt;/li&gt;
+  &lt;li&gt;:unab(unabbreviate) #b 删除缩写&lt;/li&gt;
+  &lt;li&gt;:abbr(abbreviate) 命令列出所有缩写:&lt;/li&gt;
+  &lt;li&gt;:abclear 清空缩写 &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-12&quot;&gt;17、二合字母&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:digraphs显示左右二合字母&lt;/li&gt;
+  &lt;li&gt;ctrl+k **插入二合字母&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;shellvim&quot;&gt;18、shell里使用vim&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;change.vim:
+%s/hello/Hello/g
+write tempfile
+quit
+
+run.sh:
+for file in *.txt; do
+  vim -e -s $file &amp;lt; change.vim
+  lpr -r tempfile
+done ###19、从标准输入读取文本 -    ls | vim -
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-13&quot;&gt;20、忽略大小写&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:set ignorecase &lt;/li&gt;
+  &lt;li&gt;:set noignorescase&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-14&quot;&gt;21、搜索/?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;/[a-z]{0,} -&amp;gt;asdfasdlfaskdf&lt;/li&gt;
+  &lt;li&gt;/foo|bar -&amp;gt;foo,bar&lt;/li&gt;
+  &lt;li&gt;/ab{3,5} -&amp;gt;abbb,abbbb,abbbbb&lt;/li&gt;
+  &lt;li&gt;/\u\d\d\d -&amp;gt;i520&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-15&quot;&gt;22、折叠&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;zf	F-old creation (创建折叠)&lt;/li&gt;
+  &lt;li&gt;zo	O-pen a fold (打开折叠)&lt;/li&gt;
+  &lt;li&gt;zc	C-lose a fold (关闭折叠)&lt;/li&gt;
+  &lt;li&gt;zi  禁止/启用折叠&lt;/li&gt;
+  &lt;li&gt;:mkview 存储折叠&lt;/li&gt;
+  &lt;li&gt;:loadview 恢复折叠&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;map&quot;&gt;23、映射map&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:map &lt;f3&gt; GoDate: &lt;esc&gt;:read !date&lt;cr&gt;kJ&lt;/cr&gt;&lt;/esc&gt;&lt;/f3&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;:map ls :r !ls&lt;cr&gt;kJ&lt;/cr&gt;&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;映射    删除映射
+:map	:unmap		普通，可视和操作符等待模式
+:vmap	:vunmap		可视模式
+:nmap	:nunmap		普通模式
+:omap	:ounmap		操作符等待模式
+:map!	:unmap!		插入和命令行模式
+:imap	:iunmap		插入模式
+:cmap	:cunmap		命令行模式
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-16&quot;&gt;24、自定义命令&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;:command -nargs=0 Help :help user-manual&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;vimvimrc&quot;&gt;25、认识vim第一个插件vimrc&lt;/h3&gt;
+
+&lt;h2 id=&quot;section-17&quot;&gt;三、插件&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;未完，请待续
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;data&quot;&gt;data:&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、vim cheat sheet:&lt;a href=&quot;http://michael.peopleofhonoronly.com/vim/&quot;&gt;http://michael.peopleofhonoronly.com/vim/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;2、vim chinese manual: &lt;a href=&quot;https://github.com/iamazhi/vimdoc-chinese&quot;&gt;https://github.com/iamazhi/vimdoc-chinese&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+                <link>http://iamazhi.github.io/vim/2014/09/09/vim</link>
+                <guid>http://iamazhi.github.io/vim/2014/09/09/vim</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>ssh</title>
+                <description>&lt;h1 id=&quot;ssh&quot;&gt;ssh&lt;/h1&gt;
+&lt;p&gt;##一、常用技巧
+###1、ssh一劳永逸不用输入密码
+    scp ~/.ssh/id_rsa.pub root@192.168.1.16:~/.ssh/authorized_keys
+    ls 16=”ssh root@192.168.1.16”
+    追加：cat ~/.ssh/id_dsa.pub|ssh root@192.168.1.23 ‘sh -c “cat - »~/.ssh/authorized_keys2”’&lt;/p&gt;
+
+</description>
+                <link>http://iamazhi.github.io/ssh/2014/09/09/ssh</link>
+                <guid>http://iamazhi.github.io/ssh/2014/09/09/ssh</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>seo</title>
+                <description>&lt;h1 id=&quot;seo&quot;&gt;seo&lt;/h1&gt;
+</description>
+                <link>http://iamazhi.github.io/seo/2014/09/09/seo</link>
+                <guid>http://iamazhi.github.io/seo/2014/09/09/seo</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>php</title>
+                <description>&lt;h1 id=&quot;php&quot;&gt;php&lt;/h1&gt;
+</description>
+                <link>http://iamazhi.github.io/php/2014/09/09/php</link>
+                <guid>http://iamazhi.github.io/php/2014/09/09/php</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>mysql</title>
+                <description>&lt;h1 id=&quot;mysql&quot;&gt;mysql&lt;/h1&gt;
+</description>
+                <link>http://iamazhi.github.io/mysql/2014/09/09/mysql</link>
+                <guid>http://iamazhi.github.io/mysql/2014/09/09/mysql</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>markdown</title>
+                <description>&lt;h2 id=&quot;h&quot;&gt;h*&lt;/h2&gt;
+&lt;p&gt;###h3
+####h4
+#####h5
+######h6&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;强调&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;bold&lt;/strong&gt;
+&lt;strong&gt;bold&lt;/strong&gt;
+&lt;em&gt;italic&lt;/em&gt;
+&lt;em&gt;italic&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;引用&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;区块引用&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;列表&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;苹果&lt;/li&gt;
+  &lt;li&gt;香蕉&lt;/li&gt;
+  &lt;li&gt;菠萝&lt;/li&gt;
+  &lt;li&gt;red&lt;/li&gt;
+  &lt;li&gt;green&lt;/li&gt;
+  &lt;li&gt;blue&lt;/li&gt;
+  &lt;li&gt;red&lt;/li&gt;
+  &lt;li&gt;green&lt;/li&gt;
+  &lt;li&gt;blue
+    &lt;ol&gt;
+      &lt;li&gt;包子&lt;/li&gt;
+      &lt;li&gt;馒头&lt;/li&gt;
+      &lt;li&gt;馍馍&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;链接和图片&lt;/h2&gt;
+&lt;p&gt;行内&lt;a href=&quot;https://github.com/&quot;&gt;github&lt;/a&gt;链接&lt;br /&gt;
+相对地址&lt;a href=&quot;/about/&quot;&gt;About&lt;/a&gt;链接 &lt;br /&gt;
+自动链接&lt;a href=&quot;http://google.com/&quot;&gt;http://google.com/&lt;/a&gt;&lt;br /&gt;
+定义链接:[Google]  [Yahoo]  [MSN]&lt;br /&gt;
+[Google]: http://google.com/ “Google”
+[Yahoo]: http://search.yahoo.com/ “Yahoo Search”
+[MSN]: http://search.msn.com/ “MSN Search”&lt;/p&gt;
+
+&lt;p&gt;图片&lt;img src=&quot;http://img.sj33.cn/uploads/allimg/201304/1323323T6-3.png&quot; alt=&quot;github logo&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;代码&lt;/h2&gt;
+&lt;p&gt;行代码：
+&lt;code&gt;
+function test()
+{
+	echo &quot;test&quot;;
+}
+&lt;/code&gt;
+&lt;br /&gt;
+块代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function test()
+{
+	echo &quot;test&quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;下划线&lt;/h2&gt;
+&lt;p&gt;星号下划线
+***
+横线下划线
+- - -
+下划线下划线
+___&lt;/p&gt;
+
+&lt;p&gt;转义字符：
+\ 反斜线
+` 反引号
+* 星号
+_ 底线
+{} 花括号
+[] 方括号
+() 括弧
+# 井字号
++ 加号
+- 减号
+. 英文句点
+! 惊叹号&lt;/p&gt;
+</description>
+                <link>http://iamazhi.github.io/markdown/2014/09/09/markdown</link>
+                <guid>http://iamazhi.github.io/markdown/2014/09/09/markdown</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>linux</title>
+                <description>&lt;h1 id=&quot;linux&quot;&gt;linux&lt;/h1&gt;
+&lt;p&gt;##一、小技巧
+###1、centos安装命令：
+    yum –enablerepo=remi install&lt;/p&gt;
+</description>
+                <link>http://iamazhi.github.io/linux/2014/09/09/linux</link>
+                <guid>http://iamazhi.github.io/linux/2014/09/09/linux</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>js</title>
+                <description>&lt;blockquote&gt;
+  &lt;p&gt;本文章主要介绍js的基本特性、并给出jquery的核心代码&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;一、基础&lt;/h2&gt;
+&lt;p&gt;###1、hoisting（悬置/置顶解析/预解析）
+      var myname = “global”; // 隐式全局变量
+      //myname = “global”; 不推荐:隐式全局变量
+      function func() {
+          alert(myname); // “undefined”
+          var myname = “local”;
+          alert(myname); // “local”
+      }
+      func();&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 预解析==&amp;gt;
+  myname = &quot;global&quot;; // global variable
+  function func() {
+     var myname; // 等同于 -&amp;gt; var myname = undefined;
+     alert(myname); // &quot;undefined&quot;
+     myname = &quot;local&quot;;
+     alert(myname); // &quot;local&quot;
+  }
+  func();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;var&quot;&gt;2、建议单var形式：&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;  var a=1, 
+  b=2, 
+  c=3; ###3、最小全局变量
+  myglobal = &quot;hello&quot;; // 不推荐写法
+  console.log(myglobal); // &quot;hello&quot;
+  console.log(window.myglobal); // &quot;hello&quot;
+  console.log(window[&quot;myglobal&quot;]); // &quot;hello&quot;
+  console.log(this.myglobal); // &quot;hello&quot; ###4、隐式全局变量(不推荐)
+  var aa = &quot;aa&quot;; //全局变量,不能delete aa
+  bb = &quot;bb&quot;; //隐式全局变量,可以delete bb
+  console.log(delete aa); //false
+  console.log(delete bb); //true
+
+  function foo() {
+    result = &quot;adsf&quot;; //result是全局变量
+    var a = b = 0;   //var a = (b = 0)b是全局变量
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;没有用var声明的变量都是隐式全局变量？所有最好都用var？&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;隐式全局变量不是真正的全局变量，是全局变量的属性，所以可以delete&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;forfor-in&quot;&gt;5、for遍历数组，for-in遍历对象(枚举)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;for:&lt;/p&gt;
+
+    &lt;p&gt;for (var i = 0; i &amp;lt; myarray.length; i++) 
+  =&amp;gt; 
+  for (var i = 0, max = myarray.length; i &amp;lt; max; i++)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;for-in: hasOwnProperty()方法，当遍历对象属性的时候可以过滤掉从原型链上下来的属性。&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;var man = { hands: 2, legs: 2, heads: 1 };
+if (typeof Object.prototype.clone === &quot;undefined&quot;) {
+    Object.prototype.clone = function () {}; // 一个方法添加给了所有对象
+}
+
+for (var i in man) if (man.hasOwnProperty(i)) console.log(i, &quot;:&quot;, man[i]);
+/* 控制台显示结果 hands : 2 legs : 2 heads : 1 */
+
+for (var i in man) console.log(i, &quot;:&quot;, man[i]);
+/* 控制台显示结果 hands : 2 legs : 2 heads : 1 clone: function() */
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;6、假:&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;  &#39;&#39;, &quot;&quot;, 0, false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;evalstringjavascriptstring&quot;&gt;7、eval(string):此方法接受任意的字符串，并当作JavaScript代码来处理。(不建议使用：string可能被篡改)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;eval解析json： eval(‘(‘ + json + ‘)’)// 将JSON的花括号解析成表达式而不是代码块。&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;try {
+   { &quot;x&quot;: 5 }; // &quot;{&quot; 和 &quot;}&quot; 做解析成代码块
+ } catch(err) {
+   // SyntaxError
+ }
+ var obj = eval({ &quot;x&quot;: 5 }); // 分组操作符强制将&quot;{&quot; 和 &quot;}&quot;作为对象字面量来解析
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;8、变量命名约定俗成：&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;常量用大写（js无常量），_private表示私有方法或者属性
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;二、命名函数表达式&lt;/h2&gt;
+&lt;p&gt;###1、函数表达式和函数声明
+-     函数声明: 　function 函数名称 (参数：可选){ 函数体 }
+-     函数表达式：function 函数名称（可选）(参数：可选){ 函数体 } &lt;/p&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;2、区分&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;不声明函数名称则肯定是函数表达式&lt;/li&gt;
+  &lt;li&gt;如果function foo(){}是作为赋值表达式的一部分的话，那它就是一个函数表达式(有操作符就是表达式?)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果function foo(){}被包含在一个函数体内，或者位于程序的最顶部的话，那它就是一个函数声明。&lt;/p&gt;
+
+    &lt;p&gt;function foo(){} // 声明，因为它是程序的一部分
+  (function(){ 
+    function bar(){}  // 声明，因为它是函数体的一部分
+  })();
+  var bar = function foo(){}; // 表达式，因为它是赋值表达式的一部分
+  var i = function () { return 10; } ();// 表达式，因为它是赋值表达式的一部分
+  (function foo(){}); // 表达式：包含在分组操作符内，分组操作符只能包含表达式
+  new function bar(){}; // 表达式，因为它是new表达式&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;由于括弧()和JS的&amp;amp;&amp;amp;，异或，逗号等操作符是在函数表达式和函数声明上消除歧义的，所以一旦解析器知道其中一个已经是表达式了，其它的也都默认为表达式了&lt;/p&gt;
+
+    &lt;p&gt;true &amp;amp;&amp;amp; function () { /* code &lt;em&gt;/ } ();
+  0, function () { /&lt;/em&gt; code &lt;em&gt;/ } ();
+  !function () { /&lt;/em&gt; code &lt;em&gt;/ } ();
+  ~function () { /&lt;/em&gt; code &lt;em&gt;/ } ();
+  -function () { /&lt;/em&gt; code &lt;em&gt;/ } ();
+  +function () { /&lt;/em&gt; code */ } ();&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;3、函数声明会在任何表达式被解析和求值之前先被解析和求值&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;alert(fn());//Hello world!
+function fn() { return &#39;Hello world!&#39;; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;4、函数声明在条件语句内虽然可以用，但是没有被标准化，也就是说不同的环境可能有不同的执行结果&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;千万别如下这么做！函数声明会在任何表达式被解析和求值之前先被解析和求值&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;因为有的浏览器会返回first的这个function，而有的浏览器返回的却是第二个&lt;/p&gt;
+
+    &lt;p&gt;if (true) {
+    function foo() { return ‘first’; }
+  }
+  else {
+    function foo() { return ‘second’; }
+  }
+  foo();//表达式&lt;/p&gt;
+
+    &lt;p&gt;// 相反，这样情况，我们要用函数表达式
+  var foo;
+  if (true) {
+    foo = function() { return ‘first’; };
+  }
+  else {
+    foo = function() { return ‘second’; };
+  }
+  foo();&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-7&quot;&gt;5、尽量用函数表达式&lt;/h3&gt;
+
+&lt;h2 id=&quot;module&quot;&gt;三、module模式&lt;/h2&gt;
+&lt;p&gt;###1、基本用法：(模块化，可重用。 封装了变量和function，和全局的namaspace不接触，松耦合。只暴露可用public的方法，其它私有方法全部隐藏)
+    var Calculator = function (eq) {
+        //这里可以声明私有成员
+        var eqCtl = document.getElementById(eq);
+        return {
+            // 暴露公开的成员
+            add: function (x, y) {
+                var val = x + y;
+                eqCtl.innerHTML = val;
+            }
+        };
+    };
+    调用：
+    var calculator = new Calculator(‘eq’);
+    calculator.add(2, 2);&lt;/p&gt;
+
+&lt;h3 id=&quot;section-8&quot;&gt;2、匿名闭包&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;(function () {
+    // ... 所有的变量和function都在这里声明，并且作用域也只能在这个匿名闭包里
+    // ...但是这里的代码依然可以访问外部全局的对象
+    //建议用这种
+    //最外边的分组操作符()是必要的，这样function() {}()是表达式，要不然则是错误的函数声明。
+}()/*()表示自执行*/);
+或者:
+(function () {/* 内部代码 */})();// 最后一个()表示自执行
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-9&quot;&gt;3、引用和声明全局变量&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;var blogModule = (function ($, YAHOO) {
+    var my = {}, privateName = &quot;博客园&quot;;
+
+    function privateAddTopic(data) {
+        // 这里是内部处理代码
+    }
+
+    my.Name = privateName;
+    my.AddTopic = function (data) {
+        privateAddTopic(data);
+    };
+
+    return my;//声明全局变量
+} (jQuery, YAHOO));//引用全局变量
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;blogmodule&quot;&gt;4、扩展(多文件：可以对上面的blogModule在另一个文件进行扩展)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;紧耦合扩展:
+    &lt;ul&gt;
+      &lt;li&gt;优点：可以重写属性或函数&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;缺点：必须要前后顺序&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;  var blogModule = (function (my) {
+      var oldAddPhotoMethod = my.AddPhoto; //优点：可以重写属性或函数
+      my.AddPhoto = function () {
+      //添加内部代码  
+  };
+      return my;
+  } (blogModule)); 
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;松耦合扩展：
+    - 优点：可以实现任意顺序加载
+    - 缺点：不能重写属性或函数
+    - var cnblogs = cnblogs || {} ; 这是确保cnblogs对象，在存在的时候直接用，不存在的时候直接赋值为{}
+    - 如何利用这个特性来实现Module模式的任意加载顺序：&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;   var blogModule = (function (my) {
+           // 添加一些功能
+       return my;
+    } (blogModule || {}));
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;子模块：&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;blogModule.CommentSubModule = (function () {
+    var my = {};
+    // ...
+    return my;
+} ());
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-10&quot;&gt;5、用闭包保存状态&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;这个代码是错误的，因为变量i从来就没背locked住&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;// 相反，当循环执行以后，我们在点击的时候i才获得数值
+// 因为这个时候i操真正获得值
+// 所以说无论点击那个连接，最终显示的都是I am link #10（如果有10个a元素的话）
+var elems = document.getElementsByTagName(&#39;a&#39;);
+for (var i = 0; i &amp;lt; elems.length; i++) {
+    elems[i].addEventListener(&#39;click&#39;, function (e) {
+        e.preventDefault();
+        alert(&#39;I am link #&#39; + i);
+    }, &#39;false&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;这个是可以用的，因为他在自执行函数表达式闭包内部&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;// i的值作为locked的索引存在，在循环执行结束以后，尽管最后i的值变成了a元素总数（例如10）
+// 但闭包内部的lockedInIndex值是没有改变，因为他已经执行完毕了
+// 所以当点击连接的时候，结果是正确的
+var elems = document.getElementsByTagName(&#39;a&#39;);
+for (var i = 0; i &amp;lt; elems.length; i++) {
+    (function (lockedInIndex) {
+        elems[i].addEventListener(&#39;click&#39;, function (e) {
+            e.preventDefault();
+            alert(&#39;I am link #&#39; + lockedInIndex);
+        }, &#39;false&#39;);
+    })(i);
+}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-11&quot;&gt;四、原型和原型链&lt;/h2&gt;
+&lt;p&gt;###1、用法
+    var Calculator = function (decimalDigits, tax) {
+      this.decimalDigits = decimalDigits;
+      this.tax = tax;
+    }; 
+    Calculator.prototype = {
+      add: function (x, y) {
+        return x + y;
+      },&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  subtract: function (x, y) {
+    return x - y;
+  }
+};
+//alert((new Calculator()).add(1, 3));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-12&quot;&gt;2、重写原型&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;//覆盖前面Calculator的add() function 
+Calculator.prototype.add = function (x, y) {
+    return x + y + this.tax;
+};
+
+var calc = new Calculator();
+alert(calc.add(1, 1));
+//扩展jquery方法
+$.prototype.myFunction = function(){...};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;hasownpropertyjavascript-&quot;&gt;3、hasOwnProperty函数：他能判断一个对象是否包含自定义属性而不是原型链上的属性,javaScript 中唯一一个处理属性但是不查找原型链的函数。&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;最正确的使用方式：{}.hasOwnProperty.call(object, property); &lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;// 修改Object.prototype
+Object.prototype.bar = 1; 
+var foo = {goo: undefined};
+foo.bar; // 1
+&#39;bar&#39; in foo; // true
+foo.hasOwnProperty(&#39;bar&#39;); // false
+foo.hasOwnProperty(&#39;goo&#39;); // true
+
+//注意：JavaScript 不会保护 hasOwnProperty 被非法占用
+var foo = {
+    hasOwnProperty: function() { return false; },
+    bar: &#39;Here be dragons&#39;
+};
+foo.hasOwnProperty(&#39;bar&#39;); // 总是返回 false
+// 使用{}对象的 hasOwnProperty，并将其上下为设置为foo
+{}.hasOwnProperty.call(foo, &#39;bar&#39;); // true
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;objectprototypeprototypeproto&quot;&gt;4、一个Object的prototype是一个内部的[[prototype]](非标准：__proto__)属性的引用。&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;var foo = {
+  x: 10,
+  y: 20
+};
+foo属性：x=10, y=20, __proto__=foo.prototype
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;prototypeconstructor&quot;&gt;5、Prototype和constructor&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;- 每一个构造函数都有一个prototype属性，指向另一个对象
+- constructor属性是所有具有prototype的对象的成员
+- constructor属性是专门为function而设计的，它存在于每一个function的prototype属性中。这个constructor保存了指向function的一个引用。
+  console.dir(Fun1.prototype.constructor.prototype.constructor.prototype.constructor.prototype.constructor.prototype.constructor);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;jsonjson&quot;&gt;五、json字符串，json对象，对象字面量&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;  var jsonString = &#39;{ &quot;prop&quot;: &quot;val&quot; }&#39;; // 这是JSON字符串，必须双引号
+  var jsonObject = JSON.parse(jsonString); // 这是JSON对象
+  var Object Literal = { &quot;prop&quot;: &quot;val&quot; }; // 这是对象字面量
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-13&quot;&gt;六、闭包：&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。&lt;/li&gt;
+  &lt;li&gt;从实践角度：以下函数才算是闭包： 即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）。 在代码中引用了自由变量&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;上下文：又可以理解为上下文对象，表示当前代码执行时所处的环境。即是this变量所指代的对象；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;同一个上下文中创建的闭包是共用一个[[Scope]]属性的&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt; var data = [];
+ for (var k = 0; k &amp;lt; 3; k++)  data[k] = function () { alert(k); }; 
+ data[0](); // 3, 而不是0
+ data[1](); // 3, 而不是1
+ data[2](); // 3, 而不是2
+
+ // 现在结果是正确的了
+ var data = [];
+ for (var k = 0; k &amp;lt; 3; k++) data[k] = (function (x) { return function () { alert(x); }; })(k); 
+ data[0](); // 0
+ data[1](); // 1
+ data[2](); // 2
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;闭包的所用:闭包最大的作用就是来阻止外部程序随意访问内部变量，只能通过提供的接口来访问和操作&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt; //计数器
+ var counter = (function() {
+         var i=0;
+         return {
+ add:function() { i++; return this; },
+ get:function() { return i; }
+ }
+ })();
+ counter.add().add().add();
+ console.log(counter.get()); //3
+ console.log(counter.i); //undefined
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;jquery&quot;&gt;七、jquery&lt;/h2&gt;
+&lt;p&gt;###1、jquery核心代码：
+    (function(){
+      var jQuery = window.jQuery = window.$ = function(selector, context){
+        return new jQuery.fn.init(selector, context);
+      }
+      jQuery.fn = jQuery.prototype = {
+        init : function(selector, context){
+          selector = selector || document;
+          context  = context  || document;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      //选择
+      if(selector.nodeTpye){
+        this[0] = selector;
+        this.length = 1;
+        this.context = selector;
+        return this;
+      }
+
+      if(typeof selector === &quot;string&quot;){
+        var e = context.getElementsByTagName(selector);
+        for(var i = 0; i &amp;lt; e.length; i++) this[i] = e[i];
+        this.length = e.length;
+        this.context = context;
+        return this;
+      }else{
+        this.length = 0;
+        this.context = context;
+        return this;
+      }
+    },
+    //操作
+    html : function(val){
+      this.each(this, function(val){ this.innerHTML = val; }, val);
+    },
+    each  : function(object, callback, args){
+      for(var i = 0; i &amp;lt; object.length; i++) callback.call(object[i], args);
+      return object;
+    },
+    //多参数原理
+    setOptions : function(options){
+      this.options = {color:&quot;red&quot;, size:&quot;4&quot;, length:&quot;5&quot;}; //默认参数
+      jQuery.extend(this.options, options || {}); //如果传递参数则覆盖默认参数
+
+    },
+    jquery: &quot;1.0&quot;,
+    size: function(){
+      return this.length;
+    }
+  }
+  jQuery.fn.init.prototype = jQuery.fn;//init里面找不到可以去fn里面找
+  jQuery.extend = jQuery.fn.extend = function(obj){
+    //extend可以实现基本功能(扩展参数)的扩展，也可以实现对象的合并。具体代码见jquery源码
+    for(var prop in obj) this[prop] = obj[prop];
+    return this;
+  };
+
+  jQuery.fn.extend({
+    test  : function(){alert(&quot;扩展方法&quot;);},
+    haha  : &quot;哈哈&quot;
+  });
+}());
+
+$(&quot;div&quot;).html(&quot;oo&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;jquery-1&quot;&gt;2、扩展jquery：&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;类扩展：
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;全局函数&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;$.foo = function(){  alert(&quot;foo&quot;);  }
+$.foo();  //调用方法 
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;使用jQuery.extend(object):&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;$.extend({
+  foo:function(){ alert(&quot;foo&quot;); },
+  bar:function(){ alert(&quot;bar&quot;); }
+})
+$.foo(); //调用方法
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;使用命名空间:&lt;/p&gt;
+
+        &lt;p&gt;$.myPlugin = {
+   foo:function(){ alert(“foo”); },
+   bar:function(){ alert(“bar”); }
+   }
+   $.myPlugin.foo(); //调用方法&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对象扩展:&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;$.fn.foo = function(){ alert(&quot;hello jquery&quot;); }
+$(&#39;#myF&#39;).foo()
+
+(function($){
+  $.fn.extend({
+    pluginName:function(opt,callback){ alert(&quot;foo&quot;);
+    }
+  })
+})(jQuery);
+$(&quot;#myF&quot;).pluginName();
+
+(function ($) {
+  $.fn.foo = function (obj) { alert(obj); };
+})(jQuery);
+$(&quot;#myF&quot;).foo(&quot;hello jquery&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;js&quot;&gt;八、js的八个对象：&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;Array 、Boolean 、Date 、Math 、Number 、String 、RegExp 、Global
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;callapply&quot;&gt;九、call/apply&lt;/h2&gt;
+&lt;p&gt;###1、A.call(B) = objectX.functionX.call(objectY)：objectX.functionX为某个对象的一个方法，objectY为另外一个对象
+    function Obj(){this.value=”对象！”;}
+    var value=”global 变量”;
+    function Fun1(){alert(this.value);}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Fun1.call(window)  =&amp;gt; window.Fun1.call(window);
+Fun1.call(window);  //global 变量 
+Fun1.call(document.getElementById(&#39;myText&#39;));  //input text
+Fun1.call(new Obj());   //对象！
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;理解：调用functionX，以objectB替换obectX。objectB继承objectB&lt;/li&gt;
+  &lt;li&gt;apply: 和call只是参数区别，如 func.call(func1,var1,var2,var3)对应的apply写法为：func.apply(func1,[var1,var2,var3])。
+       使用apply的好处是可以直接将当前函数的arguments对象作为apply的第二个参数传入&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://iamazhi.github.io/js/2014/09/09/js</link>
+                <guid>http://iamazhi.github.io/js/2014/09/09/js</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>http</title>
+                <description>&lt;h1 id=&quot;http&quot;&gt;http&lt;/h1&gt;
+</description>
+                <link>http://iamazhi.github.io/http/2014/09/09/http</link>
+                <guid>http://iamazhi.github.io/http/2014/09/09/http</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>html5</title>
+                <description>&lt;h1 id=&quot;html5&quot;&gt;html5&lt;/h1&gt;
+</description>
+                <link>http://iamazhi.github.io/html5/2014/09/09/html5</link>
+                <guid>http://iamazhi.github.io/html5/2014/09/09/html5</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>git</title>
+                <description>&lt;h2 id=&quot;git&quot;&gt;一、git&lt;/h2&gt;
+&lt;p&gt;###1、分支
+   - 查看所有分支（本地+远程分支）
+    - git branch -av
+   - 新增远程分支
+    - git branch branchName
+   - 切换分支
+    - git checkout branchName
+   - 删除远程分支
+    - git push origin –delete branchName
+   - 执行推送命令，在GitHub远程版本库创建分支gh-pages:
+    - git push -u origin gh-pages
+###2、忽略文件
+     忽略版本库中的文件：git update-index –assume-unchanged path/to/file.txt
+     重新将忽略的文件加入版本库：git update-index –no-assume-unchanged path/to/file.txt&lt;/p&gt;
+
+&lt;h2 id=&quot;github&quot;&gt;二、github：&lt;/h2&gt;
+&lt;p&gt;###1、why github:
+   - 专一：只用git并且完整支持，单提供替他方式(svn,hg)的访问接口 
+   - 在线编辑
+   - 社交编程（fork派生&amp;amp;pul request拉拽请求）：从纯技术到社区
+   - 非广告收费模式：私有版本库托管、面向企业的版本库托管和项目管理平台、人员招聘等付费服务
+   - 细节&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;2、主页&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;个人主页
+    - GitHub 为每一个用户分配了一个二级域名user-id.github.io，用户为自己的二级域名创建主页很容易，只要在托管空间下创建一个名为user-id.github.io的版本库，向其master分支提交网站静态页面即可，其中网站首页为index.html。&lt;/li&gt;
+  &lt;li&gt;项目主页
+    - 用git symbolic-ref命令将当前工作分支由master切换到一个尚不存在的分支gh-pages。
+   &amp;gt; $ git symbolic-ref HEAD refs/heads/gh-pages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;- 删除暂存区文件，即相当于清空暂存区。
+    &amp;gt; $ rm .git/index
+
+- 创建项目首页index.html。
+    &amp;gt; $ printf &quot;hello world.\n&quot; &amp;gt; index.html
+
+- 添加文件index.html到暂存区。
+    &amp;gt; $ git add index.html
+
+- 执行提交。提交完毕分支gh-pages完成创建。
+    &amp;gt; $ git commit -m &quot;branch gh-pages init.&quot;
+
+- 执行推送命令，在GitHub远程版本库创建分支gh-pages。
+    &amp;gt; $ git push -u origin gh-pages
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;专有域名 
+    - 只要在master分支（用户主页所在版本库）或gh-pages分支（项目版本库）的根目录下检入一个名为CNAME的文件，内容为相应的专有域名。当然还要更改专有域名的域名解析，使得该专有域名的IP地址指向相应的GitHub二级域名的IP地址。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gist&quot;&gt;3、gist&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;私密gist只是在github中相对安全，但还是会被seo获取。&lt;/li&gt;
+  &lt;li&gt;Gist除了被用于粘贴数据（如代码块）并在网页中引用。&lt;a href=&quot;https://gist.github.com&quot;&gt;gist&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Embed:嵌套在网页中&lt;/li&gt;
+  &lt;li&gt;版本库：每一个gist对应一个版本库https://gist.github.com/7003150.git&lt;/li&gt;
+  &lt;li&gt;Greasemonkey: 
+    - 实现无痕外部js加载
+    - 当浏览器安装了 Greasemonkey 或类似插件之后，当访问扩展名为.user.js的URL时，会将该URL指向的JavaScript脚本安装在浏览器中
+    - 当访问指定的网址时会自动调用相应的JavaScript脚本，修改相关网页内容或添加特效等等。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;jekyll&quot;&gt;4、jekyll&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;如果没有rvm(ruby version manager = ruby版本库管理+gem库管理, gem为第三方代码库发布的一种文件格式)则需先安装。rvm -v|list|use|remove
+    - curl -L https://get.rvm.io | bash -s stable
+    - source ~/.rvm/scripts/rvm&lt;/li&gt;
+  &lt;li&gt;查看已知的ruby版本：rvm list
+    &lt;ul&gt;
+      &lt;li&gt;如果有则使用已知的ruby版本：rvm use x.x.x -default&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;如果版本不合适则需要安装 Ruby, Ruby Gems最新版本(此步骤可选)
+    &lt;ul&gt;
+      &lt;li&gt;rvm list known &lt;/li&gt;
+      &lt;li&gt;rvm install x.x.x&lt;/li&gt;
+      &lt;li&gt;gem -v&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;替换源（你懂得）
+    &lt;ul&gt;
+      &lt;li&gt;gem sources –remove http://rubygems.org/&lt;/li&gt;
+      &lt;li&gt;gem sources -a http://ruby.taobao.org/&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;安装jekyll
+    &lt;ul&gt;
+      &lt;li&gt;gem install jekyll&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://iamazhi.github.io/git/2014/09/09/git</link>
+                <guid>http://iamazhi.github.io/git/2014/09/09/git</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>dom</title>
+                <description>&lt;h1 id=&quot;dom--htmldom--xmldom--coredom&quot;&gt;dom = htmlDom + xmlDom + coreDom&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;h4 id=&quot;htmldomecmascripthtmlcurd&quot;&gt;htmlDom:是规范ECMAScript对html节点(文档节点、元素节点、文本节点、属性节点、注释节点)CURD的标准&lt;/h4&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;1、节点关系：&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;根root、父parent、子child、兄弟或同胞sibling ###2、编程接口：
+所有 HTML 元素被定义为对象，而编程接口则是对象方法和对象属性。 ###3、对象： -   Document: 每个载入浏览器的 HTML 文档都会成为 Document 对象。 Document 对象是 Window 对象的一部分，可通过 window.document 属性对其进行访问。
+- 对象集合：all[] 、anchors[] 、applets 、forms[] 、images[] 、links[]
+- 属性： body 、cookie 、domain 、lastModified 、referrer 、title 、URL
+- 方法： close() 、getElementById() 、getElementsByName() 、getElementsByTagName() 、open() 、write() 、writeln()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Event: Event对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。
+    &lt;ul&gt;
+      &lt;li&gt;事件句柄：onabort 、onblur 、onchange 、onclick 、ondblclick 、onerror 、onfocus 、onkeydown 、onkeypress 、onkeyup 、onload 、onmousedown 、onmousemove 、onmouseout 、onmouseover 、onmouseup 、onreset 、onresize 、onselect 、onsubmit 、onunload&lt;/li&gt;
+      &lt;li&gt;属性：altKey 、button 、clientX 、clientY 、ctrlKey 、metaKey 、relatedTarget 、screenX 、screenY 、shiftKey&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;其他对象：
+    &lt;ul&gt;
+      &lt;li&gt;Anchor 、Area 、Base 、Body 、Button 、Canvas 、Form 、Frame 、Frameset 、IFrame 、Image 、Input Button 
+Input Checkbox 、Input File、Input Hidden 、Input Password 、Input Radio 、Input Reset 、Input Submit 、Input Text
+Link 、Meta 、Object 、Option 、Select 、Style、Table 、TableCell 、TableRow 、Textarea &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;4、常用属性：&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;innerHTML 属性可用于获取或改变任意 HTML 元素，包括 &amp;lt;html&amp;gt; 和 &amp;lt;body&amp;gt;。&lt;/li&gt;
+  &lt;li&gt;nodeName  *nodeName是只读的 *元素节点的nodeName与标签名相同 *属性节点的nodeName与属性名相同 *文本节点的nodeName始终是 #text *文档节点的nodeName始终是 #document &lt;/li&gt;
+  &lt;li&gt;nodeValue *元素节点的nodeValue是undefined或null *文本节点的nodeValue是文本本身 *属性节点的nodeValue是属性值&lt;/li&gt;
+  &lt;li&gt;nodeType  *nodeType是只读的 *元素1 *属性2 *文本3 *注释8 *文档9&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;5、常用方法：&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;getElementById()         返回带有指定 ID 的元素。&lt;/li&gt;
+  &lt;li&gt;getElementsByTagName()   返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。&lt;/li&gt;
+  &lt;li&gt;getElementsByClassName() 返回包含带有指定类名的所有元素的节点列表。 IE5,6,7,8 中无效。&lt;/li&gt;
+  &lt;li&gt;appendChild()            把新的子节点添加到指定节点。&lt;/li&gt;
+  &lt;li&gt;removeChild()            删除子节点。&lt;/li&gt;
+  &lt;li&gt;replaceChild()           替换子节点。&lt;/li&gt;
+  &lt;li&gt;insertBefore()           在指定的子节点前面插入新的子节点。&lt;/li&gt;
+  &lt;li&gt;createAttribute()        创建属性节点。&lt;/li&gt;
+  &lt;li&gt;createElement()          创建元素节点。&lt;/li&gt;
+  &lt;li&gt;createTextNode()         创建文本节点。&lt;/li&gt;
+  &lt;li&gt;getAttribute()           返回指定的属性值。&lt;/li&gt;
+  &lt;li&gt;setAttribute()           把指定属性设置或修改为指定的值。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://iamazhi.github.io/dom/2014/09/09/dom</link>
+                <guid>http://iamazhi.github.io/dom/2014/09/09/dom</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>css</title>
+                <description>&lt;h1 id=&quot;css&quot;&gt;css&lt;/h1&gt;
+</description>
+                <link>http://iamazhi.github.io/css/2014/09/09/css</link>
+                <guid>http://iamazhi.github.io/css/2014/09/09/css</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>browser</title>
+                <description>&lt;blockquote&gt;
+  &lt;p&gt;浏览器的五个对象： console.log(window); console.log(screen); console.log(history); console.log(location); console.log(navigator);
+##1、Window
+-   对象集合： 
+    - frames[]
+-   属性：
+    -    closed  返回窗口是否已被关闭。
+    -    defaultStatus   设置或返回窗口状态栏中的默认文本。
+    -    document        对 Document 对象的只读引用。请参阅 Document 对象。
+    -    history         对 History 对象的只读引用。请参数 History 对象。
+    -    innerheight     返回窗口的文档显示区的高度。
+    -    innerwidth      返回窗口的文档显示区的宽度。
+    -    length          设置或返回窗口中的框架数量。
+    -    location        用于窗口或框架的 Location 对象。请参阅 Location 对象。
+    -    name            设置或返回窗口的名称。
+    -    Navigator       对 Navigator 对象的只读引用。请参数 Navigator 对象。
+    -    opener          返回对创建此窗口的窗口的引用。
+    -    outerheight     返回窗口的外部高度。
+    -    outerwidth      返回窗口的外部宽度。
+    -    pageXOffset     设置或返回当前页面相对于窗口显示区左上角的 X 位置。
+    -    pageYOffset     设置或返回当前页面相对于窗口显示区左上角的 Y 位置。
+    -    parent          返回父窗口。
+    -    Screen          对 Screen 对象的只读引用。请参数 Screen 对象。
+    -    self            返回对当前窗口的引用。等价于 Window 属性。
+    -    status          设置窗口状态栏的文本。
+    -    top             返回最顶层的先辈窗口。
+    -    window          window 属性等价于 self 属性，它包含了对窗口自身的引用。
+    -    screenLeft screenTop screenX screenY 只读整数。声明了窗口的左上角在屏幕上的的 x 坐标和 y 坐标。IE、Safari 和 Opera 支持 screenLeft 和 screenTop，而 Firefox 和 Safari 支持 screenX 和 screenY。
+-   方法：
+    -   alert()         显示带有一段消息和一个确认按钮的警告框。
+    -   blur()          把键盘焦点从顶层窗口移开。
+    -   clearInterval() 取消由 setInterval() 设置的 timeout。
+    -   clearTimeout()  取消由 setTimeout() 方法设置的 timeout。
+    -   close()         关闭浏览器窗口。
+    -   confirm()       显示带有一段消息以及确认按钮和取消按钮的对话框。
+    -   createPopup()   创建一个 pop-up 窗口。
+    -   focus()         把键盘焦点给予一个窗口。
+    -   moveBy()        可相对窗口的当前坐标把它移动指定的像素。
+    -   moveTo()        把窗口的左上角移动到一个指定的坐标。
+    -   open()          打开一个新的浏览器窗口或查找一个已命名的窗口。
+    -   print()         打印当前窗口的内容。
+    -   prompt()        显示可提示用户输入的对话框。
+    -   resizeBy()      按照指定的像素调整窗口的大小。
+    -   resizeTo()      把窗口的大小调整到指定的宽度和高度。
+    -   scrollBy()      按照指定的像素值来滚动内容。
+    -   scrollTo()      把内容滚动到指定的坐标。
+    -   setInterval()   按照指定的周期（以毫秒计）来调用函数或计算表达式。
+    -   setTimeout()    在指定的毫秒数后调用函数或计算表达式。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;navigator&quot;&gt;2、Navigator&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;对象集合：
+    &lt;ul&gt;
+      &lt;li&gt;plugins[] 该集合是一个 Plugin 对象的数组，其中的元素代表浏览器已经安装的插件&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;属性：
+    &lt;ul&gt;
+      &lt;li&gt;appCodeName     返回浏览器的代码名。&lt;/li&gt;
+      &lt;li&gt;appMinorVersion 返回浏览器的次级版本。&lt;/li&gt;
+      &lt;li&gt;appName         返回浏览器的名称。&lt;/li&gt;
+      &lt;li&gt;appVersion      返回浏览器的平台和版本信息。&lt;/li&gt;
+      &lt;li&gt;browserLanguage 返回当前浏览器的语言。&lt;/li&gt;
+      &lt;li&gt;cookieEnabled   返回指明浏览器中是否启用 cookie 的布尔值。&lt;/li&gt;
+      &lt;li&gt;cpuClass        返回浏览器系统的 CPU 等级。&lt;/li&gt;
+      &lt;li&gt;onLine          返回指明系统是否处于脱机模式的布尔值。&lt;/li&gt;
+      &lt;li&gt;platform        返回运行浏览器的操作系统平台。&lt;/li&gt;
+      &lt;li&gt;systemLanguage  返回 OS 使用的默认语言。&lt;/li&gt;
+      &lt;li&gt;userAgent       返回由客户机发送服务器的 user-agent 头部的值。&lt;/li&gt;
+      &lt;li&gt;userLanguage    返回 OS 的自然语言设置。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;方法：
+    &lt;ul&gt;
+      &lt;li&gt;javaEnabled()   规定浏览器是否启用 Java。&lt;/li&gt;
+      &lt;li&gt;taintEnabled()  规定浏览器是否启用数据污点 (data tainting)。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;screen&quot;&gt;3、Screen&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;属性：
+    &lt;ul&gt;
+      &lt;li&gt;availHeight             返回显示屏幕的高度 (除 Windows 任务栏之外)。&lt;/li&gt;
+      &lt;li&gt;availWidth              返回显示屏幕的宽度 (除 Windows 任务栏之外)。&lt;/li&gt;
+      &lt;li&gt;height                  返回显示屏幕的高度。&lt;/li&gt;
+      &lt;li&gt;width                   返回显示器屏幕的宽度。&lt;/li&gt;
+      &lt;li&gt;bufferDepth             设置或返回调色板的比特深度。&lt;/li&gt;
+      &lt;li&gt;colorDepth              返回目标设备或缓冲器上的调色板的比特深度。&lt;/li&gt;
+      &lt;li&gt;deviceXDPI              返回显示屏幕的每英寸水平点数。&lt;/li&gt;
+      &lt;li&gt;deviceYDPI              返回显示屏幕的每英寸垂直点数。&lt;/li&gt;
+      &lt;li&gt;fontSmoothingEnabled    返回用户是否在显示控制面板中启用了字体平滑。&lt;/li&gt;
+      &lt;li&gt;logicalXDPI             返回显示屏幕每英寸的水平方向的常规点数。&lt;/li&gt;
+      &lt;li&gt;logicalYDPI             返回显示屏幕每英寸的垂直方向的常规点数。&lt;/li&gt;
+      &lt;li&gt;pixelDepth              返回显示屏幕的颜色分辨率（比特每像素）。&lt;/li&gt;
+      &lt;li&gt;updateInterval          设置或返回屏幕的刷新率。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;4、History&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;属性：
+    &lt;ul&gt;
+      &lt;li&gt;length  返回浏览器历史列表中的 URL 数量。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;方法：
+    &lt;ul&gt;
+      &lt;li&gt;back()      加载 history 列表中的前一个 URL。&lt;/li&gt;
+      &lt;li&gt;forward()   加载 history 列表中的下一个 URL。&lt;/li&gt;
+      &lt;li&gt;go()        加载 history 列表中的某个具体页面。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;location-url-&quot;&gt;5、Location:包含有关当前 URL 的信息。&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;属性：
+    &lt;ul&gt;
+      &lt;li&gt;hash        设置或返回从井号 (#) 开始的 URL（锚）。&lt;/li&gt;
+      &lt;li&gt;host        设置或返回主机名和当前 URL 的端口号。&lt;/li&gt;
+      &lt;li&gt;hostname    设置或返回当前 URL 的主机名。&lt;/li&gt;
+      &lt;li&gt;href        设置或返回完整的 URL。&lt;/li&gt;
+      &lt;li&gt;pathname    设置或返回当前 URL 的路径部分。&lt;/li&gt;
+      &lt;li&gt;port        设置或返回当前 URL 的端口号。&lt;/li&gt;
+      &lt;li&gt;protocol    设置或返回当前 URL 的协议。&lt;/li&gt;
+      &lt;li&gt;search      设置或返回从问号 (?) 开始的 URL（查询部分）。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;方法：
+    &lt;ul&gt;
+      &lt;li&gt;assign()    加载新的文档。&lt;/li&gt;
+      &lt;li&gt;reload()    重新加载当前文档。&lt;/li&gt;
+      &lt;li&gt;replace()   用新的文档替换当前文档。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://iamazhi.github.io/browser/2014/09/09/browser</link>
+                <guid>http://iamazhi.github.io/browser/2014/09/09/browser</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>apache</title>
+                <description>&lt;h1 id=&quot;apache&quot;&gt;apache&lt;/h1&gt;
+</description>
+                <link>http://iamazhi.github.io/apache/2014/09/09/apache</link>
+                <guid>http://iamazhi.github.io/apache/2014/09/09/apache</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+
+</channel>
+</rss>
