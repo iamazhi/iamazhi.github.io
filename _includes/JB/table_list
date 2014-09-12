@@ -5,9 +5,15 @@
     {% if node.title != null %}
       {% if group == null or group == node.group %}
       	{% if page.url == node.url %}
-      	<tr class="active"><td><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></td></tr>
+        <tr class="active">
+        <td><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a>
+        <span class="pull-right">{{ node.date | date: "%Y/%b/%e" }}</span></td>
+        </tr>
       	{% else %}
-      	<tr><td><a href="{{ BASE_PATH }}{{node.url}}"><i class="glyphicon glyphicon-leaf text-success"></i> {{node.title}}</a></td></tr>
+      	<tr>
+        <td><a href="{{ BASE_PATH }}{{node.url}}"><i class="glyphicon glyphicon-leaf text-success"></i> {{node.title}}</a>
+        <span class="pull-right">{{ node.date | date: "%Y/%b/%e" }}</span></td>
+        </tr>
       	{% endif %}
       {% endif %}
     {% endif %}
