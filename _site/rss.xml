@@ -5,10 +5,192 @@
         <description>阿智技术博客 - Azhi</description>
         <link>http://iamazhi.github.io</link>
         <link>http://iamazhi.github.io</link>
-        <lastBuildDate>2014-09-12T17:06:15+08:00</lastBuildDate>
-        <pubDate>2014-09-12T17:06:15+08:00</pubDate>
+        <lastBuildDate>2014-09-15T18:13:32+08:00</lastBuildDate>
+        <pubDate>2014-09-15T18:13:32+08:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Agile</title>
+                <description>
+&lt;h1 id=&quot;why-agile&quot;&gt;一、why agile&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The only thing that never changes is that everything changes -&amp;gt; 适者生存（拥抱变化）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;1、对比瀑布开发&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;瀑布开发：软件开发被分为需求分析，设计，实现，测试 (确认)， 集成，和维护这样的步骤依序进行。&lt;/li&gt;
+  &lt;li&gt;缺点：严格分级导致的自由度降低，早期需求固化导致对后期需求的变化难以调整或代价高昂。&lt;/li&gt;
+  &lt;li&gt;不适应场合：需求经常变化的项目。而现实的需求肯定是会变化的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;2、对比迭代开发&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;迭代开发：每次只设计和实现这个产品的一部分, 逐步完成&lt;/li&gt;
+  &lt;li&gt;敏捷比迭代周期更短，更强调人员的高度协调&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;3、敏捷开发：&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;工作方式: 作为一个整体工作； 按短迭代周期工作； 每次迭代交付一些成果； 关注业务优先级； 检查与调整。&lt;/li&gt;
+  &lt;li&gt;适用小型团队，未有成熟的大规模的敏捷开发&lt;/li&gt;
+  &lt;li&gt;敏捷方法强调适应性而非预见性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section-3&quot;&gt;二、敏捷宣言&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;人和（人与人的）交互：优先于过程和工具。&lt;/li&gt;
+  &lt;li&gt;可以工作的软件：优先于求全责备的文档。&lt;/li&gt;
+  &lt;li&gt;客户协作：优先于合同谈判。&lt;/li&gt;
+  &lt;li&gt;随时应对变化：优先于循规蹈矩。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section-4&quot;&gt;三、方法和成功实践&lt;/h1&gt;
+
+&lt;h3 id=&quot;xp&quot;&gt;1、xp&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;section-5&quot;&gt;十二个实践&lt;/h4&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;1、全队/在场客户&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 「客戶」並不是为系统付账的人，而是真正使用该系统的人
+
+ 要求至少有一名实际的客户代表在整个项目开发周期在现场负责确定需求、回答团队问题以及编写功能验收测试。
+
+ 实际：开发者需求理解一致，开发者要时刻把自己当做自己是真正使用该系统的人
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;2、程序设计标准／程序设计规约&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; XP团队遵循一个公共的编码标准，因此系统中所有的代码看上去都像出自单独一个——非常有能力的——人之手
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;3、可反复性速率/每周40小时/恒速率开发/持续高效&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 不可三分热度、龟兔赛跑、持续发力、笑到最后
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;4、策划游戏&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 需求总是不断变化，要不断策划下一个迭代
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;5、系统隐喻&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 公共命名系统，即暗号
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;6、简单设计&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 代码的设计应该尽可能的简单，只要满足当前功能的要求，不多也不少。
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;7、测试驱动开发&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 代码未动，测试先行
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;8、设计优化/代码重构&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 要有勇气和决心改进现有代码的设计, 达到”高内聚“和”低耦合“。 (吾日三省吾身)
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;9、结对程序设计&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 在XP所有的产品软件都是由两个程序员并排坐在一起，在同一台机器上共同完成的。
+ 这个实践保证了所有的产品代码都至少有一个其它的程序员进行了审视，而结果是更好的设计，更好的测试和更好的代码，还有团队的共同进步。
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;10、集体代码所有&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 每一对程序员都可以在任何时候改进任何一处的代码
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;11、持续集成&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 提倡在一天中集成系统多次，而且随着需求的改变，要不断的进行回归测试
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;12、小型发布&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt; 第一，团队在每一个迭代发布可以运行的，测试过的软件系统，提供客户选择的商业价值。
+ 第二，XP团队尽可能频繁地发布给他们的最终用户。
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;section-6&quot;&gt;四个原则&lt;/h4&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;1、快速反馈&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt;  客户能够清楚地洞察开发中系统的状况。他／她能够在整个开发过程中及时给出反馈意见，并且在需要的时候能够掌控系统的开发方向。
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;2、假设简单&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt;  假设简单认为任何问题都可以&quot;极度简单&quot;地解决
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;3、增量变化&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt;  极限编程的提倡者总是说：罗马不是一天建成的。一次就想进行一个大的改造是不可能的。极限编程采用增量变化的原则。
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;4、包容变化&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;pre&gt;&lt;code&gt;  “包容变化”这一原则就是强调不要对变化采取反抗的态度，而应该包容它们。
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;scrum&quot;&gt;2、scrum&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Scrum的影响已经远远超出软件开发，成为零售、军事、风险投资甚至学校里完成各种任务的创新方法，正在改变着世界。
+scrum一个阶段就做这些事情，不允许加入新的需求，不按照优先级开发(xp：可以在一个sprint中加入新需求，必须按照优先级来)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;3、其他方法&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;AUP、TDD/Test-Driven Development、BDD/Bahavior-Driven Development、精益软件开发
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+                <link>http://iamazhi.github.io/agile/2014/09/15/agile</link>
+                <guid>http://iamazhi.github.io/agile/2014/09/15/agile</guid>
+                <pubDate>2014-09-15T00:00:00+08:00</pubDate>
+        </item>
 
         <item>
                 <title>Vim</title>
