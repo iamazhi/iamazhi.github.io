@@ -5,10 +5,318 @@
         <description>阿智技术博客 - Azhi</description>
         <link>http://iamazhi.github.io</link>
         <link>http://iamazhi.github.io</link>
-        <lastBuildDate>2014-09-15T18:22:47+08:00</lastBuildDate>
-        <pubDate>2014-09-15T18:22:47+08:00</pubDate>
+        <lastBuildDate>2014-09-19T14:09:33+08:00</lastBuildDate>
+        <pubDate>2014-09-19T14:09:33+08:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>吾幼极客协作规范</title>
+                <description>
+&lt;blockquote&gt;
+  &lt;p&gt;敏捷实践建议：客户开发模式 + 团队编码规范 + 设计优化/代码重构 + 结对程序设计 + 每日提交 + 每日早会(昨日工作&amp;amp;遇到问题 + 今日安排)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;概览&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;字符串单引号优先&lt;/li&gt;
+  &lt;li&gt;类(大驼峰命名)和方法(小驼峰命名)大括号的独占一行：&lt;/li&gt;
+  &lt;li&gt;css：id用小驼峰，class和图片有横线分割&lt;/li&gt;
+  &lt;li&gt;缩进用四个空格或vim设置的四个空格的tab键&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;php&quot;&gt;php开发环境&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;os: ubuntu、mac、centos&lt;/li&gt;
+  &lt;li&gt;server: nginx、apache&lt;/li&gt;
+  &lt;li&gt;ide: vim + 统一配置&lt;a href=&quot;https://github.com/iamazhi/dot-vimrc&quot;&gt;dot-vimrc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;db: mysql5.5&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;php-1&quot;&gt;php编码规范&lt;/h1&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;1. 文件&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;纯php文件：用&lt;code&gt;&amp;lt;?php&lt;/code&gt;开头，但不要用&lt;code&gt;?&amp;gt;&lt;/code&gt;闭合&lt;/li&gt;
+  &lt;li&gt;php+html形式：用&lt;code&gt;&amp;lt;?php ?&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;任何包含php代码的文件都要用&lt;code&gt;.php&lt;/code&gt;扩展名&lt;/li&gt;
+  &lt;li&gt;php代码用utf-8编码，注意不要包含BOM&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;2. 类&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-3&quot;&gt;类&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;类名用大驼峰命名法：&lt;code&gt;ExampleClass&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;类中的代码都用tab(4个空格)缩进&lt;/li&gt;
+      &lt;li&gt;每一个php文件最多包含一个类&lt;/li&gt;
+      &lt;li&gt;类名和文件名有关联: 类 MyClass 在 MyClass.php中&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-4&quot;&gt;常量&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;常量用大写，多个词用下划线分隔符
+  const VERSION = ‘1.0’;
+  const DATE_APPROVED = ‘2012-06-01’;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-5&quot;&gt;属性&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;类属性在任何方法之前按照private-protected-public顺序声明，并且$对齐&lt;/li&gt;
+      &lt;li&gt;属性声明用小驼峰命名： &lt;code&gt;$varCase&lt;/code&gt;(public&amp;amp;protected)， &lt;code&gt;$_varName&lt;/code&gt;(private)&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;为了易读，属性间不要有空行，属性和方法间有空行&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;  &amp;lt;?php
+  class Foo
+  {
+      private   $_privateProp;
+      protected $protectedProp;
+      public    $publicProp;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-6&quot;&gt;方法&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;方法名按照小驼峰命名，采用动名词形式：getUserName($userId = 0);&lt;/li&gt;
+      &lt;li&gt;文件中方法顺序：private-protected-public&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;方法第一个大括号放在声明下一行&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;  public function getUserName bar()
+  {
+      if() {
+      }
+      return $value;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;3 其他&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-8&quot;&gt;类型&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;所有php类型（array、string）和值（true，null）全部用小写&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-9&quot;&gt;字符串&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;字符串优先用单引号： &lt;code&gt;$str = &#39;hello&#39;&lt;/code&gt;,  如果包含单引号再用双引号：&lt;code&gt;$str = &quot;hello &#39;world&#39;&quot;&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-10&quot;&gt;变量替换&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;采用$username或{$username}形式: &lt;code&gt;&quot;Hello $username&quot;&lt;/code&gt;，&lt;code&gt;&quot;Hello {$username}&quot;&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-11&quot;&gt;空格&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;单目操作符不用空格：i++&lt;/li&gt;
+      &lt;li&gt;双目或三目操作符用空格：1 + 2; ‘hello’ . ‘world’;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-12&quot;&gt;数组判断&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;判断数组为空用empty()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;static-vs-self&quot;&gt;&lt;code&gt;static&lt;/code&gt; vs &lt;code&gt;self&lt;/code&gt;&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;尽量用static除了访问常量和私有静态属性：&lt;code&gt;self&lt;/code&gt;: &lt;code&gt;self::MY_CONSTANT&lt;/code&gt;，  &lt;code&gt;self&lt;/code&gt;: &lt;code&gt;self::$_events&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-13&quot;&gt;控制语句&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;条件语句小括号前后要有一个空格&lt;/li&gt;
+      &lt;li&gt;只有一句的时候也要用大括号，易于扩展&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;用esleif而不用esle if&lt;/p&gt;
+
+        &lt;pre&gt;&lt;code&gt;  if ($event === null) {
+      return new Event();
+  } elseif ($event instanceof CoolEvent) {
+      return $event-&amp;gt;instance();
+  } else {
+      return null;
+  }
+
+  switch ($this-&amp;gt;phpType) {
+      case &#39;string&#39;:
+          $a = (string)$value;
+          break;
+      case &#39;integer&#39;:
+      case &#39;int&#39;:
+          $a = (integer)$value;
+          break;
+      case &#39;boolean&#39;:
+          $a = (boolean)$value;
+          break;
+      default:
+          $a = null;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-14&quot;&gt;4. 代码注释&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://phpdoc.org/&quot;&gt;phpDoc&lt;/a&gt; : 注释 PHP 代码的正式标准&lt;/li&gt;
+  &lt;li&gt;文件、类、方法、复杂逻辑都有有注释&lt;/li&gt;
+  &lt;li&gt;通过格式用英文，其他可用中文&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;当行注释用&lt;code&gt;//&lt;/code&gt;而且在同一行，多行注释用&lt;code&gt;/**/&lt;/code&gt;并且在开头&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-15&quot;&gt;文件&lt;/h3&gt;
+
+    &lt;pre&gt;&lt;code&gt;  &amp;lt;?php
+  /**
+   * @link http://www.yiiframework.com/
+   * @copyright Copyright (c) 2008 Yii Software LLC
+   * @license http://www.yiiframework.com/license/
+   */
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-16&quot;&gt;类&lt;/h3&gt;
+
+    &lt;pre&gt;&lt;code&gt;  &amp;lt;?php
+  /**
+   * Component is the base class that provides the *property*, *event* and *behavior* features.
+   *
+   * @include @yii/docs/base-Component.md
+   *
+   * @author Qiang Xue &amp;lt;qiang.xue@gmail.com&amp;gt;
+   * @since 2.0
+   */
+  class Component extends \yii\base\Object
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;section-17&quot;&gt;方法&lt;/h3&gt;
+
+    &lt;pre&gt;&lt;code&gt;  &amp;lt;?php
+  /**
+   * Returns the list of attached event handlers for an event.
+   * You may manipulate the returned [[Vector]] object by adding or removing handlers.
+   * For example,
+   *
+   * ~~~
+   * $component-&amp;gt;getEventHandlers($eventName)-&amp;gt;insertAt(0, $eventHandler);
+   * ~~~
+   *
+   * @param string $name the event name
+   * @return Vector list of attached event handlers for the event
+   * @throws Exception if the event is not defined
+   */
+  public function getEventHandlers($name)
+  {
+      if (!isset($this-&amp;gt;_e[$name])) {
+          $this-&amp;gt;_e[$name] = new Vector;
+      }
+      $this-&amp;gt;ensureBehaviors();
+      return $this-&amp;gt;_e[$name];
+  }
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;js&quot;&gt;js编码规范&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;采用vim tab键(四个空格)缩进&lt;/li&gt;
+  &lt;li&gt;声明变量必须使用var来声明变量。&lt;/li&gt;
+  &lt;li&gt;常量使用大写字母，每个单词之间使用下划线分割：&lt;/li&gt;
+  &lt;li&gt;必须以分号作为语句的结束&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;css&quot;&gt;css编码规范&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;图片和类采用横线分割命名: &lt;code&gt;&amp;lt;div class=&#39;article-content&#39;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;, &lt;code&gt;header-bg.png&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;id采用小驼峰命名:   &lt;code&gt;&amp;lt;div id=&#39;footerDesc&#39;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;每个样式属性后（必须）加 “;”&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;选择器与 { 之前（必须）要有空格, 属性名的 : 后（必须）要有空格，属性名的 : 前（禁止）加空格&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;   .hotel-content {
+       font-weight: bold;
+   }
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;多选择器规则之间（必须）换行&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;  a.btn,
+   input.btn,
+  input[type=&quot;button&quot;] {
+      ......
+  }
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;推荐的书写顺序&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;  .hotel-content {
+       /* 定位 */
+       display: block;
+       position: absolute;
+       left: 0;
+       top: 0;
+       /* 盒模型 */
+       width: 50px;
+       height: 50px;
+       margin: 10px;
+       border: 1px solid black;
+       / *其他* /
+       color: #efefef;
+   }
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;golang&quot;&gt;golang编码规范&lt;/h1&gt;
+
+&lt;h1 id=&quot;golang-1&quot;&gt;golang开发环境使用规范&lt;/h1&gt;
+
+</description>
+                <link>http://iamazhi.github.io/agile/2014/09/19/titcaca</link>
+                <guid>http://iamazhi.github.io/agile/2014/09/19/titcaca</guid>
+                <pubDate>2014-09-19T00:00:00+08:00</pubDate>
+        </item>
 
         <item>
                 <title>Agile</title>
@@ -588,6 +896,13 @@ done ###19、从标准输入读取文本 -    ls | vim -
         <item>
                 <title>mysql</title>
                 <description>&lt;h1 id=&quot;mysql&quot;&gt;mysql&lt;/h1&gt;
+&lt;p&gt;centos：
+    删除mysql的正确方式：
+    rpm -qa | grep mysql
+    yum -remove mysql-**
+    mv /etc/my.cnf /tmp/my.cnf
+    mv /var/lib/mysql or rm -rf /var/lib/mysql&lt;/p&gt;
+
 </description>
                 <link>http://iamazhi.github.io/mysql/2014/09/09/mysql</link>
                 <guid>http://iamazhi.github.io/mysql/2014/09/09/mysql</guid>
@@ -691,7 +1006,7 @@ _ 底线
                 <description>&lt;h1 id=&quot;linux&quot;&gt;linux&lt;/h1&gt;
 &lt;p&gt;##一、小技巧
 ###1、centos安装命令：
-    yum –enablerepo=remi install&lt;/p&gt;
+    yum –enablerepo=remi install php-gd php-mbstring libmcrypt libmcrypt-devel php-cli php-pear php-pdo phpmyadmin php-cli&lt;/p&gt;
 </description>
                 <link>http://iamazhi.github.io/linux/2014/09/09/linux</link>
                 <guid>http://iamazhi.github.io/linux/2014/09/09/linux</guid>

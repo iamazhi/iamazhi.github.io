@@ -8,6 +8,7 @@ http://iamazhi.github.io/rss.xml
 http://iamazhi.github.io/sitemap.txt
 http://iamazhi.github.io/tags.html
 
+http://iamazhi.github.io/agile/2014/09/19/titcaca
 http://iamazhi.github.io/agile/2014/09/15/agile
 http://iamazhi.github.io/vim/2014/09/09/vim
 http://iamazhi.github.io/ssh/2014/09/09/ssh
