@@ -5,10 +5,129 @@
         <description>阿智技术博客 - Azhi</description>
         <link>http://iamazhi.github.io</link>
         <link>http://iamazhi.github.io</link>
-        <lastBuildDate>2014-09-19T14:09:33+08:00</lastBuildDate>
-        <pubDate>2014-09-19T14:09:33+08:00</pubDate>
+        <lastBuildDate>2014-09-30T15:05:51+08:00</lastBuildDate>
+        <pubDate>2014-09-30T15:05:51+08:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Disabledreadonlydisplayvisibilityhiddentypehidden</title>
+                <description>&lt;h2 id=&quot;disabled&quot;&gt;一、disabled&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、disabled只对所有的表单元素有效，对其他元素无效（例如contenteditable的div）。&lt;/li&gt;
+  &lt;li&gt;2、disabled的表单元素不会被提交。&lt;/li&gt;
+  &lt;li&gt;3、设置disabled方法：
+    &lt;ul&gt;
+      &lt;li&gt;表单：disabled=”disabled”或disabled=”true”或disabled&lt;/li&gt;
+      &lt;li&gt;jquery： attr(“disabled”, “disabled”)或 attr(“disabled”, true)或 prop(“disabled”, true)。&lt;/li&gt;
+      &lt;li&gt;推荐方法：因为disabled可以认为是布尔值（只有true和false）。所以表单用disabled=”true”，jquery用prop(“disabled”, true)。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;readonly&quot;&gt;二、readonly&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、readonly只对input(text/password)或者textarea有效, 其他元素无效（包括非表单的contenteditable的div）。&lt;/li&gt;
+  &lt;li&gt;2、readonly的表单元素会被提交。&lt;/li&gt;
+  &lt;li&gt;3、设置readonly方法：
+    &lt;ul&gt;
+      &lt;li&gt;表单：readonly=”readonly”或readonly=”true”或readonly&lt;/li&gt;
+      &lt;li&gt;jquery： attr(“readonly”, “readonly”)或 attr(“readonly”, true)或 prop(“readonly”, true)。&lt;/li&gt;
+      &lt;li&gt;推荐方法：因为readonly可以认为是布尔值（只有true和false）。所以表单用readonly=”true”，jquery用prop(“readonly”, true)。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;typehidden&quot;&gt;三、type=hidden&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、type=”hidden”：对input有效对textarea无效。(应该只对input有效）&lt;/li&gt;
+  &lt;li&gt;2、隐藏input但保留空间，会被提交。（除非有disabled属性)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;displaynonevisibilityhiddenhiddentrue&quot;&gt;四、display:none、visibility:hidden、hidden=true&lt;/h2&gt;
+
+&lt;h3 id=&quot;displayxxx&quot;&gt;“display:xxx”&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、display:none 元素被隐藏，保留页面代码，不保留物理空间，如果是表单则依然会被提交。&lt;/li&gt;
+  &lt;li&gt;2、jquery显示被display:none的元素：css(“display”, “block”)或css(“display”, “inline”)等。（看css的关于display的定义，根据实际情况）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;visibilityxxx&quot;&gt;“visibility:xxx”&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、visibility:hidden 元素被隐藏，保留页面代码，保留物理空间，如果是表单则依然会被提交。&lt;/li&gt;
+  &lt;li&gt;2、jquery显示被visibility:hidden的元素：css(“visibility”, “visible”)等。（看css的关于display的定义，根据实际情况）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hidden&quot;&gt;标签hidden属性&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、html5新增的属性，效果同display:none。&lt;/li&gt;
+  &lt;li&gt;2、jquery显示被hidden=true的元素：prop(“hidden”, false)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://iamazhi.github.io/2014/09/30/disabledreadonlydisplayvisibilityhiddentypehidden</link>
+                <guid>http://iamazhi.github.io/2014/09/30/disabledreadonlydisplayvisibilityhiddentypehidden</guid>
+                <pubDate>2014-09-30T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>disabled、readonly、display、visibility、hidden、type=hidden详解</title>
+                <description>
+&lt;h2 id=&quot;disabled&quot;&gt;一、disabled&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、disabled只对所有的表单元素有效，对其他元素无效（例如contenteditable的div）。&lt;/li&gt;
+  &lt;li&gt;2、disabled的表单元素不会被提交。&lt;/li&gt;
+  &lt;li&gt;3、设置disabled方法：
+    &lt;ul&gt;
+      &lt;li&gt;表单：disabled=”disabled”或disabled=”true”或disabled&lt;/li&gt;
+      &lt;li&gt;jquery： attr(“disabled”, “disabled”)或 attr(“disabled”, true)或 prop(“disabled”, true)。&lt;/li&gt;
+      &lt;li&gt;推荐方法：因为disabled可以认为是布尔值（只有true和false）。所以表单用disabled=”true”，jquery用prop(“disabled”, true)。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;readonly&quot;&gt;二、readonly&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、readonly只对input(text/password)或者textarea有效, 其他元素无效（包括非表单的contenteditable的div）。&lt;/li&gt;
+  &lt;li&gt;2、readonly的表单元素会被提交。&lt;/li&gt;
+  &lt;li&gt;3、设置readonly方法：
+    &lt;ul&gt;
+      &lt;li&gt;表单：readonly=”readonly”或readonly=”true”或readonly&lt;/li&gt;
+      &lt;li&gt;jquery： attr(“readonly”, “readonly”)或 attr(“readonly”, true)或 prop(“readonly”, true)。&lt;/li&gt;
+      &lt;li&gt;推荐方法：因为readonly可以认为是布尔值（只有true和false）。所以表单用readonly=”true”，jquery用prop(“readonly”, true)。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;typehidden&quot;&gt;三、type=hidden&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、type=”hidden”：对input有效对textarea无效。(应该只对input有效）&lt;/li&gt;
+  &lt;li&gt;2、隐藏input但保留空间，会被提交。（除非有disabled属性)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;displaynonevisibilityhiddenhiddentrue&quot;&gt;四、display:none、visibility:hidden、hidden=true&lt;/h2&gt;
+
+&lt;h3 id=&quot;displayxxx&quot;&gt;“display:xxx”&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、display:none 元素被隐藏，保留页面代码，不保留物理空间，如果是表单则依然会被提交。&lt;/li&gt;
+  &lt;li&gt;2、jquery显示被display:none的元素：css(“display”, “block”)或css(“display”, “inline”)等。（看css的关于display的定义，根据实际情况）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;visibilityxxx&quot;&gt;“visibility:xxx”&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、visibility:hidden 元素被隐藏，保留页面代码，保留物理空间，如果是表单则依然会被提交。&lt;/li&gt;
+  &lt;li&gt;2、jquery显示被visibility:hidden的元素：css(“visibility”, “visible”)等。（看css的关于display的定义，根据实际情况）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hidden&quot;&gt;标签hidden属性&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;1、html5新增的属性，效果同display:none。&lt;/li&gt;
+  &lt;li&gt;2、jquery显示被hidden=true的元素：prop(“hidden”, false)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://iamazhi.github.io/html5/2014/09/30/disabledreadonlydisplayvisibilityhiddentypehidden</link>
+                <guid>http://iamazhi.github.io/html5/2014/09/30/disabledreadonlydisplayvisibilityhiddentypehidden</guid>
+                <pubDate>2014-09-30T00:00:00+08:00</pubDate>
+        </item>
 
         <item>
                 <title>吾幼极客协作规范</title>
@@ -1581,8 +1700,17 @@ Fun1.call(new Obj());   //对象！
         </item>
 
         <item>
+                <title>Html5</title>
+                <description>
+</description>
+                <link>http://iamazhi.github.io/2014/09/09/html5</link>
+                <guid>http://iamazhi.github.io/2014/09/09/html5</guid>
+                <pubDate>2014-09-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
                 <title>html5</title>
-                <description>&lt;h1 id=&quot;html5&quot;&gt;html5&lt;/h1&gt;
+                <description>
 </description>
                 <link>http://iamazhi.github.io/html5/2014/09/09/html5</link>
                 <guid>http://iamazhi.github.io/html5/2014/09/09/html5</guid>
