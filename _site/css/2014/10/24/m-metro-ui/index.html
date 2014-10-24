@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>m-metro ui</title>
+    <meta name="description" content="迷你metro ui">
+    <meta name="author" content="Azhi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/custom/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">阿智技术博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+  
+     
+    	<li><a href="/categories.html#apache"> apache</a></li>
+     
+    	<li><a href="/categories.html#browser"> browser</a></li>
+     
+    	<li><a href="/categories.html#css"> css</a></li>
+     
+    	<li><a href="/categories.html#dom"> dom</a></li>
+     
+    	<li><a href="/categories.html#git"> git</a></li>
+     
+    	<li><a href="/categories.html#html5"> html5</a></li>
+     
+    	<li><a href="/categories.html#http"> http</a></li>
+     
+    	<li><a href="/categories.html#js"> js</a></li>
+     
+    	<li><a href="/categories.html#linux"> linux</a></li>
+     
+    	<li><a href="/categories.html#markdown"> markdown</a></li>
+     
+    	<li><a href="/categories.html#mysql"> mysql</a></li>
+     
+    	<li><a href="/categories.html#php"> php</a></li>
+     
+    	<li><a href="/categories.html#seo"> seo</a></li>
+     
+    	<li><a href="/categories.html#ssh"> ssh</a></li>
+     
+    	<li><a href="/categories.html#vim"> vim</a></li>
+     
+    	<li><a href="/categories.html#agile"> agile</a></li>
+    
+  
+
+
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container-fluid">
+        
+
+<div class="row">
+  <div class="col-xs-2">
+  </div>
+  <div class="col-xs-8">
+    <div class="page-header"> <h1>m-metro ui </h1> </div>
+
+    <div class="row post-full">
+      <div class="col-xs-12">
+        <div class="date">
+          <span>24 October 2014</span>
+        </div>
+        <div class="content"> <h1 id="m-metro-ui">M-metro ui</h1>
+
+<h2 id="css">css:</h2>
+<pre><code>
+ .grid { padding-left: 0; padding-right: 0; margin-right: auto; margin-left: auto; }
+ @media (min-width: 1200px){ .grid { max-width: 1160px; } }
+ @media (max-width: 500px ){ .sp1, .sp2, .sp3, .sp4 { width: 100%; } }
+
+ .sp1 {width: 25%;}
+ .sp2 {width: 50%;}
+ .sp3 {width: 75%;}
+ .sp4 {width: 100%;}
+
+ .sp1, .sp2, .sp3, .sp4 {
+   -webkit-box-sizing: border-box; 
+   -moz-box-sizing: border-box; 
+   box-sizing: border-box;
+  padding: 5px;
+ }
+
+ [class^='sp'] {float: left}
+ .row, .row &gt; div {height: 363px}
+ [class^='sp'] &gt; .sp4 {height: 50%}
+ [class^='sp'] &gt; .sp1 {height: 100%}
+ [class^='sp'] &gt; .sp2 {height: 100%}
+ [class^='sp'] &gt; .sp3 {height: 100%}
+
+ img {width:100%; height:100%}
+
+ .nopadding {padding: 0px}
+</code></pre>
+
+<h2 id="js">js:</h2>
+<pre><code>
+document.ready(function(){ init(); });
+
+function init(){
+    var grid = document.getElementById('grid');
+    var rows = grid.children;
+    // 循环每一个row，如果有子split，则加nopadding
+    for (i = 0; i &lt; rows.length; i++){
+        var curRow = rows[i];
+        var splitList = rows[i].children;
+        for(var j = 0; j &lt; splitList.length; j++)
+        {
+            var curSplit = splitList[j];
+            if(!(curSplit.className.indexOf("split") &gt; -1)) continue;
+            addNoPadding(curSplit);
+        }
+    }
+}
+
+// 判断当前split是否有子split，有则加nopadding，并且递归子split。
+function addNoPadding(split){
+    if(!hasChildsplit(split)) return;
+
+    split.className = split.className + ' nopadding';
+    var childs = split.children;
+    for(var j = 0; j &lt; childs.length; j++) {
+        var curSplit = childs[j];
+        if(!(curSplit.className.indexOf("split") &gt; -1)) continue;
+        addNoPadding(curSplit);
+    }
+}
+
+// 判断是否有子split
+function hasChildSplit(split){
+    var childs = split.children;
+    for(var j = 0; j &lt; childs.length; j++) {
+        var curSplit = childs[j];
+        if(curSplit.className.indexOf("split") &gt; -1) return true;
+    }
+    return false;
+}
+
+</code></pre>
+
+<h2 id="html">html:</h2>
+<pre><code>  &lt;div class='grid' id='grid'&gt;
+    &lt;div class='row'&gt;
+      &lt;div class='split1'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic1.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div class='split2'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic2.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div class='split1'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic3.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class='row'&gt;
+      &lt;div class='split2'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic4.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div class='split2'&gt;
+        &lt;div class='split4'&gt;
+          &lt;div class='split3'&gt; 
+            &lt;div class='split3'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic5.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+            &lt;div class='split1'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic6.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class='split1'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic6.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class='split4'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic6.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class='row'&gt;
+      &lt;div class='split1 '&gt;
+        &lt;div class='split4'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic5.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+        &lt;div class='split4'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic6.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class='split2'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic2.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div class='split1'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic3.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class='row'&gt;
+      &lt;div class='split1'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic1.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div class='split2'&gt;
+        &lt;div class='split4'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic5.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+        &lt;div class='split4'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic6.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class='split1'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic3.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class='row'&gt;
+      &lt;div class='split2'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic4.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+      &lt;div class='split2'&gt;&lt;a href="detail.html"&gt;&lt;img src="pic/pic2.jpg"&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+
+ </div>
+
+        
+        <ul class="tag_box inline">
+          <li><i class="glyphicon-open"></i></li>
+          
+          
+
+
+  
+     
+    	<li><a href="/categories.html#css-ref">
+    		css <span>2</span>
+    	</a></li>
+    
+  
+
+
+        </ul>
+          
+
+        
+        <ul class="tag_box inline">
+          <li><i class="glyphicon-tags"></i></li>
+          
+          
+
+
+  
+     
+    	<li><a href="/tags.html#ui-ref">ui <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#css-ref">css <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#metro-ref">metro <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+          
+
+        <hr>
+        <ul class="pagination">
+          
+          <li class="prev"><a href="/2014/09/30/disabledreadonlydisplayvisibilityhiddentypehidden" title="Disabledreadonlydisplayvisibilityhiddentypehidden">&laquo; 上一篇</a></li>
+          
+          <li><a href="/archive.html">所有文章</a></li>
+          
+          <li class="next disabled"><a>下一篇 &rarr;</a>
+            
+          </ul>
+          <hr>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-2">
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
