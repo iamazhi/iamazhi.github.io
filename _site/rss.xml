@@ -5,10 +5,164 @@
         <description>阿智技术博客 - Azhi</description>
         <link>http://iamazhi.github.io</link>
         <link>http://iamazhi.github.io</link>
-        <lastBuildDate>2014-10-24T16:52:08+08:00</lastBuildDate>
-        <pubDate>2014-10-24T16:52:08+08:00</pubDate>
+        <lastBuildDate>2014-12-10T17:23:42+08:00</lastBuildDate>
+        <pubDate>2014-12-10T17:23:42+08:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>cookie和session</title>
+                <description>
+&lt;h2 id=&quot;cookie&quot;&gt;Cookie，浏览器的客户通行证&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;由浏览器管理，具有不可跨域性&lt;/li&gt;
+  &lt;li&gt;浏览器只提交name和value属性&lt;/li&gt;
+  &lt;li&gt;如果未设置有效期，则存储在内存，随着窗口关闭而删除&lt;/li&gt;
+  &lt;li&gt;如果设置有效期，则存储在硬盘&lt;/li&gt;
+  &lt;li&gt;不同窗口用不同cookie，（链接或脚本打开的窗口属于父子窗口，用同一个cookie）&lt;/li&gt;
+  &lt;li&gt;cookie只能覆盖不能主动修改和删除&lt;/li&gt;
+  &lt;li&gt;跨子域：需要设置域Domain(“.xxx.com”)，a.xxx.com和b.xxx.com的cookie才能共用&lt;/li&gt;
+  &lt;li&gt;路径+域=cookie作用范围&lt;/li&gt;
+  &lt;li&gt;验证方法：
+    &lt;ul&gt;
+      &lt;li&gt;1、将用户名和加密密码放到cookie，与数据库做对比来做验证&lt;/li&gt;
+      &lt;li&gt;2、将用户名和加密算法(用户名和密码)放到cookie，通过判断加密规则来做验证&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;session&quot;&gt;Session，服务端的客户档案表&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;每次访问都更新有效期&lt;/li&gt;
+  &lt;li&gt;长久未访问则删除&lt;/li&gt;
+  &lt;li&gt;session客户端的实现方式
+    &lt;ul&gt;
+      &lt;li&gt;cookie：通过cookie携带sessionid(会员卡号，用来对应客户)来验证&lt;/li&gt;
+      &lt;li&gt;url重写(cookie被禁用的情况）：附加方式(http://…/xxx;sid=)，参数方式(http://…/xxx?sid=)&lt;/li&gt;
+      &lt;li&gt;表单隐藏字段（比较少用）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;phpsession&quot;&gt;php操作session&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;session_start()
+    &lt;ul&gt;
+      &lt;li&gt;如果cookie中的name=value有sessionName=sessionid，如果文件sess_{sessionid}不存在，则创建sess_{sessionid}文件&lt;/li&gt;
+      &lt;li&gt;如果cookie中的name=value没有sessionName=sessionid(第一次访问), 则php(创建并发送cookie,创建session文件，两者先后顺序？)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;如何销毁一个Session？
+    &lt;ul&gt;
+      &lt;li&gt;第一步，销毁session存在服务器端的数据: session_destroy();&lt;/li&gt;
+      &lt;li&gt;第二步，删除客户端的session cookie: setcookie(session_name(),’‘,time()-3600);，需要关闭浏览器(cookie在浏览器进程中)。&lt;/li&gt;
+      &lt;li&gt;第三步，销毁全局变量$_SESSION :$_SESSION=array();&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;sessionsso&quot;&gt;session跨域名/SSO&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;要满足
+    &lt;ul&gt;
+      &lt;li&gt;1、一个是各个服务器对同一个客户端产生的SESSION ID 必须相同，并且可通过同一个 COOKIE 进行传递，也就是说各个服务器必须可以读取同一个名为 PHPSESSID 的COOKIE；&lt;/li&gt;
+      &lt;li&gt;2、另一个是 SESSION 数据的存储方式/位置必须保证各个服务器都能够访问到。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;如何产生相同sessionID？
+    &lt;ul&gt;
+      &lt;li&gt;跨子域: 子域要设置相同domain，session_set_cookie_params(1800 , ‘/’, ‘.test.com’);&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;跨域：&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;p&gt;１、在Ａ系统下成功登录后，利用JS动态创建一个隐藏的iframe，通过iframe的src属性将Ａ域下的cookie值作为get参数重定向到Ｂ系统下b.jsp页面上；&lt;/p&gt;
+
+            &lt;pre&gt;&lt;code&gt;  var _frm = document.createElement(&quot;iframe&quot;);
+  _frm.style.display=&quot;none&quot;;
+  _frm.src = &quot;http://www.222.com/setcookie.php?mycookie=xxxxx&quot;;//此处xxx最好编码
+  document.body.appendChild(_frm);
+&lt;/code&gt;&lt;/pre&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;2、在Ｂ系统的setcookie.php页面中来获取Ａ系统中所传过来的cookie值，并将所获取到值写入用户的cookie中，当然域是自己的了，这样就简单的实现了cookie跨域的访问；不过这其中有个问题需要注意，就是在IE浏览器下这样操作不能成功，需要在setocokie.php页面中设置P3P HTTP Header就可以解决了（具体詳細信息可以参考:http://www.w3.org/P3P/)，P3P设置代码为：&lt;/p&gt;
+
+            &lt;pre&gt;&lt;code&gt;  header(&#39;P3P: CP=&quot;CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR&quot;&#39;);//ecshop这么设置的
+&lt;/code&gt;&lt;/pre&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;如何访问同一个session数据？
+    &lt;ul&gt;
+      &lt;li&gt;数据库存储&lt;/li&gt;
+      &lt;li&gt;NFS方式&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                <link>http://iamazhi.github.io/webrule/2014/12/10/cookiesession</link>
+                <guid>http://iamazhi.github.io/webrule/2014/12/10/cookiesession</guid>
+                <pubDate>2014-12-10T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>开源软件许可证——MIT > BSD > Apache > LGPL > GPL > AGPL </title>
+                <description>
+&lt;h2 id=&quot;mit--bsd--apache--lgpl--gpl--agpl&quot;&gt;宽松：MIT &amp;gt; BSD &amp;gt; Apache &amp;gt; LGPL &amp;gt; GPL &amp;gt; AGPL&lt;/h2&gt;
+
+&lt;h3 id=&quot;mitmitmassachusetts-institute-of-technology-mit&quot;&gt;1、MIT：MIT许可证之名源自麻省理工学院（Massachusetts Institute of Technology, MIT）&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;只有一点限制：所有应用必须包含版权声明和许可声明(自己修改后的声明)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bsd&quot;&gt;2、BSD&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;可以自由的使用，修改源代码，也可以将修改后的代码作为开源或者专有软件再发布。&lt;/li&gt;
+  &lt;li&gt;强调重代码作者的著作权&lt;/li&gt;
+  &lt;li&gt;只有两点限制：1、只需要把原来的BSD协议(不可以改)包含进来 2、不可以用开源代码的作者/机构名字和原来产品的名字做市场推广&lt;/li&gt;
+  &lt;li&gt;任意控制，商用首选&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;apache&quot;&gt;3、Apache&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Apache Licence是著名的非盈利开源组织Apache采用的协议。该协议和BSD类似，同样鼓励代码共享和尊重原作者的著作权，同样允许代码修改，再发布（作为开源或商业软件）&lt;/li&gt;
+  &lt;li&gt;需要给代码的用户一份Apache Licence
+如果你修改了代码，需要在被修改的文件中说明。
+在延伸的代码中（修改和有源代码衍生的代码中）需要带有原来代码中的协议，商标，专利声明和其他原来作者规定需要包含的说明。
+如果再发布的产品中包含一个Notice文件，则在Notice文件中需要带有Apache Licence。你可以在Notice中增加自己的许可，但不可以表现为对Apache Licence构成更改。&lt;/li&gt;
+  &lt;li&gt;Apache Licence也是对商业应用友好的许可。使用者也可以在需要的时候修改代码来满足需要并作为开源或商业产品发布/销售。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lgpllesser-general-public-licenselibrary-general-public-license&quot;&gt;4、LGPL：宽松公共许可证（Lesser General Public License）或库通用公共许可证（Library General Public License）&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;始终开放源代码&lt;/li&gt;
+  &lt;li&gt;GPL宽松版：如果您的程序对遵循 LGPL 的软件进行任何连接、调用而不是包含，则允许封闭源代码。&lt;/li&gt;
+  &lt;li&gt;可以商用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gplgeneral-public-licensegpl&quot;&gt;5、GPL：通用性公开许可证(General Public License，简称GPL)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;规定：始终开放源代码，使用GPL协议程序的程序必须遵循GPL协议，即A包含或调用B，如果B为GPL协议，则A发布时也必须为GPL协议（强调A发布）&lt;/li&gt;
+  &lt;li&gt;适用：GPL是针对传统的软件分发模式的商业模式(以微软为代表)&lt;/li&gt;
+  &lt;li&gt;缺点：互联网公司（网络服务）则不受到影响（因为不发布软件就不用受到GPL限制，所以AGPL来了）&lt;/li&gt;
+  &lt;li&gt;可以商用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;agplaffero-&quot;&gt;6、AGPL：Affero 通用公共许可协议&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;始终开放源代码，向社区提交修改&lt;/li&gt;
+  &lt;li&gt;GPL加强版：最典型的例子就是一个Web应用程序如果使用了AGPL许可证，那么运行这个Web应用程序或其派生作品供他人访问时就需要以AGPL发布其源代码，除非购买商业许可。&lt;/li&gt;
+  &lt;li&gt;可以商用&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+                <link>http://iamazhi.github.io/webrule/2014/12/01/%E5%8D%8F%E8%AE%AE</link>
+                <guid>http://iamazhi.github.io/webrule/2014/12/01/协议</guid>
+                <pubDate>2014-12-01T00:00:00+08:00</pubDate>
+        </item>
 
         <item>
                 <title>m-metro ui</title>

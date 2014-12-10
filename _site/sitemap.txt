@@ -8,6 +8,8 @@ http://iamazhi.github.io/rss.xml
 http://iamazhi.github.io/sitemap.txt
 http://iamazhi.github.io/tags.html
 
+http://iamazhi.github.io/webrule/2014/12/10/cookiesession
+http://iamazhi.github.io/webrule/2014/12/01/%E5%8D%8F%E8%AE%AE
 http://iamazhi.github.io/css/2014/10/24/m-metro-ui
 http://iamazhi.github.io/2014/09/30/disabledreadonlydisplayvisibilityhiddentypehidden
 http://iamazhi.github.io/html5/2014/09/30/disabledreadonlydisplayvisibilityhiddentypehidden
