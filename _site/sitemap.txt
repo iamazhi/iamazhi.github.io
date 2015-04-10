@@ -8,6 +8,7 @@ http://iamazhi.github.io/rss.xml
 http://iamazhi.github.io/sitemap.txt
 http://iamazhi.github.io/tags.html
 
+http://iamazhi.github.io/browser/2015/04/10/gfw
 http://iamazhi.github.io/webrule/2014/12/10/cookiesession
 http://iamazhi.github.io/webrule/2014/12/01/%E5%8D%8F%E8%AE%AE
 http://iamazhi.github.io/css/2014/10/24/m-metro-ui
@@ -24,8 +25,8 @@ http://iamazhi.github.io/markdown/2014/09/09/markdown
 http://iamazhi.github.io/linux/2014/09/09/linux
 http://iamazhi.github.io/js/2014/09/09/js
 http://iamazhi.github.io/http/2014/09/09/http
-http://iamazhi.github.io/html5/2014/09/09/html5
 http://iamazhi.github.io/2014/09/09/html5
+http://iamazhi.github.io/html5/2014/09/09/html5
 http://iamazhi.github.io/git/2014/09/09/git
 http://iamazhi.github.io/dom/2014/09/09/dom
 http://iamazhi.github.io/css/2014/09/09/css

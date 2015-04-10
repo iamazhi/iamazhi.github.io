@@ -4,13 +4,33 @@
  <title>阿智技术博客</title>
  <link href="http://iamazhi.github.io/" rel="self"/>
  <link href="http://iamazhi.github.io"/>
- <updated>2014-12-10T17:23:42+08:00</updated>
+ <updated>2015-04-10T09:34:51+08:00</updated>
  <id>http://iamazhi.github.io</id>
  <author>
    <name>Azhi</name>
    <email>chencongzhi520@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>global LAN</title>
+   <link href="http://iamazhi.github.io/browser/2015/04/10/gfw"/>
+   <updated>2015-04-10T00:00:00+08:00</updated>
+   <id>http://iamazhi.github.io/browser/2015/04/10/gfw</id>
+   <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;全球局域网：google&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;google&quot;&gt;1、google&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.gfsoso.com/&quot;&gt;GFsoso&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://myrevery.com/Google/&quot;&gt;谷歌复原&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.glgoo.com/&quot;&gt;Glgoo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ggss.cc/&quot;&gt;ggss&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://208.117.252.249/&quot;&gt;google&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>cookie和session</title>
@@ -1987,19 +2007,19 @@ Fun1.call(new Obj());   //对象！
  </entry>
  
  <entry>
-   <title>html5</title>
-   <link href="http://iamazhi.github.io/html5/2014/09/09/html5"/>
+   <title>Html5</title>
+   <link href="http://iamazhi.github.io/2014/09/09/html5"/>
    <updated>2014-09-09T00:00:00+08:00</updated>
-   <id>http://iamazhi.github.io/html5/2014/09/09/html5</id>
+   <id>http://iamazhi.github.io/2014/09/09/html5</id>
    <content type="html">
 </content>
  </entry>
  
  <entry>
-   <title>Html5</title>
-   <link href="http://iamazhi.github.io/2014/09/09/html5"/>
+   <title>html5</title>
+   <link href="http://iamazhi.github.io/html5/2014/09/09/html5"/>
    <updated>2014-09-09T00:00:00+08:00</updated>
-   <id>http://iamazhi.github.io/2014/09/09/html5</id>
+   <id>http://iamazhi.github.io/html5/2014/09/09/html5</id>
    <content type="html">
 </content>
  </entry>
