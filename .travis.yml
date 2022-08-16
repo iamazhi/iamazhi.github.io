@@ -16,7 +16,7 @@ before_install:
   - npm install -g hexo-cli        # 安装 hexo
 
 install:
-  - npm install                 # 安装 hexo 项目相关的依赖
+  - npm install -g                 # 安装 hexo 项目相关的依赖
 
 # 执行脚本 
 script:                         
