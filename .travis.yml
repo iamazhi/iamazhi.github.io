@@ -19,6 +19,8 @@ install:
 
 # 执行脚本
 script:
+  - node -v
+  - hexo version
   - hexo clean                  # 清除 hexo 缓存
   - hexo generate               # 生成静态文件
 
