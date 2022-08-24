@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Azhi'Blog
+title: 阿智的博客
 subtitle: ''
 description: ''
 keywords:
-author: congzhi chen
+author: 阿智
 language: zh-cn
 timezone: ''
 
@@ -79,9 +79,9 @@ meta_generator: true
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
-time_format: HH:mm:ss
+## time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -102,4 +102,6 @@ theme: Chic
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/iamazhi/iamazhi.github.io.git
+  branch: gh-pages
