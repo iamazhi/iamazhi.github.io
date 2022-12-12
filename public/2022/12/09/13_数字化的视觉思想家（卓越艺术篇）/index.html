@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="阿智">
+
+
+
+
+
+<title>数字化的视觉思想家（卓越艺术篇） | 阿智的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">阿智的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">阿智的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶部</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '收缩';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">数字化的视觉思想家（卓越艺术篇）</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">阿智</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-12-09</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>我们常说“一图胜千言”，其实说的是视觉思维。视觉思维也称空间学习或图片思维，是一种通过视觉处理进行思考的思维方式。有研究表明（儿童发展理论家琳达·克雷格·西尔弗曼），只有小部分（不到30%）具有完全的视觉思维。不过我觉得这个比例应该会更少，我指的是优秀的“视觉思考者”，视觉思考者会优先考虑用视觉而不是文字来表达事物或者解决问题。</p>
+<p><strong>优秀的视觉思考者</strong><br>在数字化时代，我们需要把各种各样的数据变成各种各样的图表，我们称之为“数据图表化”。这是一件有趣的事情，虽然把数据图表化做好已经很不容易，但我觉得这还是属于“优秀的视觉思考者”范畴，他们创造的是“工程型作品”，所以我会用【优秀入门篇】来展开这部分。<br>要把数据图表化做好，那么你可能需要这几个东西。<br>第一个是理论：这里我推荐Roam的《视觉思维法典》，它告诉你从问题到图表的路径方法。<br>第二个是案例：在类似的理论原则下，有哪些较好的实践项目供你参考和开拓视野，他山之石这个很重要。<br>第三个是原则：每个匠人都应该有自己的细节原则，所以你应该也要有一些基本原则来精雕细琢你的图表作品。<br>第四个是实现：这显然是需要计算机技能的，无论是Python&#x2F;plotlib还是JS&#x2F;D3.js，这里我分享下plotlib的小抄。</p>
+<p><strong>卓越的视觉思想家</strong><br>在“优秀的视觉思考者”之上，我认为是“卓越的视觉思想家”。<br>一方面，他们无一不具备强大的想象力，他们是梦幻的天马行空者也是创新的代表，他们似乎有无限的创造力且不会拘泥于一种方式方法来表达。<br>另一方面，数字化只是他们的工具，因为它需要的想象力高于它需要的技能，而艺术作品才是他们的目的，作品的核心是艺术家要表达的思想。<br>对于“卓越的视觉思想家”，我显然是望尘莫及的，不过作为一个纯路人，有不少好的作品（上百个我觉得比较精彩的作品）我觉得可以分享给大家，这一块会用单独放到【卓越艺术篇】。如需作品更详细信息，请自行移步官网鉴赏或者购买。</p>
+<h2 id="一、单个作品"><a href="#一、单个作品" class="headerlink" title="一、单个作品"></a>一、<a target="_blank" rel="noopener" href="https://www.dataviz-inspiration.com/">单个作品</a></h2><h3 id="1-《维基百科是关于什么的？》"><a href="#1-《维基百科是关于什么的？》" class="headerlink" title="1. 《维基百科是关于什么的？》"></a>1. 《维基百科是关于什么的？》</h3><p>简介：2014 年维基百科中有大约 1000 万个元素。此信息图按类型（例如地理实体）对它们进行分组，并检查数量最多的项目。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p1.png"></p>
+<h3 id="2-《破解你最喜欢的密码》"><a href="#2-《破解你最喜欢的密码》" class="headerlink" title="2. 《破解你最喜欢的密码》"></a>2. <a target="_blank" rel="noopener" href="https://r-graph-gallery.com/web-circular-lollipop-plot-with-ggplot2.html">《破解你最喜欢的密码》</a></h3><p>简介：通过在线猜测破解 500 个最常见密码所需时间的可视化。此图是一个圆形棒棒糖图表，其中每个项目都是一个密码。按等级排序并按类别着色。最极端的密码注释，底部按类别分类。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p2.png"></p>
+<h3 id="3-《俄罗斯、天然气和乌克兰冲突》"><a href="#3-《俄罗斯、天然气和乌克兰冲突》" class="headerlink" title="3. 《俄罗斯、天然气和乌克兰冲突》"></a>3. 《俄罗斯、天然气和乌克兰冲突》</h3><p>简介：欧洲依靠俄罗斯的天然气为数百万家庭供暖、发电和为工厂供电。随着俄罗斯军队在乌克兰边境集结，欧洲对俄罗斯的严重依赖限制了它的外交选择，并有可能使其能源供应陷入混乱。这张地图描述了分配给每个欧洲国家的天然气供应的比例。此图可视化是一个等值线图，上面有一个桑基图。等值线显示了每个国家对俄罗斯天然气的依赖程度。桑基图（箭头）显示了俄罗斯天然气的分布位置。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p3.png"></p>
+<h3 id="4-《500亿只鸟》"><a href="#4-《500亿只鸟》" class="headerlink" title="4. 《500亿只鸟》"></a>4. 《500亿只鸟》</h3><p>简介：这个星球上有 500 亿只鸟。epsiloon mag（科普杂志）整版做了一个关于鸟类分类的文章，给出了一个很有见地的结果。此图是一个圆形包装图，显示主要图表家族及其在动物数量方面的重要性。注释是法语的，但我喜欢围绕这样的图表讲述的故事。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p4.png"></p>
+<h3 id="5-《诺贝尔，没有学位》"><a href="#5-《诺贝尔，没有学位》" class="headerlink" title="5. 《诺贝尔，没有学位》"></a>5. 《诺贝尔，没有学位》</h3><p>简介：这个可视化探索了多年来诺贝尔奖的故事。每个获奖者的可视化是奖项类别、获奖年份、当时获奖者的年龄，以及主要学术机构和家乡。每个点代表一位诺贝尔奖获得者，每位获奖者根据获奖年份（x 轴）和获奖时的年龄（y 轴）定位。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p5.png"></p>
+<h3 id="6-《全球碳足迹》"><a href="#6-《全球碳足迹》" class="headerlink" title="6. 《全球碳足迹》"></a>6. 《全球碳足迹》</h3><p>简介：该设计按国家&#x2F;地区描绘了全球碳排放量，按大陆进行了颜色编码，并与排放量成正比。球体的排列以批判的尺度感完美地体现了碳足迹的隐喻。这是一个圆形包装图，根节点的形状非常特殊。它使可视化大放异彩，并使其成为dataviz的知名杰作。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p6.png"></p>
+<h3 id="7-《碳排放量》"><a href="#7-《碳排放量》" class="headerlink" title="7. 《碳排放量》"></a>7. 《碳排放量》</h3><p>简介：碳排放是当今的热门话题。这张图表总结了一个国家根据其人口排放了多少二氧化碳。此图表是一个圆形条形图，条宽不等。事实上，条形宽度与国家人口成正比。这是一个非常有趣的调整，使图表更具洞察力。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p7.png"></p>
+<h3 id="8-《科技创业演变》-https-www-behance-net-gallery-59504801-Tech-Startup-Evolution-Calendar-2018"><a href="#8-《科技创业演变》-https-www-behance-net-gallery-59504801-Tech-Startup-Evolution-Calendar-2018" class="headerlink" title="8. [《科技创业演变》]https://www.behance.net/gallery/59504801/Tech-Startup-Evolution-Calendar-2018"></a>8. [《科技创业演变》]<a target="_blank" rel="noopener" href="https://www.behance.net/gallery/59504801/Tech-Startup-Evolution-Calendar-2018">https://www.behance.net/gallery/59504801/Tech-Startup-Evolution-Calendar-2018</a></h3><p>简介：一个圆形日历，展示了我们这个时代最重要的科技公司的发展历程。显示市场价值、购买价格、员工人数等特征。这是一个圆形棒棒糖图表。它显示了每家公司的大量信息，我喜欢使它看起来具有未来感的颜色选择。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p8.png"></p>
+<h3 id="9-《语言的世界》"><a href="#9-《语言的世界》" class="headerlink" title="9. 《语言的世界》"></a>9. 《语言的世界》</h3><p>简介：深入了解世界上现存的 7102 种已知语言。主要有哪些？他们在哪个国家&#x2F;地区使用？显示每种语言重要性的圆形 Voronoi 图。如此多的信息都集中在同一个人物身上，风格非常抢眼。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p9.png"></p>
+<h3 id="10-《高线公园的艺术》-https-www-studioterp-nl-the-art-of-the-high-line"><a href="#10-《高线公园的艺术》-https-www-studioterp-nl-the-art-of-the-high-line" class="headerlink" title="10. [《高线公园的艺术》] (https://www.studioterp.nl/the-art-of-the-high-line/)"></a>10. [《高线公园的艺术》] (<a target="_blank" rel="noopener" href="https://www.studioterp.nl/the-art-of-the-high-line/">https://www.studioterp.nl/the-art-of-the-high-line/</a>)</h3><p>简介：高线公园是纽约的一个高架线性公园，展示艺术家的作品。此可视化描述了在那里展示过的艺术家。这件作品主要是一个圆形条形图。但由于内圈补充图表，它设法存储了大量信息。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p10.png"><br>[图片]</p>
+<h3 id="11-《全球天气状况》-https-earth-nullschool-net-current-wind-surface-level-orthographic-124-57-6-05-1056"><a href="#11-《全球天气状况》-https-earth-nullschool-net-current-wind-surface-level-orthographic-124-57-6-05-1056" class="headerlink" title="11. [《全球天气状况》] (https://earth.nullschool.net/#current/wind/surface/level/orthographic=124.57,-6.05,1056)"></a>11. [《全球天气状况》] (<a target="_blank" rel="noopener" href="https://earth.nullschool.net/#current/wind/surface/level/orthographic=124.57,-6.05,1056">https://earth.nullschool.net/#current/wind/surface/level/orthographic=124.57,-6.05,1056</a>)</h3><p>简介：全球天气状况的动画地图。包括风、波浪、温度等等。显示实时数据。显示全球流量的交互式地图。您可以旋转和缩放地球。我喜欢网页的可视化方式，有一个可选的控制面板来决定显示什么。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p11.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p12.gif"></p>
+<h3 id="12-《缓慢的损失》-https-www-behance-net-gallery-151474693-The-Slow-Loss-La-Lettura-dataviz"><a href="#12-《缓慢的损失》-https-www-behance-net-gallery-151474693-The-Slow-Loss-La-Lettura-dataviz" class="headerlink" title="12. [《缓慢的损失》] (https://www.behance.net/gallery/151474693/The-Slow-Loss-La-Lettura-dataviz)"></a>12. [《缓慢的损失》] (<a target="_blank" rel="noopener" href="https://www.behance.net/gallery/151474693/The-Slow-Loss-La-Lettura-dataviz">https://www.behance.net/gallery/151474693/The-Slow-Loss-La-Lettura-dataviz</a>)</h3><p>简介：根据世界自然保护联盟的“红色名录”，这幅双联画展示了意大利濒临灭绝的鸟类和鱼类的种类。对于每只动物，都标明了以下内容：通用名称、顺序、危险程度、大小和栖息地。这些圆形树状图是一种表达信息的诗意方式。动物的大小被映射到一个形状，让我们在羽毛或规模上思考。不是最科学的方法，但结果很美。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p13.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p14.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p15.png"></p>
+<h3 id="13-《纽约时报畅销书》-https-github-com-tashapiro-TidyTuesday-tree-master-2022-W19"><a href="#13-《纽约时报畅销书》-https-github-com-tashapiro-TidyTuesday-tree-master-2022-W19" class="headerlink" title="13. [《纽约时报畅销书》] (https://github.com/tashapiro/TidyTuesday/tree/master/2022/W19)"></a>13. [《纽约时报畅销书》] (<a target="_blank" rel="noopener" href="https://github.com/tashapiro/TidyTuesday/tree/master/2022/W19">https://github.com/tashapiro/TidyTuesday/tree/master/2022/W19</a>)</h3><p>简介：十年来的顶级作家。根据作者出现在列表中的周数排名。迷你图描绘了每年的总周数。表现最好的书包含在每个作者的名字下面。来自 Post45 Data Collective 的数据。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p16.png"></p>
+<h3 id="14-《美国移民树》"><a href="#14-《美国移民树》" class="headerlink" title="14. 《美国移民树》"></a>14. <a target="_blank" rel="noopener" href="https://web.northeastern.edu/naturalizing-immigration-dataviz/">《美国移民树》</a></h3><p>简介：大自然有自己组织信息的方式：生物生长并记录来自环境的信息。这在树木中尤为明显，树木通过年轮讲述了它们的成长故事。将这种现象作为视觉隐喻，可以将美国想象成一棵树，其形状和生长模式受到移民的影响。这个国家，这棵树，已有数百年的历史，它的细胞是由移民组成的。随着时间的流逝，细胞沉积在十年一次的环中，捕捉移民浪潮。它代表美国的移民：每个点代表 100 名移民。到中心的距离代表日期。角度代表移民的来源。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p17.png"></p>
+<h3 id="15-《对话棱镜》"><a href="#15-《对话棱镜》" class="headerlink" title="15. 《对话棱镜》"></a>15. <a target="_blank" rel="noopener" href="https://conversationprism.com/">《对话棱镜》</a></h3><p>The Conversation Prism 由Brian Solis和<a target="_blank" rel="noopener" href="https://jess3.com/projects/brian-solis-conversation-prism-v5/">JESS3</a>（JESS3是一家专门从事数据可视化的创意机构）于 2008 年推出，是社交媒体景观的视觉地图。这是一项正在进行的数字民族志研究，追踪主要和有前途的社交网络，并根据它们在日常生活中的使用方式对它们进行组织。社交媒体使信息民主化并改变了影响力结构。The Conversation Prism 的最后一次更新是在 2013 年。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p18.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p19.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p20.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p21.png"></p>
+<h3 id="16-《梵高的完整画作》"><a href="#16-《梵高的完整画作》" class="headerlink" title="16. 《梵高的完整画作》"></a>16. 《梵高的完整画作》</h3><p>Curious Charts 的创始人 Timothy 和 Aurélia 是一家位于威斯康星州麦迪逊的夫妻店。<br>梵高的完整画作：这张 24x36 英寸的挂图通过将文森特梵高的 870 多幅油画集中在一页上来进行娱乐和教育。缩略图按主题分组，因此您可以轻松查看他的全部作品，或研究他选择绘画的特定类别的人物、地点和事物。其结果是对这位画家大师的新视角：如果您只熟悉他的几幅自画像，那么您可以在这里查看全部 (38)。或者你可以研究他对麦田（42 幅画）和鲜花（70 幅）的痴迷，或者他的女性肖像（85 幅）和男性肖像（44 幅）。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p22.png"></p>
+<h3 id="17-《伯恩的欧几里德》"><a href="#17-《伯恩的欧几里德》" class="headerlink" title="17. 《伯恩的欧几里德》"></a>17. <a target="_blank" rel="noopener" href="https://www.c82.net/">《伯恩的欧几里德》</a></h3><p>Nicholas Rougeaux芝加哥的网页设计师和艺术家；你可以在c82.net找到他所有的作品<br>伯恩的欧几里德&amp;维尔纳的色谱命名法:<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p23.png"></p>
+<h3 id="18-《阿波罗飞行》《黑鹿》"><a href="#18-《阿波罗飞行》《黑鹿》" class="headerlink" title="18. 《阿波罗飞行》《黑鹿》"></a>18. <a target="_blank" rel="noopener" href="https://www.madefromdata.com/products">《阿波罗飞行》《黑鹿》</a></h3><p>Paul Button 是一位居住在伦敦的平面设计师，专门从事信息设计和数据插图。您可以在Made From Data上看到他的作品。<br>阿波罗黑:每次载人阿波罗飞行的视觉历史，描绘人类最伟大的成就之一，从肯尼迪的“我们选择去月球”演讲到阿姆斯特朗的“一小步”及以后。阿波罗任务一直让Paul着迷 - 执行在当今世界仍然看似不可能的事情所需的纯粹决心和勇气，但仅使用那个时代的技术。通过这张照片，Paul试图从开始这一切的演讲中绘制出主要的里程碑，随着每个增量任务越来越接近实际着陆本身，遵循时间表。Paul也在那里为真正的太空书呆子藏了几个复活节彩蛋 :)<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p24.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p25.png"><br>黑鹿：Black Buck 行动的视觉记录 - 也许是英国皇家空军执行过的最冒险但最雄心勃勃的任务之一。这幅印刷品形象地展示了在福克兰群岛冲突期间将一架火神轰炸机送往 4,000 英里外的目标并返回所需的多次空对空加油任务的复杂舞蹈。<br>对于这幅印刷品，我与执行实际任务的中队队长 Robert Tuxford AFC RAF Ret’d 合作。具体来说，他是关键的最后一批油轮船员的船长，他们冒着生命危险放弃自己的燃料，以便继续执行任务。我相信我们已经创建了可能是当前存在的该图的最完整和最准确的版本。<br>印刷品可视化了夜间发生的任务，包括设备故障、紧急情况和计划外燃料转移。每个机长和机身都贴有标签，并给出了每次出击的时间。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p26.png"></p>
+<h3 id="19-《188-种已知的认知偏差》-https-www-visualcapitalist-com-every-single-cognitive-bias"><a href="#19-《188-种已知的认知偏差》-https-www-visualcapitalist-com-every-single-cognitive-bias" class="headerlink" title="19. [《188 种已知的认知偏差》] (https://www.visualcapitalist.com/every-single-cognitive-bias/)"></a>19. [《188 种已知的认知偏差》] (<a target="_blank" rel="noopener" href="https://www.visualcapitalist.com/every-single-cognitive-bias/">https://www.visualcapitalist.com/every-single-cognitive-bias/</a>)</h3><p>人脑能够做出令人难以置信的事情，但有时它也有极大的缺陷。<br>科学表明，我们往往会犯各种心理错误，称为“认知偏见”，这会影响我们的思维和行为。这些偏见可能导致我们从错误的来源推断信息，试图确认现有的信念，或者无法按照实际发生的方式记住事件！<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p27.png"></p>
+<h3 id="20-《历史长卷》"><a href="#20-《历史长卷》" class="headerlink" title="20. 《历史长卷》"></a>20. 《历史长卷》</h3><p>由地理知识局出品。<br>中国历史长卷：<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p28.png"><br>世界历史长卷：<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p29.png"></p>
+<h2 id="二、多个作品"><a href="#二、多个作品" class="headerlink" title="二、多个作品"></a>二、<a target="_blank" rel="noopener" href="https://coolinfographics.com/posters">多个作品</a></h2><h3 id="1-HistoryShots团队"><a href="#1-HistoryShots团队" class="headerlink" title="1. HistoryShots团队"></a>1. <a target="_blank" rel="noopener" href="https://historyshots.com/">HistoryShots团队</a></h3><p>他们于 2003 年开始设计和销售结合了大量信息和周到设计的高质量原创图形。</p>
+<h4 id="1-1-流行-x2F-摇滚音乐的谱系"><a href="#1-1-流行-x2F-摇滚音乐的谱系" class="headerlink" title="1.1 流行&#x2F;摇滚音乐的谱系"></a>1.1 <a target="_blank" rel="noopener" href="http://www.historyshots.com/rockmusic/index.cfm?s=cirk">流行&#x2F;摇滚音乐的谱系</a></h4><p>瑞比·加罗法洛 (Reebee Garofalo) 的流行&#x2F;摇滚音乐谱系排行榜受到了学者和歌迷的一致好评。该图表记录了流行&#x2F;摇滚音乐及其最畅销艺术家的成长和发展。<br>从 1955 年到 1978 年，700 多位艺术家和 30 种音乐风格被映射到从左到右的潮流中。对于每位表演者，提供了他&#x2F;她保持主要热门歌曲制作人的时间长度。重叠的流允许您比较同一时期多位艺术家的寿命和影响力。介绍了每个风格类别的诞生和谱系，以及对其在总唱片销量中所占份额的估计。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p30.png"></p>
+<h4 id="1-2-PopWaves（60-年的音乐！）"><a href="#1-2-PopWaves（60-年的音乐！）" class="headerlink" title="1.2 PopWaves（60 年的音乐！）"></a>1.2 <a target="_blank" rel="noopener" href="https://www.historyshots.com/products/popwaves?s=cirk">PopWaves（60 年的音乐！）</a></h4><p>60 年的音乐！1200 位音乐艺术家！75种类型！筹备两年。PopWaves从经典的流行&#x2F;摇滚音乐谱系中汲取灵感；它按风格绘制了摇滚乐开始以来每年的顶级流行艺术家。粗体标题和流派边界显示流派和流派之间的相互关系；艺术家姓名和虚线箭头代表人气最高的时刻。<br>经过精心研究、专家审查和主观分类，这个巨大的、精心手写的、7 英尺长的图表野兽将为您提供无尽的音乐记忆和与朋友的争论。非常适合音乐爱好者和无处不在的大墙拥有者。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p31.png"></p>
+<h5 id="1-3-电影史"><a href="#1-3-电影史" class="headerlink" title="1.3 电影史"></a>1.3 <a target="_blank" rel="noopener" href="https://www.historyshots.com/products/history-of-film?s=cirk">电影史</a></h5><p>从《猜火车》到《聚光灯》，从《大饭店》到《布达佩斯大饭店》，电影史是从故事片行业初期到今天的 2100 部最佳和最重要电影的视觉概要。电影是按流派代表的流派组织的，流派会随着时间的推移而增长和缩小。起点是 1900 年代初，当时第一部以戏剧为基础的长篇电影上映。随着电影制作人通过进入冒险、西部片、战争和喜剧等其他类型来扩展他们的创造力，流媒体的数量和规模迅速增长。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p32.png"></p>
+<h5 id="1-4-黄金时段电视的历史"><a href="#1-4-黄金时段电视的历史" class="headerlink" title="1.4 黄金时段电视的历史"></a>1.4 <a target="_blank" rel="noopener" href="https://www.historyshots.com/collections/all-prints/products/history-of-tv?s=cirk">黄金时段电视的历史</a></h5><p>ShowWaves 列出了过去 75 年来 1,000 部最具影响力、最受欢迎和引领潮流的电视和流媒体节目。节目是按流派代表的流派组织的，流派会随着时间的推移而增长和缩小。<br>从 1940 年代初期第一部电视节目播出到流媒体时代，ShowWaves 在一张图表中描绘了电视的历史。粗体标题和流派边界显示流派和流派之间的相互关系；每个节目的开始和结束年份允许您比较您最喜欢的节目。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p33.png"></p>
+<h4 id="1-5-太空探索五十年"><a href="#1-5-太空探索五十年" class="headerlink" title="1.5 太空探索五十年"></a>1.5 <a target="_blank" rel="noopener" href="https://www.historyshots.com/collections/space/products/fifty-years-of-space-exploration?s=cirk">太空探索五十年</a></h4><p>艺术和信息在这个令人惊叹的太空探索视觉效果中完美结合。在我们的太阳系及更远的地方描绘了 200 次太空任务。鉴于我们探索宇宙的愿望，我们很有见地地发现大多数探索任务仅限于我们最近的邻居——月球、火星和金星。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p34.png"></p>
+<h4 id="1-6-美国航空公司的谱系"><a href="#1-6-美国航空公司的谱系" class="headerlink" title="1.6 美国航空公司的谱系"></a>1.6 <a target="_blank" rel="noopener" href="https://www.historyshots.com/collections/all-prints/products/airlines?s=cirk">美国航空公司的谱系</a></h4><p>美国航空公司的谱系是商业航空诞生和发展的 100 年视觉历史。追溯当今主导航空旅行的主要航空公司的迷人诞生。跟随 1927 年受查尔斯林德伯格飞行影响的行业的完整旅程，从 1930 年被迫合并为四大公司（美国联合航空、美国航空、东方航空和环球航空）到 1940 年代当地航空公司的扩张，再到影响1978 年放松管制。看看世界著名航空公司泛美航空公司和环球航空公司的兴衰。<br>除了主要时间线外，该图表还镶有 20 个老式航空公司标签。这些经典插图提供了航空公司历史的另一种视角。图形中使用的字体和颜色的灵感来自旅行黄金时代的装饰艺术风格。<br>代表的航空公司包括：United、Delta、American、JetBlue、SouthWest、Hawaiian、Spirit、Alaska、Continental、TWA、Pan American、Western、National、USAir、Frontier、Northwest、Eastern、Central 等。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p35.png"></p>
+<h4 id="1-7-汽车公司的谱系"><a href="#1-7-汽车公司的谱系" class="headerlink" title="1.7 汽车公司的谱系"></a>1.7 <a target="_blank" rel="noopener" href="https://www.historyshots.com/collections/pop-culture/products/genealogy-of-automobile-companies?s=cirk">汽车公司的谱系</a></h4><p>汽车行业 100 多家汽车公司 130 年的视觉历史。从 1900 年到 1925 年，美国成立了 3,300 多个汽车生产组织。今天，十家公司约占美国汽车总销量的 90%。汽车公司谱系是这个迷人行业的视觉历史，从五巨头到倒闭的小公司。折入谱系的是每家公司在美国销售额的相对市场份额。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p36.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p37.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p38.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p39.png"></p>
+<h4 id="1-8-摩托车视觉史"><a href="#1-8-摩托车视觉史" class="headerlink" title="1.8 摩托车视觉史"></a>1.8 <a target="_blank" rel="noopener" href="https://www.historyshots.com/collections/all-prints/products/motorcycles?s=cirk">摩托车视觉史</a></h4><p>110 年的摩托车历史由九幅令人惊叹的经典摩托车手绘插图构成。这部摩托车的视觉历史描绘了世界上 50 个最重要的摩托车品牌和品牌的潮起潮落，包括 Indian、Harley-Davidson、Triumph、NSU、BMW、Honda 和 Yamaha。每家公司都列出了他们最著名和最经典的摩托车型号。<br>每个品牌时间线的位置提供了一个视觉故事，说明谁在每十年主导该行业。这张印刷品在您的墙上或您最喜欢的骑手的墙上看起来会很棒。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p40.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p41.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p42.png"></p>
+<h4 id="1-9-政党史-I"><a href="#1-9-政党史-I" class="headerlink" title="1.9 政党史 I"></a>1.9 <a target="_blank" rel="noopener" href="https://www.historyshots.com/collections/all-prints/products/parties?s=cirk">政党史 I</a></h4><p>这本政党史印刷品描绘了政治权力的流动，将我们政治历史的前 100 年转化为一幅单一的视觉图片。 从单一来源开始，代表政党的大量流在政党创建时分叉并重新加入，然后逐渐消失。随着权力从一方转移到另一方，潮流曲折。跟随 Loco Focos、Barnburners、Hunkers、Silver Greys 和节制派对的历史。看看 1850 年代辉格党爆发和共和党诞生时的混乱。这些图形提供了从总统乔治华盛顿到约瑟夫拜登的迷人视觉历史。这幅印刷品是一位不知名的设计师于 1894 年左右创作的原始古董印刷品的高质量复制品。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p43.png"></p>
+<h4 id="1-10-政党史-II"><a href="#1-10-政党史-II" class="headerlink" title="1.10 政党史 II"></a>1.10 <a target="_blank" rel="noopener" href="https://www.historyshots.com/products/parties2?s=cirk">政党史 II</a></h4><p>2021 年更新，本政党历史 II 印刷品描绘了政治权力的流动，将我们过去 125 年的政治历史转化为一幅单一的视觉图片。在中心，代表政党的多个流随着政党的创建而分叉和合并，然后逐渐消失。随着权力从一方转移到另一方，潮流曲折。关注社会党、美国独立党、自由主义者、绿党和团结一致党的历史。查看 1912 年、1968 年和 1992 年著名的独立选举的结果。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p44.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p45.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p46.png"></p>
+<h4 id="1-11-美国第八航空队的轰炸任务"><a href="#1-11-美国第八航空队的轰炸任务" class="headerlink" title="1.11 美国第八航空队的轰炸任务"></a>1.11 <a target="_blank" rel="noopener" href="https://historyshots.com/collections/military/products/bombing-missions-of-the-us-eighth-air-force">美国第八航空队的轰炸任务</a></h4><p>地面上的人听到了雷声逼近的轰鸣声。抬头一看，他们看到越来越多的云向东移动。是美国轰炸机。轰炸机流过去了一个多小时。美国第八航空队的大约 1,200 架轰炸机和 800 架护航战斗机正在前往第三帝国腹地打击目标。<br>美国第八航空队的轰炸任务致力于纪念强大的第八航空队的人员，以纪念和记住他们的服务和勇敢。巨浪描绘了第二次世界大战期间第八航空队轰炸行动的规模和范围。左边是与第八军团一起服役的所有炸弹组的迷你时间轴。底部的每周架次和伤亡数字试图提供第八空军人员所需牺牲的一定规模。</p>
+<p>1942 年 8 月，美国的日光轰炸行动开始时规模微不足道，只有少数 B-17 堡垒。最初的努力除了使轰炸机大队损失惨重外，几乎没有产生其他效果。有人怀疑美国的白天轰炸战略能否成功。在战役初期，轰炸机机组人员在没有护航战斗机的情况下作战，他们不得不独自战斗到目标并返回。</p>
+<p>随着美国工业生产出数百架 B-17 和 B-24 远程轰炸机，以及美国陆军航空队生产了数千名机组人员，从 1943 年底开始，炸弹组的数量急剧增加，导致任务浪潮不断增加打击被占领的欧洲和德国的目标。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p47.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p48.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p49.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p50.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p51.png"></p>
+<h4 id="1-12-二战中的美国陆军师"><a href="#1-12-二战中的美国陆军师" class="headerlink" title="1.12 二战中的美国陆军师"></a>1.12 <a target="_blank" rel="noopener" href="https://historyshots.com/collections/military/products/us-army-divisions-in-world-war-ii">二战中的美国陆军师</a></h4><p>第二次世界大战中美国陆军所有 91 个师 的全面视觉历史记录 了 步兵、装甲、空降、山地和骑兵部队的形成和成就。随着 1938 年不到 200,000 人的现役部队大规模扩张，到 1945 年超过 800 万。从 Sight Seein’ Sixth 到 Screaming Eagles 再到 Old Ironsides 装甲师，这本印刷品对指挥官、绰号、战斗日进行了编目， 以及更多。<br>每个战区的详细地图显示了师的战役历史，并提供了整个战争的规模和流程的独特视角。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p52.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p53.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p54.png"></p>
+<h4 id="1-13-同盟军的历史"><a href="#1-13-同盟军的历史" class="headerlink" title="1.13 同盟军的历史"></a>1.13 <a target="_blank" rel="noopener" href="https://historyshots.com/collections/military/products/history-of-the-confederate-army">同盟军的历史</a></h4><p>跟随美国内战期间同盟军的兴衰。关于内战的书籍和地图数不胜数，但没有什么能像这张获奖图表那样提供冲突的单一视觉画面。此图列出了 100 场最重要的战役，以及北弗吉尼亚陆军、田纳西陆军和其他 21 支军队的历史。该图按日期垂直划分，按战争的三个主要战场水平划分，描绘了许多维度，包括每支部队的规模、历史和指挥将领。此外，还提供了姓名、地点、日期、伤亡数字以及谁赢得了最重要的战斗。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p55.png"></p>
+<h4 id="1-14-棒球队的谱系"><a href="#1-14-棒球队的谱系" class="headerlink" title="1.14 棒球队的谱系"></a>1.14 <a target="_blank" rel="noopener" href="https://www.historyshots.com/collections/sports/products/genealogy-of-baseball-teams?s=cirk">棒球队的谱系</a></h4><p>记录了从 1876 年全国联盟成立到今天，每支大联盟棒球队的起源和演变。追溯波士顿红帽队到亚特兰大勇士队、从华盛顿参议员队到明尼苏达双城队、从布鲁克林电车道奇队到洛杉矶道奇队的迷人历史。<br>这幅印刷品描绘了过去 145 年来 100 多支球队及其球场的历史，包括来自国家联盟、美国联盟、美国协会、联邦联盟、球员联盟和联盟协会的棒球队。<br>适合所有棒球迷，也是送给热爱运动的朋友的一份很棒的礼物。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p56.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p57.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p58.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p59.png"></p>
+<h4 id="1-15-足球队谱系"><a href="#1-15-足球队谱系" class="headerlink" title="1.15 足球队谱系"></a>1.15 <a target="_blank" rel="noopener" href="https://www.historyshots.com/collections/sports/products/football?s=cirk">足球队谱系</a></h4><p>非常适合所有足球迷，也是送给热爱运动的朋友的一份很棒的礼物。追溯每支球队的迷人历史，从迪凯特斯塔利队到芝加哥熊队，从克利夫兰公羊队到圣路易斯公羊队，从代顿三角队到波士顿洋基队。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p60.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p61.png"></p>
+<h4 id="1-16-征服珠穆朗玛峰"><a href="#1-16-征服珠穆朗玛峰" class="headerlink" title="1.16 征服珠穆朗玛峰"></a>1.16 <a target="_blank" rel="noopener" href="https://historyshots.com/collections/space/products/conquest-of-mount-everest">征服珠穆朗玛峰</a></h4><p>1953年成功攻克珠穆朗玛峰，是1921年至1953年12次主要探险队每一位队员英勇牺牲的结果。用1953年登山领队约翰·亨特爵士的话来说，征服珠穆朗玛峰是“一个关于许多人在很长一段时间内持续和顽强努力的故事。” 每次探险都为成功所必需的规划、路线、技能和设备增添了关键知识。<br>这幅印刷品描绘了从 1921 年到 1953 年征服珠穆朗玛峰的故事。它有两个相关的部分，每个部分都有自己有趣的设计和丰富的内容。在左侧，提供了每次主要探险的年份、赞助商、持续时间、日期、达到的高度和成员。还追踪了进行过不止一次探险的登山者的历史。右边是 1953 年团队多次上山下山的详细图表，他们在山上开辟了道路并运送补给品。此外，还提供了每天的主要天气状况。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p62.png"></p>
+<h3 id="2-Timeplots"><a href="#2-Timeplots" class="headerlink" title="2. Timeplots"></a>2. <a target="_blank" rel="noopener" href="https://www.graphicacy.com/">Timeplots</a></h3><p>Timeplots 是Graphicacy的海报部门，制作了一些与美国政府历史相关的惊人设计。</p>
+<h4 id="2-1-死亡与税收2016"><a href="#2-1-死亡与税收2016" class="headerlink" title="2.1 死亡与税收2016"></a>2.1 <a target="_blank" rel="noopener" href="https://www.timeplots.com/collections/all/products/death-and-taxes-2016?aff=6">死亡与税收2016</a></h4><p>自 2004 年以来，Death and Taxes 一直在描述联邦预算，并已发展成为一个强大的信息中心。 在白宫于 2 月 2 日发布总统 2016 财年预算请求后，Timeplots 收集了数据并更新了海报。<br>这张海报包含 500 多个部门、机构、计划以及政府可以花钱的几乎所有其他内容。它仍然是有史以来最公开和最容易获得的政府支出记录。全部占地 6 平方英尺（36”x24”）<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p63.png"></p>
+<h4 id="2-2-共和党史"><a href="#2-2-共和党史" class="headerlink" title="2.2 共和党史"></a>2.2 <a target="_blank" rel="noopener" href="https://www.timeplots.com/collections/catalog/products/a-visual-history-of-the-republican-party?aff=6">共和党史</a></h4><p>它将每个政党事件置于历史背景中，将一系列引人注目的政党事件、立法、选举结果和领导层可视化，以简洁地讲述政党的故事。通过汇总和注释总统选举、国会、州长和州立法机构的数据，在更大的政党实力背景下展示叙事。时间情节为美国政治史提供了一个新视角；它不是为了让人一目了然，而是随着时间的推移被访问和重新访问。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p64.png"></p>
+<h4 id="2-3-民主党史"><a href="#2-3-民主党史" class="headerlink" title="2.3 民主党史"></a>2.3 <a target="_blank" rel="noopener" href="https://www.timeplots.com/collections/catalog/products/a-visual-history-of-the-democratic-party?aff=6">民主党史</a></h4><p>它将每个政党事件置于历史背景中，将一系列引人注目的政党事件、立法、选举结果和领导层可视化，以简洁地讲述政党的故事。通过汇总和注释总统选举、国会、州长和州立法机构的数据，在更大的政党实力背景下展示叙事。时间情节为美国政治史提供了一个新视角；它不是为了让人一目了然，而是随着时间的推移被访问和重新访问。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p65.png"></p>
+<h4 id="2-4-美国众议院史"><a href="#2-4-美国众议院史" class="headerlink" title="2.4 美国众议院史"></a>2.4 <a target="_blank" rel="noopener" href="https://www.timeplots.com/collections/all/products/a-visual-history-of-the-us-house?aff=6">美国众议院史</a></h4><p>它描绘了从 1789 年到 2017 年每个众议院席位的政治意识形态进展。其他亮点包括超过 100 年的时间表美国立法史上的主要立法制定和重大发展，以及党派控制和众议院和参议院在每次国会的意识形态分布的视觉总结。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p66.png"></p>
+<h4 id="2-5-美国参议院史"><a href="#2-5-美国参议院史" class="headerlink" title="2.5 美国参议院史"></a>2.5 <a target="_blank" rel="noopener" href="https://www.timeplots.com/collections/all/products/a-visual-history-of-the-united-states-senate?aff=6">美国参议院史</a></h4><p>它描绘了从 1789 年到 2010 年每个参议院席位的政治意识形态进展。轻松追溯每个州两个席位随时间推移的历史，并在新州加入联邦时跟踪党的领导和控制。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p67.png"></p>
+<h4 id="2-6-美国最高法院史"><a href="#2-6-美国最高法院史" class="headerlink" title="2.6 美国最高法院史"></a>2.6 <a target="_blank" rel="noopener" href="https://www.timeplots.com/collections/all/products/a-visual-history-of-the-supreme-court-of-the-united-states?aff=6">美国最高法院史</a></h4><p>展示了从 1789 年到 2010 年的整个美国联邦司法历史。它结合了每位最高法院法官的传记信息以及美国总统及其政党对法院的影响的可视化随着时间的推移，包括投票计数和具有里程碑意义的案例摘要。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p68.png"></p>
+<h4 id="2-7-美国州界史"><a href="#2-7-美国州界史" class="headerlink" title="2.7 美国州界史"></a>2.7 <a target="_blank" rel="noopener" href="https://cdn.shopify.com/s/files/1/0177/6150/t/2/assets/StateBoundaries_Watermark_BIG.jpeg?v=1369336584">美国州界史</a></h4><p>这张海报是美国各州边界历史的华丽可视化，您可以概览整个国家历史上当前和过去的美国州界。<br>海报传达了海量信息，如航道、地形、领土变化、奴隶制如何影响国家形成的故事、每个国家的边界类型等等。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p69.png"></p>
+<h4 id="2-8-美国总统史"><a href="#2-8-美国总统史" class="headerlink" title="2.8 美国总统史"></a>2.8 <a target="_blank" rel="noopener" href="https://www.timeplots.com/collections/all/products/a-history-of-the-us-presidency?aff=6">美国总统史</a></h4><p>将每位总统置于历史背景下，形象化地展示了一系列非凡的政治、社会和经济措施，以简洁地讲述总统任期的故事。通过汇总和注释有关人口、总统选举、国会、最高法院、内阁、美国经济以及联邦预算和债务的硬数据，在美国政治历史的更大背景下展示叙事。时间情节为美国政治史提供了一个新视角；<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p70.png"></p>
+<h3 id="3-Wine-Folly"><a href="#3-Wine-Folly" class="headerlink" title="3. Wine Folly"></a>3. <a target="_blank" rel="noopener" href="https://shop.winefolly.com/">Wine Folly</a></h3><p>Wine Folly 正在重塑您了解葡萄酒的方式。查看他们的书籍、充满活力的海报、区域葡萄酒地图和有效的葡萄酒工具。</p>
+<h4 id="3-1-基本葡萄酒指南"><a href="#3-1-基本葡萄酒指南" class="headerlink" title="3.1 基本葡萄酒指南"></a>3.1 <a target="_blank" rel="noopener" href="https://shop.winefolly.com/collections/posters/products/basic-wine-guide-1">基本葡萄酒指南</a></h4><p>在这张富有启发性的海报印刷品上探索现代葡萄酒服务和品酒技巧的框架。<br>本指南涉及简单现代设计中的常见主题，例如葡萄酒卡路里、酒精度、葡萄酒颜色、香气和解码葡萄酒标签。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p71.png"></p>
+<h4 id="3-2-高级美食美酒搭配"><a href="#3-2-高级美食美酒搭配" class="headerlink" title="3.2 高级美食美酒搭配"></a>3.2 <a target="_blank" rel="noopener" href="https://shop.winefolly.com/collections/posters/products/advanced-food-wine-pairing-1">高级美食美酒搭配</a></h4><p>通过专注于平衡酸度、单宁、酒精、甜度和酒体的方法来提升您的葡萄酒技能。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p72.png"></p>
+<h4 id="3-3-酒的颜色"><a href="#3-3-酒的颜色" class="headerlink" title="3.3 酒的颜色"></a>3.3 <a target="_blank" rel="noopener" href="https://shop.winefolly.com/collections/posters/products/color-of-wine-1">酒的颜色</a></h4><p>观察葡萄酒的颜色将提高您在盲品、评估葡萄酒质量和年份等活动中的思维能力。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p73.png"></p>
+<h4 id="3-4-不同类型的葡萄酒"><a href="#3-4-不同类型的葡萄酒" class="headerlink" title="3.4 不同类型的葡萄酒"></a>3.4 <a target="_blank" rel="noopener" href="https://shop.winefolly.com/collections/posters/products/different-types-of-wine-1">不同类型的葡萄酒</a></h4><p>这张海报将帮助您根据葡萄酒的风格和风味特征找到并饮用您喜欢的葡萄酒。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p74.png"></p>
+<h4 id="3-5-120多个葡萄酒描述"><a href="#3-5-120多个葡萄酒描述" class="headerlink" title="3.5 120多个葡萄酒描述"></a>3.5 <a target="_blank" rel="noopener" href="https://shop.winefolly.com/collections/posters/products/120-wine-descriptors">120多个葡萄酒描述</a></h4><p>探索品酒中常用的 120 多个描述符。所有的描述都是按类型组织的，包括许多微妙的细节。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p75.png"></p>
+<h4 id="3-6-如何选择一瓶葡萄酒"><a href="#3-6-如何选择一瓶葡萄酒" class="headerlink" title="3.6 如何选择一瓶葡萄酒"></a>3.6 <a target="_blank" rel="noopener" href="https://shop.winefolly.com/collections/posters/products/how-to-choose-wine">如何选择一瓶葡萄酒</a></h4><p>选择正确的葡萄酒从提出正确的问题开始！这个有趣的问答流程图解决了日常场景中的葡萄酒搭配问题。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p76.png"></p>
+<h4 id="3-7-葡萄酒风味-x2F-香气词典"><a href="#3-7-葡萄酒风味-x2F-香气词典" class="headerlink" title="3.7 葡萄酒风味&#x2F;香气词典"></a>3.7 <a target="_blank" rel="noopener" href="https://shop.winefolly.com/collections/posters/products/wine-flavors-aroma-lexicon">葡萄酒风味&#x2F;香气词典</a></h4><p>更清晰、更轻松地传达葡萄酒的感官体验 - 成为餐桌上最敏锐的葡萄酒味觉。9个主要类别、29个子类别和137个描述符，描述香气的常用术语，列出有影响的芳香族化合物供参考。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p77.png"></p>
+<h3 id="4-Pop-Chart"><a href="#4-Pop-Chart" class="headerlink" title="4. Pop Chart"></a>4. Pop Chart</h3><p>Pop Chart（前身为 Pop Chart Lab）是纽约市的一家信息图表海报设计店，专门将书呆子式的百科全书式流行文化知识转化为华丽、详尽的信息图表。</p>
+<h4 id="4-1-宇宙探索"><a href="#4-1-宇宙探索" class="headerlink" title="4.1 宇宙探索"></a>4.1 宇宙探索</h4><p>这张恒星图描绘了 100 多台探索仪器的轨迹，以摆脱低地球轨道的严酷束缚并成功完成其任务。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p78.png"></p>
+<h4 id="4-2-电影与文学鸡尾酒图"><a href="#4-2-电影与文学鸡尾酒图" class="headerlink" title="4.2 电影与文学鸡尾酒图"></a>4.2 电影与文学鸡尾酒图</h4><h4 id="4-3-苹果的疯狂历史"><a href="#4-3-苹果的疯狂历史" class="headerlink" title="4.3 苹果的疯狂历史"></a>4.3 <a target="_blank" rel="noopener" href="https://coolinfographics.com/blog/2011/11/21/the-insanely-great-history-of-apple.html">苹果的疯狂历史</a></h4><p>世界上最全面的 Apple 产品地图，这幅印刷品展示了 Apple 在过去三十年中发布的每一台电脑，从最初的 Mac 到 MacBook Air。产品按类型分类，包括随着 Apple 发明和重塑非常棒的产品而出现的各种外形因素之间的联系。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p79.png"></p>
+<h4 id="4-4-非常非常多的啤酒品种"><a href="#4-4-非常非常多的啤酒品种" class="headerlink" title="4.4 非常非常多的啤酒品种"></a>4.4 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/the-very-very-many-varieties-of-beer">非常非常多的啤酒品种</a></h4><p>拥有 89 种啤酒和超过 200 种代表性的畅饮，包括每种啤酒的玻璃器皿推荐，这幅印刷品占地 6 平方英尺，充满啤酒风味。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p80.png"></p>
+<h4 id="4-5-魔法世界的魔法物品"><a href="#4-5-魔法世界的魔法物品" class="headerlink" title="4.5 魔法世界的魔法物品"></a>4.5 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/magical-objects-of-the-wizarding-world">魔法世界的魔法物品</a></h4><p>Pop Chart Lab 和 Pottermore 共同打造了一次哈利波特世界中神秘工艺品的神奇之旅——从传奇的格兰芬多宝剑到非常实用的自搅拌釜。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p81.png"></p>
+<h4 id="4-6-太空旅行史"><a href="#4-6-太空旅行史" class="headerlink" title="4.6 太空旅行史"></a>4.6 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/the-history-of-space-travel">太空旅行史</a></h4><p>份载人航天任务时间表描绘了从 1961 年至今的 400 多次外星探险。详细介绍了太空服、航天飞机、空间站等各种形式，这项令人惊叹的天体调查是对那些追求月球的人的永恒证明。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p82.png"></p>
+<h4 id="4-7-聚在一起：披头士目录的工具调查"><a href="#4-7-聚在一起：披头士目录的工具调查" class="headerlink" title="4.7 聚在一起：披头士目录的工具调查"></a>4.7 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/come-together-an-instrumental-investigation-of-the-beatles-catalog">聚在一起：披头士目录的工具调查</a></h4><p>嘿裘德，拜托，拜托我（等）披头士唱片的漫长而曲折的路线图！我们一直像狗一样工作（救命！），每周工作八天，为披头士乐队的每一首原创作品配乐。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p83.png"></p>
+<h4 id="4-8-著名吉他"><a href="#4-8-著名吉他" class="headerlink" title="4.8 著名吉他"></a>4.8 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/a-visual-compendium-of-guitars">著名吉他</a></h4><p>这本印刷品是从超过 75 年的摇滚历史中挑选出来的 64 把著名吉他的目录，向那些为世界带来无数震撼人心的即兴演奏的著名乐器致敬。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p84.png"></p>
+<h4 id="4-9-纳帕酒庄"><a href="#4-9-纳帕酒庄" class="headerlink" title="4.9 纳帕酒庄"></a>4.9 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/wineries-of-napa">纳帕酒庄</a></h4><p>这幅内容丰富的制图杰作描绘了大纳帕 700 多个葡萄园、庄园和酿酒热点。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p85.png"></p>
+<h4 id="4-10-图表式独立宣言"><a href="#4-10-图表式独立宣言" class="headerlink" title="4.10 图表式独立宣言"></a>4.10 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/the-diagrammed-declaration-of-independence">图表式独立宣言</a></h4><p>在这里看到我们伟大国家的建国文件通过勇敢的形象化展现了令人惊叹的星光熠熠的生活。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p86.png"></p>
+<h4 id="4-11-100座著名超级建筑"><a href="#4-11-100座著名超级建筑" class="headerlink" title="4.11 100座著名超级建筑"></a>4.11 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/the-schematic-of-structures">100座著名超级建筑</a></h4><p>通过精选的近 100 座来自世界各地的著名超级建筑，惊叹于人类众多建筑成就的伟大。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p87.png"></p>
+<h4 id="4-12-葡萄酒的谱系"><a href="#4-12-葡萄酒的谱系" class="headerlink" title="4.12 葡萄酒的谱系"></a>4.12 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/the-genealogy-of-wine">葡萄酒的谱系</a></h4><p>对每一种主要葡萄酒品种之间的联系进行系谱调查，这棵葡萄的家谱揭开了马尔贝克、雷司令和许多其他葡萄酒的祖先的神秘面纱。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p88.png"></p>
+<h4 id="4-13-美国的啤酒厂"><a href="#4-13-美国的啤酒厂" class="headerlink" title="4.13 美国的啤酒厂"></a>4.13 <a target="_blank" rel="noopener" href="https://popchart.co/collections/prints/products/breweries-of-the-united-states">美国的啤酒厂</a></h4><p>您大饱眼福，看看我们在这些伟大的美国几乎所有啤酒厂的巨型地图 - 总共将近 6,000 家！这张占地超过 10 平方英尺的制图颂歌向全国各地的啤酒制造商展示了根据人均啤酒厂的不同区域颜色编码。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p89.png"></p>
+<h4 id="4-14-美国房屋"><a href="#4-14-美国房屋" class="headerlink" title="4.14 美国房屋"></a>4.14 美国房屋</h4><p>从 17 世纪的后中世纪英国住所一直到 1990 年代的“McMansions”，这张详细的住所图一共对 121 所美国房屋进行了分类。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p90.png"></p>
+<h4 id="4-15-美国之花"><a href="#4-15-美国之花" class="headerlink" title="4.15 美国之花"></a>4.15 美国之花</h4><p>北美本土花卉的美丽分解图，包含超过 200 种精心绘制的观赏花卉。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p91.png"></p>
+<h4 id="4-16-美军战车"><a href="#4-16-美军战车" class="headerlink" title="4.16 美军战车"></a>4.16 美军战车</h4><p>我们汇编了目前服役的几乎所有美国战车的补充资料！这张照片分解了一个由 180 辆坦克、喷气式飞机、潜艇等组成的营。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p92.png"></p>
+<h4 id="4-17-打字机、相机与自行车"><a href="#4-17-打字机、相机与自行车" class="headerlink" title="4.17 打字机、相机与自行车"></a>4.17 打字机、相机与自行车</h4><p><strong>打字机的视觉纲要</strong>：作为对原始文字处理器的回归，这张图表包含 60 多幅精美的手绘插图，描绘了从古代到近代的一些最伟大的打字机。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p93.png"><br><strong>相机</strong>：借助这本包含 100 台具有里程碑意义的相机的精心插图目录，您可以深入了解摄影史——从 1888 年的第一台柯达相机一直到今天的数码奇迹。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p94.png"><br><strong>自行车的演变</strong>：借助这个定制的两轮交通工具时间表，追溯自行车从 1780 年至今的进化树。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p95.png"></p>
+<h4 id="4-18-动物：蝴蝶、鸟、马、猫、狗、恐龙"><a href="#4-18-动物：蝴蝶、鸟、马、猫、狗、恐龙" class="headerlink" title="4.18 动物：蝴蝶、鸟、马、猫、狗、恐龙"></a>4.18 动物：蝴蝶、鸟、马、猫、狗、恐龙</h4><p><strong>美国的蝴蝶</strong>：展示我们的美国蝴蝶排行榜的超大特别版——以真人大小的插图为特色！这幅令人叹为观止的蝴蝶壁画总面积超过 10 平方英尺，从上到下覆盖着栩栩如生、令人惊叹的标本——每个标本都标有科学和通用术语。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p96.png"><br><strong>世界鸟类</strong>：用世界上所有鸟类的首创大型地图温暖你的巢穴！这张真正巨大的图表按进化枝、目和科对 11,000 多种国际鸟类进行了分类——包括近 1200 个著名物种的插图以及完整的属列表。鸟类爱好者的图表梦想。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p97.png"><br><strong>北美鸟类</strong>：这本北美鸟类实地指南收录了超过 740 种羽毛精美的朋友（本地和引进的），它们按比例绘制并按物种分类。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p98.png"><br><strong>著名马种</strong>：这幅经过彻底（繁殖）研究的印刷品描绘了 70 多匹壮丽的马匹！<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p99.png"><br><strong>猫</strong>：想知道你最喜欢猫科动物属于哪种猫科动物？<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p100.png"><br><strong>狗</strong>：加强你的弓箭技巧！描绘了几乎每一种标准的纯种狗，这张图文并茂的图表总共包含 181 种犬种。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p101.png"><br><strong>恐龙</strong>：这一开创性的恐龙分类和进化新方法将 700 多个属组合成一个从现有分类系统综合而来的史无前例的分类法。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p102.png"></p>
+<h4 id="4-19-水果和蔬菜"><a href="#4-19-水果和蔬菜" class="headerlink" title="4.19 水果和蔬菜"></a>4.19 水果和蔬菜</h4><p><strong>水果和蔬菜</strong>：西红柿和绿叶蔬菜到苹果和橙子，这幅印刷品是水果和蔬菜知识的丰收，从植物学和地理角度对所有事物进行了分类。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p103.png"><br><strong>苹果家谱</strong>：这张关于仁果的大规模图谱包含近 400 个松脆的品种<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p104.png"></p>
+<h4 id="4-20-运动鞋"><a href="#4-20-运动鞋" class="headerlink" title="4.20 运动鞋"></a>4.20 运动鞋</h4><p><strong>一个世纪的运动鞋</strong>：有史以来最大的运动鞋排行榜！总共有 264 款时髦的运动鞋，这本庞大的运动鞋纲要涵盖了一个世纪的运动鞋——从 1917 年的经典 Chucks 一直到今天的科技时尚鞋履。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p105.png"><br><strong>运动鞋编年史纲要</strong>：我们全新设计和更新的球鞋聚宝盆包括各种标志性运动鞋，从永不过时的阿迪达斯设计，到 Air Jordan 的多种组合，再到黄金时代的锐步鞋，甚至是当今的高级时装联名款。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p106.png"></p>
+<h4 id="4-21-小说类型的策划"><a href="#4-21-小说类型的策划" class="headerlink" title="4.21 小说类型的策划"></a>4.21 小说类型的策划</h4><p>通过小说的主要类型的情节来细读文学的无数模式！每种类型都由手绘插图的书籍封面代表，然后进一步细分为子类别和子类别。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p107.png"></p>
+<h3 id="5-UsefulCharts"><a href="#5-UsefulCharts" class="headerlink" title="5. UsefulCharts"></a>5. <a target="_blank" rel="noopener" href="https://usefulcharts.com/">UsefulCharts</a></h3><p>UsefulCharts 是伟大的加拿大设计师 Matt Baker 创作的信息图表海报的店面。</p>
+<h4 id="5-1-大事记"><a href="#5-1-大事记" class="headerlink" title="5.1 大事记"></a>5.1 大事记</h4><p><strong>世界历史大事记</strong>：涵盖公元前 3300 年 - 现在，这幅挂图以并排格式显示了整个历史上所有主要的帝国、王国和文明，以便观众可以快速了解不同地方的不同事件与另一个。我们有意识地努力使图表不像其他此类时间线那样以欧洲为中心，因此涵盖范围包括前哥伦布时期的美国、非洲、欧洲、中东和亚洲历史。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p108.png"><br><strong>美国历史大事记</strong>：盖了美国从殖民时代（1560 年代）到今天的发展。它描绘了早期的欧洲定居点和殖民地、重要城市的建立以及美国领土和州的形成。展示了重大战争和其他重要事件以及国家元首（独立前的英国君主和从乔治华盛顿到乔拜登的总统）。该图表还包括十张颜色编码的地图，显示了从最初的美洲原住民家园到今天的领土随时间的变化。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p109.png"><br><strong>加拿大历史大事记</strong>：以全新的方式展示了加拿大的历史。很多时候，加拿大的故事以严格的线性方式讲述：第一民族，然后是新法兰西，然后是英国控制，最后是联邦。但对于像加拿大这样大的国家来说，这是一个扭曲的现实。我创建此时间线的目的是分别但同时展示各个地区正在发生的事情。例如，您可以看到，在东部新法兰西垮台很久之后，西部仍然存在独立的原住民。该图表还包括 13 幅地图和一份完整的君主和总理名单，直至贾斯汀·特鲁多 (Justin Trudeau)。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p110.png"><br><strong>欧洲大事记</strong>：涵盖了从 1300 年至今的欧洲历史。主要国家以并排格式显示，以便观众可以快速了解不同地方的不同事件如何相互关联。战争期间不断变化的联盟由不同颜色的旗帜表示。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p111.png"></p>
+<h4 id="5-2-进化与生命分类"><a href="#5-2-进化与生命分类" class="headerlink" title="5.2 进化与生命分类"></a>5.2 进化与生命分类</h4><p>这幅挂图的独特之处在于它既可以作为进化的时间线，也可以作为生物分类的指南。超过 250 种植物、动物和微生物物种根据最新的分类学（域、界、门、目、科和属）以美丽、易于遵循的“生命之树”格式排列。该图表着重于普通人所熟知的物种，以便人们可以发现有趣的事情，例如青椒与牵牛花密切相关，或者海豚与稗动物密切相关。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p112.png"></p>
+<h4 id="5-3-皇室家谱"><a href="#5-3-皇室家谱" class="headerlink" title="5.3 皇室家谱"></a>5.3 皇室家谱</h4><p><strong>欧洲皇室西欧家谱</strong>：查理曼大帝开始，展示西欧 的君主，包括：英格兰、苏格兰和大不列颠；比利时、荷兰和卢森堡；法国和意大利；神圣罗马帝国和德国；普鲁士和奥地利；西班牙和葡萄牙；<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p113.png"><br><strong>欧洲皇室家谱（北&#x2F;东）</strong>：这张图表是对我原来的欧洲皇室家谱图表的补充，重点是斯堪的纳维亚、中欧&#x2F;东欧的君主制，包括：丹麦、挪威和瑞典；波兰和立陶宛；匈牙利和波西米亚；塞尔维亚和克罗地亚；罗马尼亚和保加利亚；基辅罗斯和俄罗斯；拜占庭帝国和现代希腊；<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p114.png"><br><strong>亚洲皇室家谱</strong>：开始于公元 600 年左右，展示 了亚洲和中东的君主制，包括：中国、日本、韩国；成吉思汗及其后裔；莫卧儿帝国、德里苏丹国和其他印度王国；先知穆罕默德和倭马亚&#x2F;阿拔斯哈里发；波斯&#x2F;伊朗；塞尔柱人和奥斯曼人；约旦和沙特阿拉伯；满者伯夷、缅甸、泰国、柬埔寨和越南；斯里兰卡；尼泊尔、不丹和西藏 ；<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p115.png"><br><strong>罗马皇家家谱</strong>：从Julius Caesar开始， 包括： 从奥古斯都到西方罗马灭亡以及东方查士丁尼大帝的每一位皇帝的家谱；罗马历史时间轴；罗马皇帝使用的头衔说明；罗马共和国、鼎盛时期的罗马帝国和分裂的帝国的地图；罗马沦陷后至查理曼大帝以及其余拜占庭皇帝至君士坦丁堡沦陷后的西方国王名单。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p116.png"></p>
+<h4 id="5-4-神话家谱"><a href="#5-4-神话家谱" class="headerlink" title="5.4 神话家谱"></a>5.4 神话家谱</h4><p><strong>希腊神话家谱</strong>：Rick Riordan 的 Percy Jackson 书籍的粉丝会喜欢这张海报！涵盖所有三代希腊神（原始神、泰坦神和奥林匹亚神），这张挂图显示了神的希腊和罗马名称以及他们的头衔和&#x2F;或功能。它还用颜色编码来区分海神、天神、地神、冥界神、拟人、怪物、半神和凡人。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p117.png"><br><strong>北欧神话家谱</strong>：  Neil Gaiman、Marvel 的 Thor、Vikings 或 Magnus Chase 的粉丝会喜欢这款挂图。它不仅涵盖了北欧诸神和其他神话生物的家谱，还包括 Yggdrasil（世界树）九个领域的地图、如尼字母表指南以及有关矮人礼物的信息。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p118.png"><br><strong>古埃及历史与神话</strong>： 8张图表合二为一！包括古埃及众神的家谱、埃及历史时间表、上埃及和下埃及地图、埃及象形文字指南、埃及 12 座最大金字塔的信息以及最著名法老的家谱图（第 4 王朝） 、12 和 18）。非常适合 Rick Riordan 的凯恩编年史的粉丝！<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B4p119.png"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>人生活的意义就是不向生活低头</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/12/09/12_%E6%95%B0%E5%AD%97%E5%8C%96%E7%9A%84%E8%A7%86%E8%A7%89%E6%80%9D%E6%83%B3%E5%AE%B6%EF%BC%88%E4%BC%98%E7%A7%80%E5%85%A5%E9%97%A8%E7%AF%87%EF%BC%89/">数字化的视觉思想家（优秀入门篇）</a>
+            
+            
+            <a class="next" rel="next" href="/2022/08/30/11_%E6%84%BF%E4%BD%A0%E7%83%AD%E7%88%B1%E7%94%9F%E6%B4%BB%EF%BC%8C%E4%BB%8E%E8%BF%99180%E9%83%A8%E4%BC%98%E7%A7%80%E7%9A%84%E4%BD%9C%E5%93%81%E5%BC%80%E5%A7%8B%EF%BC%88%E6%82%A0%E6%82%A0%E6%94%B6%EF%BC%89/">愿你热爱生活，从这180部优秀的作品开始（悠悠收）</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 阿智 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
