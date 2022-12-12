@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="阿智">
+
+
+
+
+
+<title>一张图做好项目管理 | 阿智的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">阿智的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">阿智的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶部</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '收缩';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">一张图做好项目管理</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">阿智</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-08-26</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong>着重于形而上之道，而非形而下之器</strong><br><strong>大家一起做一件有意义的事情，并认认真真把它做到极致，从而让每个人因价值输出而产生意义</strong></p>
+<h2 id="一、项目的道与术"><a href="#一、项目的道与术" class="headerlink" title="一、项目的道与术"></a>一、项目的道与术</h2><p>第一次开始了解项目管理，是2010年5月3号，我进入禅道实习的那一天，在禅道接触了什么是敏捷项目管理，然后是瀑布管理、需求、任务、bug、里程牌、迭代、结对编程、scrum、mvp、燃尽图、甘特图等诸多知识点。而后至今大大小小的项目也做了几十个吧，除了交付性的软件项目外，也涉猎过人才管理、文化管理、硬件交付、现场施工等。<br>一晃12年过去了，每次提起项目管理，虽然总能侃侃而谈，但内心我感觉还是自己还是个外行，直到近期公司组织了几次项目管理培训，我才忽然明白，这些年我一直过于注重器术和基础的方法论了，所以可能离项目管理之道越来越远。<br>  什么是项目，我想把这个概念泛化和简单化：<br>  如果你是一个在原始年代的男人，你为了养儿育女需要打造石器带领部落外出狩猎。<br>  如果你是一个在战乱时代的将军，你需要招募士兵制定计划上线指挥获取战争胜利。<br>  如果你是一个在建筑师工程师等，你带着团队打造一个产品或者完成一个大的todo。<br>  以上这些都可以认为是个项目，它们共有的5个基本要素是：<br>  “始：当下的现状并不符合需求”<br>  “终：都有一个确定的目标或愿景”<br>  “过程：都需要为此整合资源，一步一步从始到终”<br>  “时间：都不是一两天可以完成的事情，需要一段时间，短则半月长则数年”<br>  “团队：一般来说项目需要团队协同，1+1大于2，大家相互补位共创共赢共享”<br>所以不妨简单理解，项目就是终始之间的差距，即：项目 &#x3D; 终 - 始。而项目管理就是终始之间的努力，是一种跨专业、跨职能、跨组织的团队协作模式，整合资源，是组织面对复杂不确定商业环境的竞争的核心能力。<br>另一种更简单的理解，我觉得项目管理的底层逻辑是：大家一起去做一件有意义的事情，并认认真真把它做到极致，从而让每个人因为价值输出而产生意义。<br>从道到术再到道，最近多少有点感觉了，所以借本文记录下，希望用简洁的语言阐述项目管理的基本逻辑，着重于形而上之道，而非形而下之器，所以不谈工具选择（例如pms、白板等）、也不谈过程的方法论（例如scrum、xp、mvp等）。<br>此篇可以结合公众号上一篇《迈向卓越的21个顶层思维》一起阅读。</p>
+<h2 id="二、四步构建四象限"><a href="#二、四步构建四象限" class="headerlink" title="二、四步构建四象限"></a>二、四步构建四象限</h2><h3 id="1-第一步：以终为始，构建Why"><a href="#1-第一步：以终为始，构建Why" class="headerlink" title="1. 第一步：以终为始，构建Why"></a>1. 第一步：以终为始，构建Why</h3><p>  首先理解3个基础概念，什么是“始”，什么是“终”，什么是“项目”。</p>
+<h4 id="1-1-始"><a href="#1-1-始" class="headerlink" title="1.1 始"></a>1.1 始</h4><p>  始就是现状（As-is），回答我们在哪里的问题。此处工作的关键点是，需要把现状结构化梳理清楚，然后必须跟项目关键人形成深度共识。如果A觉得我们现在很好啊，B觉得现状很糟糕，再不搞会出大事，那么在这里就必须共识，不然项目根本无法启动。<br>  这里建议用“项目形态 &#x3D; F（共识度，确定性）“模型定位项目当下的形态。<br>  如果项目的确定性很低（就是充满不确定），同时共识度很低（大家好像理解都不一样），那么这种项目就是【混沌型】的项目，这种项目一般发生在从0到1的项目。如果项目很确定了，大家都门清理解一直，那么就是【简单型】的项目了，这种项目一般发生在从1到100的项目。<br>    - 【混沌型】：确定性和共识度都很低，一般是从0到1的项目或项目刚刚开始。<br>    - 【复杂型】：确定性或共识度很低，要么是事复杂要么是人复杂。<br>    - 【简单型】：确定性和共识度都很高，一般是从1到100的项目或项目接近尾声。<br>  而很多项目开始都是混沌型的，做到最后都是简单型。<br><img src="/./images/%E9%A1%B9%E7%9B%AE1.png"></p>
+<h4 id="1-2-终"><a href="#1-2-终" class="headerlink" title="1.2 终"></a>1.2 终</h4><p>  终就是目标（To-be），回答我们要去哪里的问题。此处工作的重点是，除了共识外，更要让目标有画面有意义感，让每个人想到这个目标就充满干劲。<br>  目标是要通过价值、意义、愿景来驱动的，所以前期一定要在这个象限花一半以上的时间来描绘来讨论来共识。<br>  如果意义感有了，那么大概的项目范围要如何选择呢？这里建议用”价值&#x3D;F（T时间，S范围，C成本）”三角模型来聚焦目标，评估一个项目的成果，必须基于在适用的范围、时间与经济成本前提下。通过这个模型也有助于我们框定项目范围，先识别高价值的成果：</p>
+<ul>
+<li>【上策】：高价值，耗时少，费用低。</li>
+<li>【中策】：高价值，耗时多或费用高。</li>
+<li>【下策】：高价值，耗时多且费用高。<br>  另外低价值一般是下下策，不予投入或者排期到最后。<br><img src="/./images/%E9%A1%B9%E7%9B%AE2.png"></li>
+</ul>
+<h4 id="1-3-项目"><a href="#1-3-项目" class="headerlink" title="1.3 项目"></a>1.3 项目</h4><p>  项目就是目标和现状时间的差距（Gap），补齐差距的部分基本就是项目的内容框架。</p>
+<p><img src="/./images/%E9%A1%B9%E7%9B%AE3.png"></p>
+<h4 id="1-4-Why一张图"><a href="#1-4-Why一张图" class="headerlink" title="1.4 Why一张图"></a>1.4 Why一张图</h4><p>  所以再次总结下：</p>
+<ul>
+<li>“始”：现状要看项目形态&#x3D;F（共识度，确定性），回答我们在哪里的问题。</li>
+<li>“项目”：项目就是差距（Gap）&#x3D;目标 - 现状，回答我们要做什么的问题。</li>
+<li>“终”：目标要看价值&#x3D;F(时间，成本，范围)，回答我们要去哪里的问题。<br>  最后将“始”、“终”、“项目”汇总到一起，得到Why一张图：<br><img src="/./images/%E9%A1%B9%E7%9B%AE4.png"></li>
+</ul>
+<h3 id="2-第二步：以人为本，构建Who"><a href="#2-第二步：以人为本，构建Who" class="headerlink" title="2. 第二步：以人为本，构建Who"></a>2. 第二步：以人为本，构建Who</h3><h4 id="2-1-干系人"><a href="#2-1-干系人" class="headerlink" title="2.1 干系人"></a>2.1 干系人</h4><p>没有一件伟大或有意义的事情是容易的，路上总会有分歧有对立，所以分清谁是敌人谁是朋友很重要（比喻而已哈）。<br>这里推荐用“支持与作用”模型来梳理，这也是分类（朋友与敌人）分级（孰强孰弱）的概念。</p>
+<ul>
+<li>【强烈支持+强作用】：寻找第一象限的朋友，他的强烈支持会给你力量，他影响力巨大甚至一语定乾坤，要永远与他们用心相待、共享一张图、打赢每一场仗。</li>
+<li>【强烈支持+弱作用】：这种朋友也是越多越好，要不断争取最广泛人民的支持，聚少成多聚沙成塔，星星之火亦可燎原，最终他们也会变得强作用。</li>
+<li>【强烈反对+强作用&#x2F;弱作用】：这是最令人头疼的一波人，任何一个点都会让你前功尽弃。所以这里“上策“是招抚，与他们共享以为更伟大的画面（高格局）；“中策”是规避风险，在头（启动）在尾（验收）在关键点都不让他们参与或项目范围不予他们产生交集；“下策”是对抗让矛盾激活，最后看环境如何取舍（不过看情况，这种有时候是上策）；“下下策”是拍烂，爱咋咋地，这种不建议哈，因为最大的损失方是自己。<br>  每个干系人，建议至少梳理对方的项目定位、利益、策略、思维模式等基本要素，然后其他要素看情况增加。<br><img src="/./images/%E9%A1%B9%E7%9B%AE5.png"></li>
+</ul>
+<h4 id="2-2-团队"><a href="#2-2-团队" class="headerlink" title="2.2 团队"></a>2.2 团队</h4><p>团队也算干系人，不过要单独拎出来说，因为团队要用自己的技能和热情，在较长的一段时间内投入身心到项目中，需要对项目的结果负责，同时也会因为项目好坏而产生喜怒哀乐。<br>这里借用的模型是“杨三角组织能力”模型，组织的能力要回答三个基本问题：“愿不愿意（员工思维）”、“会不会（员工能力）”、“容不容许（员工治理）”。<br><img src="/./images/%E9%A1%B9%E7%9B%AE6.png"><br>这里我们做个变形，通过四个分类和四种结果来分析组织能力，以事情A和员工甲为例：<br>【按部就班】：如果A是企业需要的，而甲有这个能力，但是甲没有兴趣热情，那么甲就会按部就班完成工作。<br>【个人爱好】：如果甲有能力也有热情，但是A是企业不需要的，那么这只能是甲的个人爱好，那么暂时就和工作无关。<br>【或上或下】：如果A是企业需要的，甲也有热情，但是暂时没有具备这个能力，那么有两种可能，要么甲刻意学习来符合企业需要（上策），要么甲自我放弃或被淘汰（下策）。<br>【激发创新】：如果A是企业需要，甲有能力也有热情，那么太好了，这才是创新最好的土壤。<br>所以，最好的创新环境是能力、热爱与需求的交集（即创新 &#x3D; 意愿∩能力∩环境），好的团队状态是每一个人不仅找到了自己的交集，也帮助其他人找到了他们的交集。<br><img src="/./images/%E9%A1%B9%E7%9B%AE7.png"></p>
+<h4 id="2-3-性格与思维偏好"><a href="#2-3-性格与思维偏好" class="headerlink" title="2.3 性格与思维偏好"></a>2.3 性格与思维偏好</h4><p>知己知彼才能更好拿结果，所以不仅要了解到自己的思维和性格偏好，而且也要了解到核心关键人的思维与性格偏好，之后可以的话把结果绘制到一起。关于性格与思维偏好，可以见另一篇《迈向卓越的21个顶层思维》。<br><img src="/./images/%E9%A1%B9%E7%9B%AE8.png"><br><img src="/./images/%E9%A1%B9%E7%9B%AE9.png"></p>
+<h4 id="2-4-Who一张图"><a href="#2-4-Who一张图" class="headerlink" title="2.4 Who一张图"></a>2.4 Who一张图</h4><p><img src="/./images/%E9%A1%B9%E7%9B%AE10.png"></p>
+<h3 id="3-第三步：增量交付，构建What"><a href="#3-第三步：增量交付，构建What" class="headerlink" title="3. 第三步：增量交付，构建What"></a>3. 第三步：增量交付，构建What</h3><h4 id="3-1-What-的三个关键点"><a href="#3-1-What-的三个关键点" class="headerlink" title="3.1 What 的三个关键点"></a>3.1 What 的三个关键点</h4><p>任何事情都不是一步到位的，心中虽有星辰大海，但是还是需要一步一个脚印到达，而且走过的路每一步都算数。<br>这就是增量交付的逻辑，从一个成功走向另一个成功。</p>
+<ul>
+<li>【现状与启动会】：启动会前至少要高度共识Why，即我们为什么要做这件事情。虽然还有很多不确定性，这个是允许，但是最好框定项目模块（M1、M2、M3……）。</li>
+<li>【里程碑】：里程碑的定义特别重要，至少要定义黄金里程碑，大的项目加上白银里程碑。而里程碑的定义特别重要，当然要根据自身情况而定，里程碑对我而言，不仅是有成败的属性，而且应该还有客户的属性。例如“系统内测通过并顺利上线”并不是我的黄金里程碑，而“系统顺利上线并得到关键客户的真心好评”，这个才是我的黄金里程碑。</li>
+<li>【结项会与目标】：实现所有的里程碑后和验收后，项目可以开个结项会，目的主要是复盘和展望，既对人也对事，做得好的要肯定，有待提高的要识别出来，并落到下一步行动中来。</li>
+</ul>
+<h4 id="3-2-What一张图"><a href="#3-2-What一张图" class="headerlink" title="3.2 What一张图"></a>3.2 What一张图</h4><p><img src="/./images/%E9%A1%B9%E7%9B%AE11.png"></p>
+<h3 id="4-第四步：正确做事，构建How"><a href="#4-第四步：正确做事，构建How" class="headerlink" title="4. 第四步：正确做事，构建How"></a>4. 第四步：正确做事，构建How</h3><h4 id="4-1-How的四个关键点"><a href="#4-1-How的四个关键点" class="headerlink" title="4.1 How的四个关键点"></a>4.1 How的四个关键点</h4><p>How就是执行，关注的点特别多，例如计划组织、流程、时间（有多少时间）、地点（在哪干）、资源与限制、方式方法（沟通、技能）等，我们不一一举例。<br>这个象限我觉得使用正确的做事方式最重要，我仅谈谈从领导者&#x2F;负责人的角度来，我觉得有四点可以关注：<br>【扬长扬短】：如果你很强同时也关注团队成长，那么可以扬自己所短，有些事情放权让团队互补上，建立团队长期凝聚力。更重要的是要扬别人所长，首先找到专业的人做专业的事，其次对方做得好，就应该帮他树立榜样，让大家来学。<br>【识别关键】：要识别影响特别大的关键点，例如项目痛点难点决策点，对这些点要格外用心甚至冲在前线，因为如果不能取得最后的胜利，那么大部分过程的意义不大。<br>【做好选择】：根据GROW辅导模型，虽然我们有目标、现状、意愿，但是我们有很多选择，那么要如何做选择？这里可以用“价值-难度”模型来做选择，（如下图，与“价值&#x3D;F（T时间，S范围，C成本）“模型核心理念一致），我们通过难度和价值将方案分成四个象限，同时每个象限又把方案分成“团队&#x2F;自己独立完成”、“需要领导协助”、“需要外部协助”三个维度。首选D象限（低难度高价值）、自己&#x2F;团队独立即可完成的方案。然后才是B象限（高难度高价值）的方案。规避A和C方案（低价值）。<br><img src="/./images/%E9%A1%B9%E7%9B%AE12.png"><br>【21条思维】：其实仔细思考，How中也有Why、有Who、有What，就像分形一样，所以“正确的做事思维”就显得特别重要，即《21条思维》的用武之地无处不在。<br><img src="/./images/%E9%A1%B9%E7%9B%AE13.png"></p>
+<h4 id="4-2-How一张图"><a href="#4-2-How一张图" class="headerlink" title="4.2 How一张图"></a>4.2 How一张图</h4><p><img src="/./images/%E9%A1%B9%E7%9B%AE14.png"></p>
+<h2 id="三、危中有机：明晰风险和机会"><a href="#三、危中有机：明晰风险和机会" class="headerlink" title="三、危中有机：明晰风险和机会"></a>三、危中有机：明晰风险和机会</h2><p>危机危机，危险中有机会，东边不亮西边亮，我们在当下要永远保持在趋势下寻找结构性机会的好奇心。在项目管理中也有硬币的两面，有风险也有机会，所以特别建议要放在一起思考。<br>风险识别的技术有很多，例如头脑风暴、问卷调查、根本原因分析、采访利益相关者、假设验证、清单分析、基于过去文档、使用SWOT（内部看趋势劣势，外部看机会威胁），这里不一一展开。<br><img src="/./images/%E9%A1%B9%E7%9B%AE15.png"><br>这里我们可以采用清单分析，即Checklist，通过Checklist来识别风险。</p>
+<h3 id="1-第一步：回答四象限的checklist"><a href="#1-第一步：回答四象限的checklist" class="headerlink" title="1. 第一步：回答四象限的checklist"></a>1. 第一步：回答四象限的checklist</h3><p>Why的Checklist：<br><img src="/./images/%E9%A1%B9%E7%9B%AE16.png"><br>Who的checklit：<br><img src="/./images/%E9%A1%B9%E7%9B%AE17.png"><br>What的checklist：<br><img src="/./images/%E9%A1%B9%E7%9B%AE18.png"><br>How的Checklist<br><img src="/./images/%E9%A1%B9%E7%9B%AE19.png"></p>
+<h3 id="2-第二步：画出项目的风险画像"><a href="#2-第二步：画出项目的风险画像" class="headerlink" title="2. 第二步：画出项目的风险画像"></a>2. 第二步：画出项目的风险画像</h3><p>回答完checklist后，我们可以根据checklist画出一个项目的风险等级，风险等级从1到5并只取整数，其中5是团队认为项目难度最高。四个象限都得出一个难度等级，最后汇成项目风险图，例如：<br><img src="/./images/%E9%A1%B9%E7%9B%AE20.png"></p>
+<h3 id="3-第三步：根据项目画像识别危机"><a href="#3-第三步：根据项目画像识别危机" class="headerlink" title="3. 第三步：根据项目画像识别危机"></a>3. 第三步：根据项目画像识别危机</h3><p>在开始书写第一条危机之前，我们需要知道几个关键点：<br>【风险的格式】正确格式是：基于xx（事实），在未来xx场景下可能发生xx（事件），最后造成xx具体的影响（后果）。<br>【风险的数量】建议2的(n-1)次方罗列风险，例如上图How的风险值为3，那么How象限的风险数量应该是2的（3-1）次方，建议书写四条风险。而What、Why、Who象限的风险值为1，那么风险数量建议为1或者0（确实没风险）。<br>【机会的数量】既然我们说风险伴随着机会，那么就应该是一条风险对应一条机会，一定要强化两者共存的思维，不建议放开罗列。<br><img src="/./images/%E9%A1%B9%E7%9B%AE21.png"><br><img src="/./images/%E9%A1%B9%E7%9B%AE22.png"></p>
+<h3 id="4-第四步：风险一张图"><a href="#4-第四步：风险一张图" class="headerlink" title="4. 第四步：风险一张图"></a>4. 第四步：风险一张图</h3><p><img src="/./images/%E9%A1%B9%E7%9B%AE23.png"></p>
+<h2 id="四、大道至简：项目管理一张图"><a href="#四、大道至简：项目管理一张图" class="headerlink" title="四、大道至简：项目管理一张图"></a>四、大道至简：项目管理一张图</h2><p><strong>形而上谓之道，形而下谓之器，从12年前加入禅道初识项目管理，之后做了10年项目管理，重器轻道，终是外行，现在重新务务虚也挺好。明面上说的是项目管理，其实说到底是如何做好每一件事，本质无二。</strong><br>将以上所有内容按照四象限组合在一起，即得到《项目管理一张图》：<br><img src="/./images/%E9%A1%B9%E7%9B%AE24.png"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>人生活的意义就是不向生活低头</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/08/30/11_%E6%84%BF%E4%BD%A0%E7%83%AD%E7%88%B1%E7%94%9F%E6%B4%BB%EF%BC%8C%E4%BB%8E%E8%BF%99180%E9%83%A8%E4%BC%98%E7%A7%80%E7%9A%84%E4%BD%9C%E5%93%81%E5%BC%80%E5%A7%8B%EF%BC%88%E6%82%A0%E6%82%A0%E6%94%B6%EF%BC%89/">愿你热爱生活，从这180部优秀的作品开始（悠悠收）</a>
+            
+            
+            <a class="next" rel="next" href="/2022/08/24/9_%E8%BF%88%E5%90%91%E5%8D%93%E8%B6%8A%E7%9A%8421%E4%B8%AA%E9%A1%B6%E5%B1%82%E6%80%9D%E7%BB%B4/">迈向卓越的21个顶层思维</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 阿智 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

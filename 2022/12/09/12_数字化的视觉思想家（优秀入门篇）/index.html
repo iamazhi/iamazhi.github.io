@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="阿智">
+
+
+
+
+
+<title>数字化的视觉思想家（优秀入门篇） | 阿智的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">阿智的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">阿智的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶部</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '收缩';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">数字化的视觉思想家（优秀入门篇）</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">阿智</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-12-09</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>我们常说“一图胜千言”，其实说的是视觉思维。视觉思维也称空间学习或图片思维，是一种通过视觉处理进行思考的思维方式。有研究表明（儿童发展理论家琳达·克雷格·西尔弗曼），只有小部分（不到30%）具有完全的视觉思维。不过我觉得这个比例应该会更少，我指的是优秀的“视觉思考者”，视觉思考者会优先考虑用视觉而不是文字来表达事物或者解决问题。</p>
+<p><strong>优秀的视觉思考者</strong><br>在数字化时代，我们需要把各种各样的数据变成各种各样的图表，我们称之为“数据图表化”。这是一件有趣的事情，虽然把数据图表化做好已经很不容易，但我觉得这还是属于“优秀的视觉思考者”范畴，他们创造的是“工程型作品”，所以我会用【优秀入门篇】来展开这部分。<br>要把数据图表化做好，那么你可能需要这几个东西。<br>第一个是理论：这里我推荐Roam的《视觉思维法典》，它告诉你从问题到图表的路径方法。<br>第二个是案例：在类似的理论原则下，有哪些较好的实践项目供你参考和开拓视野，他山之石这个很重要。<br>第三个是原则：每个匠人都应该有自己的细节原则，所以你应该也要有一些基本原则来精雕细琢你的图表作品。<br>第四个是实现：这显然是需要计算机技能的，无论是Python&#x2F;plotlib还是JS&#x2F;D3.js，这里我分享下plotlib的小抄。</p>
+<p><strong>卓越的视觉思想家</strong><br>在“优秀的视觉思考者”之上，我认为是“卓越的视觉思想家”。<br>一方面，他们无一不具备强大的想象力，他们是梦幻的天马行空者也是创新的代表，他们似乎有无限的创造力且不会拘泥于一种方式方法来表达。<br>另一方面，数字化只是他们的工具，因为它需要的想象力高于它需要的技能，而艺术作品才是他们的目的，作品的核心是艺术家要表达的思想。<br>对于“卓越的视觉思想家”，我显然是望尘莫及的，不过作为一个纯路人，有不少好的作品（上百个我觉得比较精彩的作品）我觉得可以分享给大家，这一块会用单独放到【卓越艺术篇】。如需作品更详细信息，请自行移步官网鉴赏或者购买。</p>
+<h2 id="一、餐巾纸的背面：《视觉思维法典》"><a href="#一、餐巾纸的背面：《视觉思维法典》" class="headerlink" title="一、餐巾纸的背面：《视觉思维法典》"></a>一、餐巾纸的背面：《视觉思维法典》</h2><p>丹·罗姆 (Dan Roam) 显然是一个很棒的视觉思想家，《视觉思维法典》(Visual Thinking Codex) 出自他那本令人愉快的书《餐巾纸的背面》 (The Back of the Napkin )，在简单性和全面性之间取得了极好的平衡。<br>这本书想要告诉你的是：</p>
+<ol>
+<li>如何用画图来解决问题？</li>
+<li>人人可以通过画图来解决问题，工具仅仅是需要一张餐巾纸和一支笔。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B41.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B42.png"></li>
+</ol>
+<p>《视觉思维法典》：垂直轴大致围绕谁&#x2F;什么&#x2F;哪里等的直观的六要素结构，而水平轴使用 Dan 的 SQVID 结构：一系列五个对比，帮助您定义可视化的重点：简单与复杂，定性与定量、愿景与执行、个人与比较、增量与现状。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B43.png"></p>
+<p>视觉思维法典的列是SQVID（这五个问题让你的头脑开始运转），行是六六法则（我们看到的六种方式映射到我们需要能够绘制的仅有的六张图片）。所以要理解视觉思维法典，我们分开了解一下什么是SQVID和66规则即可：</p>
+<p>SQVID：SQVID就是一连串的5个问题，我们可以借助它们来丰富自己最初的创意，再把它们用形象化的手法清晰地表达出来，并且提炼出其中最重要的部分—不仅是我们自认为最为重要的部分，也应该是听众们认为最重要的部分。运用SQVID来帮助我们思考有两种方向，一是以创意为中心，一是以听众为中心。但不管我们最终朝哪个方向，运用SQVID来思考都可以帮助我们找到“黄金位置”，把握好“展示”的分寸和尺度—这非常有意义，不仅可以帮助我们进行全面深入的思考，还可以帮助我们解决在商业中面临的难题。<br>S：你是不是想要展示“简单”（Simple）？它与“精细”相对。<br>Q：你是不是想要展示“定性”（Quality）？它与“定量”相对。<br>V：你是不是想要展示“愿景”（Vision）？它与“执行”相对。<br>I：你是不是想要展示“个别”（Individual）？它与“比较”相对。<br>D：你是不是想要展示“变化”（Delta）？它与“现状”相对。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B44.png"></p>
+<p>六六法则：六六法则即我们观察世界的六种方式与“展示”它们的方式。<br>观察世界的六要素：“谁&#x2F;什么”、“有多少”、“在哪里”、“在什么时候”、“怎么样”以及“为什么”。<br>对应的六种展示：“画像”、“图表”、“布局图”、“时间轴”、“流程图”、“多重变量图”。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B45.png"><br>六六法则”最妙的地方在于，它能为你提供一种非常简单的入门方法（其实，你也可以根据观察世界的六种基本方式来画图），可以使你更从容随意地展示自己的创意。比如，我们可以把“怎么样”和“为什么”的问题整合在一起进行展示，但这并不是我们能看到的唯一一种整合方式。视觉系统相当神奇，为了帮助我们更好地了解周围的环境和事物，它可以连续不断地把各种方式整合到一起。举个例子来说，我们可以在看到“在什么时候”的同时，也看到“在哪里”；在看到“有多少”的同时，又看到“谁&#x2F;什么”，等等。把两种基本的“展示”框架结合到一起，就会形成“混合展示”的框架，这在实际展示的时候非常普遍。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B46.png"></p>
+<p>如何使用《视觉思维法典》：当我们把“六六法则”和SQVID画在同一个表格中时，就会发现这个表格显得非常专业，它把能解决问题的各种类型的主要图示都列得非常清楚，这就是《视觉思维法典》。在框架与SQVID横竖交叉的地方，都有两个小图标，每一个都对应着根据SQVID做出的一种选择（比如选择简单的展示方式，或是选择精细的展示方式；选择定性描述，或是定量描述，等等）。这些图标都代表了一种理想状态，在开始画图前就可以参考它们，因为我们已经仔细地衡量过到底什么才是最重要的，什么才是最值得强调的信息，还考虑了听众，考虑了交流沟通中的轻重缓急，以及一些具体的数据和个人观点。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B47.png"></p>
+<p>基于《视觉思维法典》，<a href="ttps://extremepresentation.com/2008/06/visualization-taxonomies/">极限演示法网</a>将此做成了图表选择器，而Juice Analytics的优秀人员将其变成了一个小型<a target="_blank" rel="noopener" href="https://www.juiceanalytics.com/chartchooser">在线应用程序</a>。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B48.png"><br>当然也有彩色版可供选择：<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B49.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B410.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B411.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B412.gif"></p>
+<h2 id="二、其他图表选择器"><a href="#二、其他图表选择器" class="headerlink" title="二、其他图表选择器"></a>二、其他图表选择器</h2><h3 id="1-Power-BI可视化参考（12个类别）"><a href="#1-Power-BI可视化参考（12个类别）" class="headerlink" title="1. Power BI可视化参考（12个类别）"></a>1. <a target="_blank" rel="noopener" href="https://www.sqlbi.com/ref/power-bi-visuals-reference/">Power BI可视化参考（12个类别）</a></h3><p>Power BI 是Microsoft 创建商业智能报告的工具。</p>
+<ul>
+<li>比较&#x2F;COMPARISON：数值的比较</li>
+<li>随时间变化&#x2F;CHANGE OVER TIME：数值随时间变化的趋势</li>
+<li>排名&#x2F;RANKING：按顺序对数值进行排名</li>
+<li>空间&#x2F;SPATIAL：在空间地图上显示数值</li>
+<li>流&#x2F;FLOW：显示流或者动态关系</li>
+<li>部分到整体&#x2F;PART-TO-WHOLE：确定组成数值总数的各部分</li>
+<li>分布&#x2F;DISTRIBUTIOIN：显示数值的分布</li>
+<li>相关性&#x2F;CORRELATION：显示数值间的相关性</li>
+<li>单一&#x2F;SINGLE：显示单一数值</li>
+<li>过滤&#x2F;FILTER：控制报表的过滤器</li>
+<li>叙述&#x2F;NARRATIVE：用数据讲故事</li>
+<li>混合&#x2F;MISCELLANEOUS：其他混合的<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B413.png"></li>
+</ul>
+<h3 id="2-Data-to-Viz项目"><a href="#2-Data-to-Viz项目" class="headerlink" title="2. Data to Viz项目"></a>2. Data to Viz项目</h3><p>Yan Holtz 和 Conor Healy 以决策树的形式开发了 From Data to Viz 交互式网站，从而导致一组可能合适的可视化来表示您的数据集。他们的 dataviz 样式决策树也可以作为海报使用。<br><a target="_blank" rel="noopener" href="https://www.data-to-viz.com/">From Data to Viz</a>是一个提供从数据格式到一组可能图形的多个决策树的项目。海报总结了 6 个决策树，这棵树导致代表最常见的数据集类型的二十种格式。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B414.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B415.png"></p>
+<h3 id="3-Graphic-Cheat-Sheet"><a href="#3-Graphic-Cheat-Sheet" class="headerlink" title="3. Graphic Cheat Sheet"></a>3. Graphic Cheat Sheet</h3><p>由 Mike Parkinson 设计，是在他的会议演讲中分发的非常受欢迎的讲义。多年来，他对其进行了多次更新，并且可以下载 PDF 格式。60 种不同的图形类型被分组为简单、复杂或定量，并在它们可以应用于传达 13 种不同类型的数据时显示。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B416.png"></p>
+<h3 id="4-金融时报视觉"><a href="#4-金融时报视觉" class="headerlink" title="4. 金融时报视觉"></a>4. <a target="_blank" rel="noopener" href="https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary">金融时报视觉</a></h3><p>由金融时报视觉新闻团队提供的免费海报 ，以帮助设计师和记者为数据可视化选择最佳符号系统 。《金融时报》视觉词汇是新闻编辑部范围内旨在提高图表素养的培训课程的核心。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B417.png"></p>
+<h3 id="5-图表指南4-0"><a href="#5-图表指南4-0" class="headerlink" title="5. 图表指南4.0"></a>5. <a target="_blank" rel="noopener" href="https://chart.guide/poster/">图表指南4.0</a></h3><p>Michiel Dullaert 为他的数据可视化课程创建了图表指南，并通过网站 chart.guide 以可下载的 PDF 格式或印刷海报的形式向所有人提供。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B418.png"></p>
+<h3 id="6-可视化方法周期表"><a href="#6-可视化方法周期表" class="headerlink" title="6. 可视化方法周期表"></a>6. <a target="_blank" rel="noopener" href="https://www.visual-literacy.org/periodic_table/periodic_table.html">可视化方法周期表</a></h3><p>以上这张类似化学元素周期表的“可视化法周期表”， 由<a target="_blank" rel="noopener" href="http://www.visual-literacy.org开发.它列出了100种讯息表达的可视化法.点击此处,您会看到完整表格,并且随着鼠标滑动,看到每种可视化方法的具体例子./">www.visual-literacy.org开发。它列出了100种讯息表达的可视化法。点击此处，您会看到完整表格，并且随着鼠标滑动，看到每种可视化方法的具体例子。</a><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B419.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B420.gif"></p>
+<h2 id="三、数据可视化的原则"><a href="#三、数据可视化的原则" class="headerlink" title="三、数据可视化的原则"></a>三、数据可视化的原则</h2><p>每个工匠都应该有自己的细节原则，所以你应该也要有一些基本原则来精雕细琢你的图表作品。至于选择哪一套原则我觉得并不是最重要的，而是至少要有一套原则并可以自己演化它。这是推荐来自<a target="_blank" rel="noopener" href="https://policyviz.com/2018/08/07/dataviz-cheatsheet/">policyviz网</a>的14个可视化原则。<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B421.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B422.png"></p>
+<h2 id="四、python数据可视化小抄"><a href="#四、python数据可视化小抄" class="headerlink" title="四、python数据可视化小抄"></a>四、python数据可视化小抄</h2><h3 id="1-两张matplotlib小抄"><a href="#1-两张matplotlib小抄" class="headerlink" title="1. 两张matplotlib小抄"></a>1. <a target="_blank" rel="noopener" href="https://github.com/matplotlib/cheatsheets">两张matplotlib小抄</a></h3><p>Matplotlib是使用最广泛的 Python 数据可视化库，<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B423.png"><br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B424.png"></p>
+<h3 id="2-三张matplotlib讲义小抄"><a href="#2-三张matplotlib讲义小抄" class="headerlink" title="2. 三张matplotlib讲义小抄"></a>2. 三张matplotlib讲义小抄</h3><ul>
+<li>初学者讲义<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B425.png"></li>
+<li>中级讲义<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B426.png"></li>
+<li>小技巧<br><img src="/./images/%E8%A7%86%E8%A7%89%E6%80%9D%E7%BB%B427.png"></li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>人生活的意义就是不向生活低头</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/12/09/13_%E6%95%B0%E5%AD%97%E5%8C%96%E7%9A%84%E8%A7%86%E8%A7%89%E6%80%9D%E6%83%B3%E5%AE%B6%EF%BC%88%E5%8D%93%E8%B6%8A%E8%89%BA%E6%9C%AF%E7%AF%87%EF%BC%89/">数字化的视觉思想家（卓越艺术篇）</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 阿智 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

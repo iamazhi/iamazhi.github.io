@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="阿智">
+
+
+
+
+
+<title>愿你热爱生活，从这180部优秀的作品开始（悠悠收） | 阿智的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">阿智的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">阿智的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开</a>
+        <a onclick="go_top()">顶部</a>
+        <a onclick="go_bottom()">底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开' : '收缩';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">愿你热爱生活，从这180部优秀的作品开始（悠悠收）</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">阿智</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">2022-08-30</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、愿你热爱生活"><a href="#一、愿你热爱生活" class="headerlink" title="一、愿你热爱生活"></a>一、愿你热爱生活</h2><blockquote>
+<p>这是一个最好的时代，也是一个最坏的时代；<br>这是一个智慧的年代，这是一个愚蠢的年代；<br>这是一个信任的时期，这是一个怀疑的时期；<br>这是一个光明的季节，这是一个黑暗的季节；<br>这是希望之春，这是失望之冬；<br>人们面前应有尽有，人们面前一无所有；<br>人们正踏上天堂之路，人们正走向地狱之门。<br>– 查尔斯·狄更斯《双城记》</p>
+</blockquote>
+<p>亲爱的悠悠：<br>2022年8月30日凌晨5点，醒来后再也不能入睡，在繁华的大上海，在信息大爆炸的时代，在这人们物质极其充沛但精神又貌似空前空乏的时代，我在思考一件事情，既然父母是孩子最好的老师，那么我能教会你什么？虽然你现在还很小不到三周岁，虽然未来咱可能像今天一样聚少离多。</p>
+<p>早在你出生的第三个月（2020年6月2号），我就开始思考这个问题了，如果你的未来世界里全是喜洋洋熊大熊二，还有消磨耐心的短视频，那么我会认定我是一个失败的父亲，因为我没有负责任地爱你，没有给你看到世界更多的美好，今日动笔为时不晚。</p>
+<p>记得九几年，小时候家里没有电视机，西游记（86版）是每周定期播放，正好隔壁二叔公家有一台小的黑白电视，开播前我和母亲哥哥就去提前占好位置，每周如此风雨无阻。之后家里攒了钱，我们三特意去隔壁县城买了一台TCL电视机，我记得电视是21寸后来一直用了十来年，也记得是在大姨家的三楼地板上借宿了一宿。</p>
+<p>从此两兄弟开始实现了动画片自由，期待着葫芦娃、黑猫警长、海尔兄弟、舒克和贝塔，也期待着奥特曼和圣斗士星矢，他们是我们精神上的小伙伴。那时也看着台湾电影《妈妈再爱我一次》，跟着一遍又一遍唱着“世上只有妈妈好”，和电影里面的人一起哭成泪人。</p>
+<p>后来家里有了DVD，你大伯喜欢看Beyond的MV，我就用我的步步高磁带机听任贤齐的“伤心太平洋”和“兄弟”、伍佰的“挪威的森林”和“浪人情歌”、小刚的“吉普赛情人”。再后来，我也深深喜欢上了Beyond，但是你大伯貌似也不怎么听伍佰的歌。</p>
+<p>这些看过的作品，走过的路，爱过的一切终究会变成了我不可割舍的一部分，所以我想把我看过的自认为好的作品推荐给你，希望你可以从中感受到“善良”、“独立”、“正义”、“激情”、“梦想”、“协作”、“真诚”、“感恩”、“逻辑”、“判断”、“智慧”等等所有美好的东西，最终带给你向心而生向善的力量、热爱生活的力量。</p>
+<p>另一方面我在想，也许我老了后你也有共同话题陪我唠唠嗑。</p>
+<h2 id="二、动画片"><a href="#二、动画片" class="headerlink" title="二、动画片"></a>二、动画片</h2><p>我希望善良&#x2F;天真&#x2F;大自然这些伴随着你，同时也希望你有基本的独立&#x2F;思考&#x2F;判断能力。其一，愿你心中种下了一个热爱文学的种子，无关乎成绩多少，无关乎以后是否从事相关工作。其二，愿你有基本的逻辑思维、数学灵气，我认为这会让你受益终生。而最最重要的是，我希望你心中有一股力量，“向心而生向善的力量”。</p>
+<h3 id="1-国内动画片（24部）"><a href="#1-国内动画片（24部）" class="headerlink" title="1. 国内动画片（24部）"></a>1. 国内动画片（24部）</h3><p><img src="/./images/%E5%BD%B1%E8%A7%861.png"><br><img src="/./images/%E5%BD%B1%E8%A7%862.png"><br><img src="/./images/%E5%BD%B1%E8%A7%863.png"></p>
+<h3 id="2-国外动画片（33部）"><a href="#2-国外动画片（33部）" class="headerlink" title="2. 国外动画片（33部）"></a>2. 国外动画片（33部）</h3><p><img src="/./images/%E5%BD%B1%E8%A7%864.png"><br><img src="/./images/%E5%BD%B1%E8%A7%865.png"><br><img src="/./images/%E5%BD%B1%E8%A7%866.png"><br><img src="/./images/%E5%BD%B1%E8%A7%867.png"></p>
+<h3 id="3-外国动画片-宫崎骏（9部）"><a href="#3-外国动画片-宫崎骏（9部）" class="headerlink" title="3. 外国动画片-宫崎骏（9部）"></a>3. 外国动画片-宫崎骏（9部）</h3><p><img src="/./images/%E5%BD%B1%E8%A7%868.png"></p>
+<h2 id="三、电影电视剧"><a href="#三、电影电视剧" class="headerlink" title="三、电影电视剧"></a>三、电影电视剧</h2><p>在你形成独立思想前，你会棱角分明、会桀骜不驯、会好胜、会有喜欢的女孩子，开始经历一些挫折，也养成了一些不好的习惯，有自己基本的知识框架但是还远远不够，青春&#x2F;活力&#x2F;爱情&#x2F;未来&#x2F;梦想&#x2F;目标&#x2F;价值，这些应该都是你的关键字。但我最想说的是“人格品质”，”人不信不立“，”言必行行必果“。其实是独立思考的能力。</p>
+<p>有了独立思想后，此时你应该算是成年，可能是高中也可能是你大学毕业后，如果是大学毕业后，此时的你可能一帆风顺、建功立业、名利双收，也可能怀才不遇、情绪低落、患得患失。我希望你有一颗平常心对待一切，平常心不是要你无欲无求、清静无为。平常心是说：”放低自己的预期结果“，幸福指数&#x3D;实际结果-预期结果。这样你会经常发现美和惊喜。</p>
+<h3 id="1-国内影视作品（45部）"><a href="#1-国内影视作品（45部）" class="headerlink" title="1. 国内影视作品（45部）"></a>1. 国内影视作品（45部）</h3><p><img src="/./images/%E5%BD%B1%E8%A7%869.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8610.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8611.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8612.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8613.png"></p>
+<h3 id="2-国外影视作品（57部）"><a href="#2-国外影视作品（57部）" class="headerlink" title="2. 国外影视作品（57部）"></a>2. 国外影视作品（57部）</h3><p><img src="/./images/%E5%BD%B1%E8%A7%8614.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8615.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8616.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8617.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8618.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8619.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8620.png"></p>
+<h3 id="3-国内影视-周星驰（12部）"><a href="#3-国内影视-周星驰（12部）" class="headerlink" title="3. 国内影视-周星驰（12部）"></a>3. 国内影视-周星驰（12部）</h3><p><img src="/./images/%E5%BD%B1%E8%A7%8621.png"><br><img src="/./images/%E5%BD%B1%E8%A7%8622.png"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>人生活的意义就是不向生活低头</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%95%99%E8%82%B2/"># 教育</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">返回</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/12/09/13_%E6%95%B0%E5%AD%97%E5%8C%96%E7%9A%84%E8%A7%86%E8%A7%89%E6%80%9D%E6%83%B3%E5%AE%B6%EF%BC%88%E5%8D%93%E8%B6%8A%E8%89%BA%E6%9C%AF%E7%AF%87%EF%BC%89/">数字化的视觉思想家（卓越艺术篇）</a>
+            
+            
+            <a class="next" rel="next" href="/2022/08/26/10_%E4%B8%80%E5%BC%A0%E5%9B%BE%E5%81%9A%E5%A5%BD%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">一张图做好项目管理</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 阿智 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
